@@ -236,10 +236,10 @@ elif option == "Explainable AI (XAI)":
     st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction..</p><br>", unsafe_allow_html=True)
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
 
-    base_model = ada_model.base_estimator_  # AdaBoost's base estimator (usually DecisionTree)
+    base_model = ada_model_XAI.base_estimator_  # AdaBoost's base estimator (usually DecisionTree)
 
     # Use SHAP's TreeExplainer for the base model
-    explainer = shap.TreeExplainer(base_model)
+    explainer = shap.TreeExplainer(base_model_XAI)
     
     # Calculate SHAP values
     shap_values = explainer.shap_values(Data)  # Data here is your input dataset (features)
