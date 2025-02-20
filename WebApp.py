@@ -196,10 +196,6 @@ elif option == "Kidney Disease Prediction":
     # Proceed with processing the input data
     processed_input_data = Preprocessing(input_data, Data)
     
-    # Apply IDA 
-    Ready_data = transform_with_lda(processed_input_data)
-
-    
         
     
     # Prediction Process
@@ -214,6 +210,9 @@ elif option == "Kidney Disease Prediction":
        if any(field == '' or field == 0 for field in required_fields):
             st.error("⚠️ Please fill  all fields!")
        else:    
+            # Apply IDA 
+            Ready_data = transform_with_lda(processed_input_data)
+
             prediction = ada_model.predict(Ready_data)
     
             # Display the prediction result
