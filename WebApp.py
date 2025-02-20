@@ -233,7 +233,7 @@ elif option == "Explainable AI (XAI)":
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
 
     # Create SHAP Explainer
-    explainer = shap.Explainer(ada_model, Data)  # Train SHAP explainer with full dataset
+    explainer = shap.Explainer(ada_model)  # Train SHAP explainer with full dataset
     shap_values = explainer(Data)
 
     # Waterfall plot (only for one record)
