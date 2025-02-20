@@ -176,10 +176,8 @@ elif option == "Kidney Disease Prediction":
 
     st.write("---")
 
-    # Prediction Process
-    if st.button("Predict"):
-        
-        # Prepare the input data as needed for the model
+
+    # Prepare the input data as needed for the model
        input_data = pd.Series({
         "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
         "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
@@ -192,12 +190,14 @@ elif option == "Kidney Disease Prediction":
         "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
         "Peda Edema": peda_edema, "Aanemia": aanemia})
 
-       # Apply Prepreocessing
-       processed_input_data = Preprocessing(input_data, Data)
+    # Apply Prepreocessing
+    processed_input_data = Preprocessing(input_data, Data)
 
-       # Apply IDA 
-       Ready_data = transform_with_lda(processed_input_data)
+    # Apply IDA 
+    Ready_data = transform_with_lda(processed_input_data)
 
+    # Prediction Process
+    if st.button("Predict"):
        # Model Prediction 
        prediction = ada_model.predict(Ready_data)
 
