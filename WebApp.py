@@ -193,33 +193,31 @@ elif option == "Kidney Disease Prediction":
             st.error("⚠️ Please fill  all fields!")
        else:    
            
-           input_data = pd.Series({
-            "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
-            "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
-            "Pus Cell": pus_cell, "Pus Cell Clumps": pus_cell_clumps, "Bacteria": bacteria, 
-            "Blood Glucose Random": blood_glucose, "Blood Urea": blood_urea, 
-            "Serum Creatinine": serum_creatinine, "Sodium": sodium, "Potassium": potassium, 
-            "Haemoglobin": haemoglobin, "Packed Cell Volume": packed_cell_volume, 
-            "White Blood Cell Count": white_blood_cell_count, "Red Blood Cell Count": red_blood_cell_count, 
-            "Hypertension": hypertension, "Diabetes Mellitus": diabetes_mellitus, 
-            "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
-            "Peda Edema": peda_edema, "Aanemia": aanemia})
-
-   
-    
-            # Proceed with processing the input data
-            processed_input_data = Preprocessing(input_data, Data)
-            # Apply IDA 
-            Ready_data = transform_with_lda(processed_input_data)
-
-            prediction = ada_model.predict(Ready_data)
-    
-            # Display the prediction result
-            if prediction[0] == 1:
-                st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
-            else:
-                st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
+               input_data = pd.Series({
+                "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
+                "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
+                "Pus Cell": pus_cell, "Pus Cell Clumps": pus_cell_clumps, "Bacteria": bacteria, 
+                "Blood Glucose Random": blood_glucose, "Blood Urea": blood_urea, 
+                "Serum Creatinine": serum_creatinine, "Sodium": sodium, "Potassium": potassium, 
+                "Haemoglobin": haemoglobin, "Packed Cell Volume": packed_cell_volume, 
+                "White Blood Cell Count": white_blood_cell_count, "Red Blood Cell Count": red_blood_cell_count, 
+                "Hypertension": hypertension, "Diabetes Mellitus": diabetes_mellitus, 
+                "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
+                "Peda Edema": peda_edema, "Aanemia": aanemia})
         
+                # Proceed with processing the input data
+                processed_input_data = Preprocessing(input_data, Data)
+                # Apply IDA 
+                Ready_data = transform_with_lda(processed_input_data)
+    
+                prediction = ada_model.predict(Ready_data)
+        
+                # Display the prediction result
+                if prediction[0] == 1:
+                    st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
+                else:
+                    st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
+            
 
 # If the Option CT Image Classification
 elif option == "CT Image Classification":
