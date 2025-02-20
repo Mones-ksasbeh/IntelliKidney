@@ -5,14 +5,6 @@ import numpy as np
 from PIL import Image
 import shap 
 
-# Initialize variables in session state
-if "input_data" not in st.session_state:
-    st.session_state.input_data = None
-if "processed_input_data" not in st.session_state:
-    st.session_state.processed_input_data = None
-if "Ready_data" not in st.session_state:
-    st.session_state.Ready_data = None
-
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
@@ -184,10 +176,6 @@ elif option == "Kidney Disease Prediction":
     st.write("---")
 
 
-    # Prepare the input data as needed for the model
-    global input_data
-    global processed_input_data
-    global Ready_data
 
     input_data = pd.Series({
             "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
@@ -239,18 +227,8 @@ elif option == "Explainable AI (XAI)":
     st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction..</p><br>", unsafe_allow_html=True)
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
 
-    input_data = pd.Series({
-            "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
-            "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
-            "Pus Cell": pus_cell, "Pus Cell Clumps": pus_cell_clumps, "Bacteria": bacteria, 
-            "Blood Glucose Random": blood_glucose, "Blood Urea": blood_urea, 
-            "Serum Creatinine": serum_creatinine, "Sodium": sodium, "Potassium": potassium, 
-            "Haemoglobin": haemoglobin, "Packed Cell Volume": packed_cell_volume, 
-            "White Blood Cell Count": white_blood_cell_count, "Red Blood Cell Count": red_blood_cell_count, 
-            "Hypertension": hypertension, "Diabetes Mellitus": diabetes_mellitus, 
-            "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
-            "Peda Edema": peda_edema, "Aanemia": aanemia})
-    
+    input_data = st.session_state.input_data  # Retrieve stored input data
+
     # Apply Prepreocessing
     processed_input_data = Preprocessing(input_data, Data)
     
