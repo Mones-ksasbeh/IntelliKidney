@@ -178,7 +178,7 @@ elif option == "Kidney Disease Prediction":
 
 
     # Prepare the input data as needed for the model
-       input_data = pd.Series({
+    input_data = pd.Series({
         "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
         "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
         "Pus Cell": pus_cell, "Pus Cell Clumps": pus_cell_clumps, "Bacteria": bacteria, 
