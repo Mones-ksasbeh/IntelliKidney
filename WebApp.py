@@ -217,18 +217,18 @@ elif option == "Kidney Disease Prediction":
 
 
     if st.button("Reset"):
-    # Reset all input fields (Set to default values or None)
-    age = 0
-    blood_pressure = 0
-    blood_glucose = 0
-    blood_urea = 0
-    white_blood_cell_count = 0
-    red_blood_cell_count = 0
-    potassium = 0
-    haemoglobin = 0
-    packed_cell_volume = 0
-    serum_creatinine = 0
-    sodium = 0
+        # Reset all input fields (Set to default values or None)
+        age = 0
+        blood_pressure = 0
+        blood_glucose = 0
+        blood_urea = 0
+        white_blood_cell_count = 0
+        red_blood_cell_count = 0
+        potassium = 0
+        haemoglobin = 0
+        packed_cell_volume = 0
+        serum_creatinine = 0
+        sodium = 0
 
 
 # If the Option CT Image Classification
