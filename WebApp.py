@@ -88,11 +88,7 @@ with open("Best_model.pkl", "rb") as file:
 # Loading Model WithOut IDA (XAI)
 with open("Best_model (XAI).pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
-
-# Use SHAP's KernelExplainer for AdaBoost
-explainer = shap.KernelExplainer(ada_model_XAI.predict_proba, shap.sample(Data, 100))  # Use 100 samples for background
-shap_values = explainer.shap_values(Data)  # Data is your input dataset (features only)
-        
+ 
 st.set_page_config(layout="wide")  # Make the layout full-width
 
 # Header 
@@ -240,12 +236,15 @@ elif option == "Explainable AI (XAI)":
     st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction..</p><br>", unsafe_allow_html=True)
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
 
-    
-    # Waterfall plot (only for one record)
-    st.subheader("Feature Importance (Waterfall Plot)")
-    fig, ax = plt.subplots(figsize=(10, 5))
-    shap.waterfall_plot(shap_values[0], show=False)
-    st.pyplot(fig)
+    # # Use SHAP's KernelExplainer for AdaBoost
+    # explainer = shap.KernelExplainer(ada_model_XAI.predict_proba, shap.sample(Data, 100))  # Use 100 samples for background
+    # shap_values = explainer.shap_values(Data)  # Data is your input dataset (features only)
+           
+    # # Waterfall plot (only for one record)
+    # st.subheader("Feature Importance (Waterfall Plot)")
+    # fig, ax = plt.subplots(figsize=(10, 5))
+    # shap.waterfall_plot(shap_values[0], show=False)
+    # st.pyplot(fig)
 
     # Bar plot (Overall Feature Importance)
     st.subheader("Overall Feature Importance")
