@@ -178,21 +178,18 @@ elif option == "Kidney Disease Prediction":
     st.write("---")
 
 
-    col9 , col10 = st.columns(2)
         
     
-    # Prediction Process
-    with col9 :
-        if st.button("Predict"):
+    if st.button("Predict"):
             
-           required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
+        required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
                                potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
                                sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
             
-           if any(field == '' or field == 0 for field in required_fields):
+        if any(field == '' or field == 0 for field in required_fields):
                 st.error("⚠️ Please fill  all fields!")
-           else:   
-                input_data = pd.Series({
+        else:   
+            input_data = pd.Series({
                     "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
                     "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
                     "Pus Cell": pus_cell, "Pus Cell Clumps": pus_cell_clumps, "Bacteria": bacteria, 
@@ -204,33 +201,18 @@ elif option == "Kidney Disease Prediction":
                     "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
                     "Peda Edema": peda_edema, "Aanemia": aanemia})
             
-                 # Proceed with processing the input data
-                processed_input_data = Preprocessing(input_data, Data)
-                # Apply IDA 
-                Ready_data = transform_with_lda(processed_input_data)
+            # Proceed with processing the input data
+            processed_input_data = Preprocessing(input_data, Data)
+            # Apply IDA 
+            Ready_data = transform_with_lda(processed_input_data)
     
-                prediction = ada_model.predict(Ready_data)
+            prediction = ada_model.predict(Ready_data)
             
-                # Display the prediction result
-                if prediction[0] == 1:
-                    st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
-                else:
-                    st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
-
-    with col10: 
-        if st.button("Reset"):
-            # Reset all input fields (Set to default values or None)
-            age = 0
-            blood_pressure = 0
-            blood_glucose = 0
-            blood_urea = 0
-            white_blood_cell_count = 0
-            red_blood_cell_count = 0
-            potassium = 0
-            haemoglobin = 0
-            packed_cell_volume = 0
-            serum_creatinine = 0
-            sodium = 0
+            # Display the prediction result
+            if prediction[0] == 1:
+                st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
+            else:
+                st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
 
 
 # If the Option CT Image Classification
