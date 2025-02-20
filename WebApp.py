@@ -75,6 +75,13 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 
     return transformed_data
 
+
+def validate_input_data(input_data):
+    for key, value in input_data.items():
+        if value == '' or value is None:
+            return False, f"Please fill in all the fields. Missing value in '{key}'."
+    return True, None
+    
 # Loading the Orginal Data
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
@@ -189,9 +196,13 @@ elif option == "Kidney Disease Prediction":
             "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
             "Peda Edema": peda_edema, "Aanemia": aanemia})
 
-    
-    # Apply Prepreocessing
-    processed_input_data = Preprocessing(input_data, Data)
+    # Validate input data
+    is_valid, error_message = validate_input_data(input_data)
+    if not is_valid:
+        st.error(error_message)  # Display error message
+    else:
+        # Proceed with processing the input data
+        processed_input_data = Preprocessing(input_data, Data)
     
     # Apply IDA 
     Ready_data = transform_with_lda(processed_input_data)
