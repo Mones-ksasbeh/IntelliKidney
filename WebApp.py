@@ -86,7 +86,7 @@ with open("Best_model.pkl", "rb") as file:
             ada_model = pickle.load(file)
 
 # Loading Model WithOut IDA (XAI)
-with open("Best_model (XA).pkl", "rb") as file:
+with open("Best_model (XAI).pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
         
 st.set_page_config(layout="wide")  # Make the layout full-width
