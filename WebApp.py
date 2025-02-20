@@ -203,7 +203,7 @@ elif option == "Kidney Disease Prediction":
                            potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
                            sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
         
-       if any(field == '' or field == 0 for field in required_fields):
+    if any(field == '' or field == 0 for field in required_fields):
             st.error("⚠️ Please fill  all fields!")
     # Prediction Process
     if st.button("Predict"):
