@@ -198,6 +198,13 @@ elif option == "Kidney Disease Prediction":
 
     # Prediction Process
     if st.button("Predict"):
+       required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
+                           potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
+                           sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
+        
+       if any(field == '' or field == 0 for field in required_fields):
+            st.error("⚠️ Please fill in all fields!")
+           
        # Model Prediction 
        prediction = ada_model.predict(Ready_data)
 
