@@ -223,14 +223,17 @@ elif option == "CT Image Classification":
 # If the Option Explainable AI (XAI)
 elif option == "Explainable AI (XAI)":
     st.markdown("<h2 style= font-family: 'Times New Roman'> Explainable Artificial Intelligence</h2>", unsafe_allow_html=True)
-    st.write("This page provides explanations of the model's predictions using Grad-CAM.")
-    # You can integrate your XAI explanation here.
+    st.markdown("<h5 style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction..</h2>", unsafe_allow_html=True)
+    st.markdown("<h5 style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</h2>", unsafe_allow_html=True)
+.  
+
+    
 
 # If the Option Results Dashboard
 elif option == "Results Dashboard":
     st.markdown("<h2 style= font-family: 'Times New Roman';'>Results Dashboard</h2>", unsafe_allow_html=True)
-    st.write("This page visualizes results, feature importance, and prediction performance.")
-    # Add the results dashboard logic here.
+    st.markdown("<h2 style= font-family: 'Times New Roman';'>Results Dashboard</h2>", unsafe_allow_html=True)
+
 
 st.write("---")  # Separator
 
