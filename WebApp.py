@@ -208,9 +208,12 @@ elif option == "Kidney Disease Prediction":
        required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
                            potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
                            sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
+
+       prediction = ada_model.predict(Ready_data)
         
        if any(field == '' or field == 0 for field in required_fields):
             st.error("⚠️ Please fill  all fields!")
+
        elif (prediction[0] == 1):
             st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
                  
