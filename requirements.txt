@@ -3,4 +3,4 @@ pandas
 numpy
 pillow
 scikit-learn
-shape
+shap
