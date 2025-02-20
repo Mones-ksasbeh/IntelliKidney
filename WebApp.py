@@ -199,14 +199,15 @@ elif option == "Kidney Disease Prediction":
     # Apply IDA 
     Ready_data = transform_with_lda(processed_input_data)
 
-    # Prediction Process
-    if st.button("Predict"):
-       required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
+    required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
                            potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
                            sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
         
        if any(field == '' or field == 0 for field in required_fields):
-            st.error("⚠️ Please fill in all fields!")
+            st.error("⚠️ Please fill  all fields!")
+    # Prediction Process
+    if st.button("Predict"):
+       
            
        # Model Prediction 
        prediction = ada_model.predict(Ready_data)
