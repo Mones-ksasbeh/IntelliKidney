@@ -5,6 +5,13 @@ import numpy as np
 from PIL import Image
 import shap 
 
+# Initialize variables in session state
+if "input_data" not in st.session_state:
+    st.session_state.input_data = None
+if "processed_input_data" not in st.session_state:
+    st.session_state.processed_input_data = None
+if "Ready_data" not in st.session_state:
+    st.session_state.Ready_data = None
 
 
 # Function to PreProcessing Input Data
