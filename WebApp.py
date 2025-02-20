@@ -137,13 +137,13 @@ elif option == "Kidney Disease Prediction":
     st.markdown("<h3 style= font-family: 'Times New Roman''>Urinalysis/Metabolic Markers", unsafe_allow_html=True)
     
     # Urinalysis/Metabolic Markers
-    specific_gravity = st.selectbox('Specific Gravity (The ratio of the density of urine)', ['', '1.005', '1.010', '1.015', '1.020','1.025']) 
+    specific_gravity = st.selectbox('Specific Gravity (The ratio of the density of urine)', ['1.005', '1.010', '1.015', '1.020','1.025']) 
 
     col3 , col4 = st.columns(2)
     with col3 : 
-        albumin = st.selectbox('Albumin (Albumin level in the blood)', ['', '0', '1',  '2', '3', '4','5'])
+        albumin = st.selectbox('Albumin (Albumin level in the blood)', ['0', '1',  '2', '3', '4','5'])
     with col4 : 
-        sugar = st.selectbox('Sugar ( Sugar level of the patient)', ['','0', '1', '2' , '3' ,  '4'  ,'5'])
+        sugar = st.selectbox('Sugar ( Sugar level of the patient)', ['0', '1', '2' , '3' ,  '4'  ,'5'])
 
     st.write('---')
 
@@ -153,11 +153,11 @@ elif option == "Kidney Disease Prediction":
     # Presence of Medical Condition
     col5 , col6 = st.columns(2)
     with col5 : 
-        hypertension = st.selectbox('Hypertension', ['','yes', 'no'])
-        diabetes_mellitus = st.selectbox('Diabetes Mellitus', ['', 'yes', 'no'])
+        hypertension = st.selectbox('Hypertension', ['yes', 'no'])
+        diabetes_mellitus = st.selectbox('Diabetes Mellitus', [ 'yes', 'no'])
     with col6 : 
-        coronary_artery_disease = st.selectbox('Coronary Artery Disease', ['','yes', 'no'])
-        aanemia = st.selectbox('Aanemia', ['','yes', 'no'])
+        coronary_artery_disease = st.selectbox('Coronary Artery Disease', ['yes', 'no'])
+        aanemia = st.selectbox('Aanemia', ['yes', 'no'])
     
     st.write('---')
 
@@ -167,13 +167,13 @@ elif option == "Kidney Disease Prediction":
     # Symptoms and Clinical Signs
     col7 , col8 = st.columns(2)
     with col7 : 
-        red_blood_cells = st.selectbox('Red Blood Cells in Urine', ['','normal', 'abnormal'])
-        pus_cell = st.selectbox('Pus Cells in Urine', ['','normal', 'abnormal'])
-        appetite = st.selectbox('Appetite', ['','good', 'poor'])
+        red_blood_cells = st.selectbox('Red Blood Cells in Urine', ['normal', 'abnormal'])
+        pus_cell = st.selectbox('Pus Cells in Urine', ['normal', 'abnormal'])
+        appetite = st.selectbox('Appetite', ['good', 'poor'])
     with col8 : 
-        pus_cell_clumps = st.selectbox('Pus Cell Clumps in Urine', ['','present', 'notpresent'])
-        bacteria = st.selectbox('Bacteria in Urine', ['','present', 'notpresent'])
-        peda_edema = st.selectbox('Peda Edema (Swelling)', ['','yes', 'no'])
+        pus_cell_clumps = st.selectbox('Pus Cell Clumps in Urine', ['present', 'notpresent'])
+        bacteria = st.selectbox('Bacteria in Urine', ['present', 'notpresent'])
+        peda_edema = st.selectbox('Peda Edema (Swelling)', ['yes', 'no'])
 
     st.write("---")
 
