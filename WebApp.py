@@ -233,15 +233,13 @@ elif option == "Explainable AI (XAI)":
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
 
     
-    # Sample background data from features (X)
-    background = shap.sample(Data, 100)
+    base_model = ada_model.base_estimator_  # AdaBoost's base estimator (usually DecisionTree)
 
-    # Create SHAP KernelExplainer
-    explainer = shap.KernelExplainer(ada_model.predict_proba, background)
+    # Use SHAP's TreeExplainer for the base model
+    explainer = shap.TreeExplainer(base_model)
     
-    # Calculate SHAP values for a specific instance (e.g., first instance in X)
-    instance = Data.iloc[0:1]
-    shap_values = explainer.shap_values(instance)
+    # Calculate SHAP values
+    shap_values = explainer.shap_values(Data)  # Data here is your input dataset (features)
 
     
     # Waterfall plot (only for one record)
