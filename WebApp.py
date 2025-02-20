@@ -246,17 +246,17 @@ elif option == "Explainable AI (XAI)":
     # shap.waterfall_plot(shap_values[0], show=False)
     # st.pyplot(fig)
 
-    # Bar plot (Overall Feature Importance)
-    st.subheader("Overall Feature Importance")
-    fig, ax = plt.subplots(figsize=(10, 5))
-    shap.bar_plot(shap_values, show=False)
-    st.pyplot(fig)
+    # # Bar plot (Overall Feature Importance)
+    # st.subheader("Overall Feature Importance")
+    # fig, ax = plt.subplots(figsize=(10, 5))
+    # shap.bar_plot(shap_values, show=False)
+    # st.pyplot(fig)
 
-    # Summary plot (if needed)
-    st.subheader("SHAP Summary Plot")
-    fig, ax = plt.subplots(figsize=(10, 5))
-    shap.summary_plot(shap_values, X, show=False)
-    st.pyplot(fig)
+    # # Summary plot (if needed)
+    # st.subheader("SHAP Summary Plot")
+    # fig, ax = plt.subplots(figsize=(10, 5))
+    # shap.summary_plot(shap_values, X, show=False)
+    # st.pyplot(fig)
 
     
 
