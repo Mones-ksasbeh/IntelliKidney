@@ -214,7 +214,22 @@ elif option == "Kidney Disease Prediction":
                 st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
-            
+
+
+    if st.button("Reset"):
+    # Reset all input fields (Set to default values or None)
+    age = 0
+    blood_pressure = 0
+    blood_glucose = 0
+    blood_urea = 0
+    white_blood_cell_count = 0
+    red_blood_cell_count = 0
+    potassium = 0
+    haemoglobin = 0
+    packed_cell_volume = 0
+    serum_creatinine = 0
+    sodium = 0
+
 
 # If the Option CT Image Classification
 elif option == "CT Image Classification":
