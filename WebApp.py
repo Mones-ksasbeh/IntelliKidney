@@ -238,7 +238,7 @@ elif option == "Explainable AI (XAI)":
 
     
     # Use SHAP's TreeExplainer for the base model
-    explainer = shap.Explainer(base_model_XAI.predict(Data))
+    explainer = shap.Explainer(ada_model_XAI.predict(Data))
     # Calculate SHAP values
     shap_values = explainer.shap_values(Data)  # Data here is your input dataset (features)
 
