@@ -238,27 +238,25 @@ elif option == "Kidney Disease Prediction":
                 st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
 
              
-               
-
             else:
                 shap_values = ada_model_XAI.shap_values(processed_input_data)  # Data is your input dataset (features only)
                
                 # Waterfall plot (only for one record)
                 st.subheader("Feature Importance (Waterfall Plot)")
                 fig, ax = plt.subplots(figsize=(10, 5))
-                shap.waterfall_plot(shap_values[0], show=False)
+                shap.waterfall_plot(shap_values[0])
                 st.pyplot(fig)
             
                 # Bar plot (Overall Feature Importance)
                 st.subheader("Overall Feature Importance")
                 fig, ax = plt.subplots(figsize=(10, 5))
-                shap.bar_plot(shap_values, show=False)
+                shap.bar_plot(shap_values)
                 st.pyplot(fig)
             
                 # Summary plot (if needed)
                 st.subheader("SHAP Summary Plot")
                 fig, ax = plt.subplots(figsize=(10, 5))
-                shap.summary_plot(shap_values, X, show=False)
+                shap.summary_plot(shap_values, processed_input_data )
                 st.pyplot(fig)
                 
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
