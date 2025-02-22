@@ -219,10 +219,10 @@ elif option == "Kidney Disease Prediction":
                
                 # Waterfall plot (only for one record)
                 st.subheader("Feature Importance (Waterfall Plot)")
-                fig, ax = plt.subplots(figsize=(10, 5))
-                shap.waterfall_plot(shap_values[0], show=False)
+                shap.waterfall_plot(shap_values[0])
+                fig = plt.gcf()
                 st.pyplot(fig)
-            
+
                 # Bar plot (Overall Feature Importance)
                 st.subheader("Overall Feature Importance")
                 fig, ax = plt.subplots(figsize=(10, 5))
