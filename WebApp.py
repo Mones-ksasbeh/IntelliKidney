@@ -280,7 +280,7 @@ elif option == "Explainable AI (XAI)":
     st.markdown("<h2 style= font-family: 'Times New Roman'> Explainable Artificial Intelligence</h2>", unsafe_allow_html=True)
     st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction..</p><br>", unsafe_allow_html=True)
     # image 
-    st.image('XAI ( Feature Importance).png')
+    st.image('SHAP Summary Bar Chart.png')
 
     
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
