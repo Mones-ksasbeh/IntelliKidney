@@ -281,8 +281,7 @@ elif option == "Explainable AI (XAI)":
     st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction.</p><br>", unsafe_allow_html=True)
     # image 
     st.image('SHAP Summary Bar Chart.png')
-    st.markdown("<p style= font-family: 'Times New Roman'>he most influential features
-    Hemoglobin It has a mean absolute SHAP value of +0.22, this suggests that hemoglobin is a crucial factor in determining patient outcomes.
+    st.markdown("<p style= font-family: 'Times New Roman'>he most influential features Hemoglobin It has a mean absolute SHAP value of +0.22, this suggests that hemoglobin is a crucial factor in determining patient outcomes.
     Serum Creatinine It has a mean absolute SHAP value of +0.08, Serum creatinine's significance in the model is consistent with its frequent use as a kidney function indicator.
     Diabetes Mellitus It has a mean absolute SHAP value of +0.06, has a moderate impact on outcome prediction, given that diabetes is a major risk factor for kidney problems and cardiovascular disorders, this is consistent with medical understanding.
     Specific Gravity It has a mean absolute SHAP value of +0.05, indicates that variations in urine concentration have a moderate impact on the model's decision-making, which may be important when identifying metabolic disorders, kidney illness, or dehydration.
