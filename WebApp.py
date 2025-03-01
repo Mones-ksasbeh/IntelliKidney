@@ -285,10 +285,15 @@ elif option == "Explainable AI (XAI)":
     # image 
     st.image('SHAP Summary Bar Chart.png')
 
+    st.write('---')
+    st.markdown("<p style= font-family: 'Times New Roman'>Positive contributions (red) increase the prediction probability (moves right), while negative contributions (blue) decrease it (moves left). the plot starts at the expected value E[f(X)], which is 0.59 in this case, E[f(X)] “the average model output (log-odds or probability) before considering specific feature values”. Each row represents a feature value and its impact on the prediction, the length of the bars shows the magnitude of impact. Most Influential Features:Diabetes Mellitus (+0.24) Strongly increased the prediction. Hypertension (+0.22) Also pushed the model towards the predicted outcome. Hemoglobin (-0.17) Reduced the prediction probability. Blood Urea (+0.17) Increased the likelihood of the outcome. The final value (black dashed line) represents the model's output for this instance f(x)=1..</p><br>", unsafe_allow_html=True)
+    st.image('XAI ( Feature Importance).png')
+
 
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
 
    
+
 
 # If the Option Results Dashboard
 elif option == "Results Dashboard":
