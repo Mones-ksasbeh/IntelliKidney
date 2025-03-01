@@ -307,7 +307,6 @@ st.write("---")  # Separator
 def navigate_to(page):
     st.session_state.page = page
 
-
 # Create a navigation bar with buttons
 col1, col2, col3, col4 = st.columns(4)
 
@@ -320,12 +319,9 @@ with col3:
 with col4:
     st.button("Author's")
 
-
 # Display the contact information when the "Contact" button is clicked
 if contact_button:
     st.write("Contact Information:")
-    st.write("**Mones Nazih Ksasbeh** - [Email](moksasbeh@gmail.com)")
-    st.write("**Yazan Amjad Mansour** - [Email](am5294690@gmail.com)")
-    st.write("**Basel Mwafq Hammo** - [Email](basel.11hammo@gmail.com)")
-
-# Display content based on selected page
+    st.write("**Mones Nazih Ksasbeh** - [Email](mailto:moksasbeh@gmail.com)")
+    st.write("**Yazan Amjad Mansour** - [Email](mailto:am5294690@gmail.com)")
+    st.write("**Basel Mwafq Hammo** - [Email](mailto:basel.11hammo@gmail.com)")
