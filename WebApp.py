@@ -278,11 +278,18 @@ elif option == "CT Image Classification":
 # If the Option Explainable AI (XAI)
 elif option == "Explainable AI (XAI)":
     st.markdown("<h2 style= font-family: 'Times New Roman'> Explainable Artificial Intelligence</h2>", unsafe_allow_html=True)
-    st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction..</p><br>", unsafe_allow_html=True)
+    st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction.</p><br>", unsafe_allow_html=True)
     # image 
     st.image('SHAP Summary Bar Chart.png')
+    st.markdown("<p style= font-family: 'Times New Roman'>he most influential features
+    Hemoglobin It has a mean absolute SHAP value of +0.22, this suggests that hemoglobin is a crucial factor in determining patient outcomes.
+    Serum Creatinine It has a mean absolute SHAP value of +0.08, Serum creatinine's significance in the model is consistent with its frequent use as a kidney function indicator.
+    Diabetes Mellitus It has a mean absolute SHAP value of +0.06, has a moderate impact on outcome prediction, given that diabetes is a major risk factor for kidney problems and cardiovascular disorders, this is consistent with medical understanding.
+    Specific Gravity It has a mean absolute SHAP value of +0.05, indicates that variations in urine concentration have a moderate impact on the model's decision-making, which may be important when identifying metabolic disorders, kidney illness, or dehydration.
+    The sum of 15 other features contributes a combined SHAP value of +0.06, this indicates that although these other factors do play a role in the prediction, their respective contributions are significantly less, although these features may still be considered by the model in certain situations, their overall impact is minimal.</p><br>", unsafe_allow_html=True)
 
-    
+
+
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
 
    
