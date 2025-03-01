@@ -279,44 +279,13 @@ elif option == "CT Image Classification":
 elif option == "Explainable AI (XAI)":
     st.markdown("<h2 style= font-family: 'Times New Roman'> Explainable Artificial Intelligence</h2>", unsafe_allow_html=True)
     st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction..</p><br>", unsafe_allow_html=True)
-    st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
-
-    input_data = pd.Series({
-                    "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
-                    "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
-                    "Pus Cell": pus_cell, "Pus Cell Clumps": pus_cell_clumps, "Bacteria": bacteria, 
-                    "Blood Glucose Random": blood_glucose, "Blood Urea": blood_urea, 
-                    "Serum Creatinine": serum_creatinine, "Sodium": sodium, "Potassium": potassium, 
-                    "Haemoglobin": haemoglobin, "Packed Cell Volume": packed_cell_volume, 
-                    "White Blood Cell Count": white_blood_cell_count, "Red Blood Cell Count": red_blood_cell_count, 
-                    "Hypertension": hypertension, "Diabetes Mellitus": diabetes_mellitus, 
-                    "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
-                    "Peda Edema": peda_edema, "Aanemia": aanemia})
-            
-    # Proceed with processing the input data
-    processed_input_data = Preprocessing(input_data, Data)
-
-    shap_values = ada_model_XAI.shap_values(processed_input_data)  # Data is your input dataset (features only)
-           
-    # Waterfall plot (only for one record)
-    st.subheader("Feature Importance (Waterfall Plot)")
-    fig, ax = plt.subplots(figsize=(10, 5))
-    shap.waterfall_plot(shap_values[0], show=False)
-    st.pyplot(fig)
-
-    # Bar plot (Overall Feature Importance)
-    st.subheader("Overall Feature Importance")
-    fig, ax = plt.subplots(figsize=(10, 5))
-    shap.bar_plot(shap_values, show=False)
-    st.pyplot(fig)
-
-    # Summary plot (if needed)
-    st.subheader("SHAP Summary Plot")
-    fig, ax = plt.subplots(figsize=(10, 5))
-    shap.summary_plot(shap_values, X, show=False)
-    st.pyplot(fig)
+    # image 
+    st.image('Kid.png')
 
     
+    st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
+
+   
 
 # If the Option Results Dashboard
 elif option == "Results Dashboard":
