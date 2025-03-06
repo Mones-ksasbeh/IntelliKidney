@@ -284,5 +284,5 @@ with col4:
 if contact_button:
     st.write("Contact Information:")
     st.write("**Mones Nazih Ksasbeh** - [Email](https://mail.google.com/mail/?view=cm&fs=1&to=moksasbeh@gmail.com)")
-    st.write("**Yazan Amjad Mansour** - [Email](https://mail.google.com/mail/?view=cm&fs=1&to=am5294690@gmail.com)")
+    st.write("**Yazan Amjed Mansour** - [Email](https://mail.google.com/mail/?view=cm&fs=1&to=am5294690@gmail.com)")
     st.write("**Basel Mwafq Hammo** - [Email](https://mail.google.com/mail/?view=cm&fs=1&to=basel.11hammo@gmail.com)")
