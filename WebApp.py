@@ -106,10 +106,10 @@ st.sidebar.image('Kid.png')
 
 # Side Bar Menu 
 st.sidebar.title('Models')
-option = st.sidebar.selectbox("Choose a model" , ["", "Kidney Disease Prediction" , "CT Image Classification" ,"Explainable AI (XAI)" , " Results Dashboard"])
+option = st.sidebar.selectbox("Choose a model" , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification" ,"Explainable AI (XAI)" , " Results Dashboard"])
 
 # Selecting Model
-if option == "":
+if option == "Choose a model":
     st.markdown("<h5 style= font-family: 'Times New Roman''>Please Select a Model From The Sidebar.", unsafe_allow_html=True)
 
 # If the Option Kidney Disease Prediction
@@ -213,12 +213,8 @@ elif option == "Kidney Disease Prediction":
             
             # Display the prediction result
             if prediction[0] == 1:
-                
                 st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
-
-             
             else:
-                
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
 
             
