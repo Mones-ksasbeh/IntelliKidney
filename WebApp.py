@@ -234,9 +234,10 @@ elif option == "Kidney Disease Prediction":
                 st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
-
+            
+            
+            required_fields.append(prediction[0])
             data_tuple = tuple(required_fields)
-            data_tuple.append(prediction[0])
             conn = create_connection()
             insert_data(conn, data_tuple)
             conn.close()
