@@ -82,7 +82,6 @@ def create_connection():
 
 # Function to insert Data into Database 
 def insert_data(conn, data_tuple):
-    conn = sqlite3.connect('clinical_data.db')
     cursor = conn.cursor()
     insert_query = '''
     INSERT INTO ClinicalMeasurements (
@@ -94,7 +93,8 @@ def insert_data(conn, data_tuple):
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     '''
     cursor.execute(insert_query, data_tuple)
-    conn.commit()
+    conn.commit()  # Commit changes to save the data properly
+
 
 # Loading the Orginal Data
 Data = pd.read_csv('PreProcessdData.xls')
@@ -202,7 +202,6 @@ elif option == "Kidney Disease Prediction":
 
 
         
-    
     if st.button("Predict"):
         required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
                                potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
@@ -236,17 +235,16 @@ elif option == "Kidney Disease Prediction":
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
             
-        Variables = [
-                age, blood_pressure, specific_gravity, albumin, sugar, red_blood_cells,
-                pus_cell, pus_cell_clumps, bacteria, blood_glucose, blood_urea,
-                serum_creatinine, sodium, potassium, haemoglobin, packed_cell_volume,
-                white_blood_cell_count, red_blood_cell_count, hypertension, diabetes_mellitus,
-                coronary_artery_disease, appetite, peda_edema, aanemia, prediction[0]
-            ]
-        data_tuple = tuple(Variables)
-        conn = create_connection()
-        insert_data(conn, data_tuple)
-        conn.close()
+            conn = create_connection()
+            data_tuple = (age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+              red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
+              sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
+              coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
+              appetite, pus_cell_clumps, bacteria, peda_edema, "YourClassValue")
+
+            insert_data(conn, data_tuple)
+            conn.close()  # Always close the connection after use
+
     
 
 
