@@ -121,7 +121,7 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
     data = cursor.fetchall()
     conn.close()
     
-    st.write("Stored Data:", data)
+    st.dataframe(df)
     
 
 
