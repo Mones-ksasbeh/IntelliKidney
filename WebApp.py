@@ -77,7 +77,7 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 
 # Function to create a connection to the SQLite database
 def create_connection():
-    conn = sqlite3.connect('predictions.db')
+    conn = sqlite3.connect('clinical_data.db')
     return conn
 
 # Function to insert Data into Database 
