@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 import shap 
-import sqlite3
+import psycopg2
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
@@ -77,16 +77,17 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 
 # Function to create a connection to the SQLite database
 def create_connection():
-    conn = sqlite3.connect('clinical_data.db')
+    conn = psycopg2.connect(
+        dbname="clinical_data",  # Database name
+        user="Mones",          # Database user
+        password="Mones2003",  # Database password
+        host="localhost",       # Database host (use remote IP for cloud databases)
+        port="5432"             # Database port
+    )
     return conn
-
 # Function to insert Data into Database 
 
-def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-                red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-                sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-                coronary_artery_disease, anemia, red_blood_cells, pus_cell,
-                appetite, pus_cell_clumps, bacteria, pedal_edema, Class):
+def insert_data(conn , data_tuple):
 
     cursor = conn.cursor()
 
@@ -97,15 +98,9 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
         Sodium, SpecificGravity, Albumin, Sugar, Hypertension, DiabetesMellitus,
         CoronaryArteryDisease, Anemia, RedBloodCellsInUrine, PusCellsInUrine,
         Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
     '''
 
-    # Create tuple of values
-    data_tuple = (age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-                  red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-                  sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-                  coronary_artery_disease, anemia, red_blood_cells, pus_cell,
-                  appetite, pus_cell_clumps, bacteria, pedal_edema, Class)
 
     # Execute query
     cursor.execute(insert_query, data_tuple)
@@ -114,14 +109,6 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
     # Debugging
     st.write("Data successfully inserted:", data_tuple)
     conn.close()
-
-    conn = sqlite3.connect("clinical_data.db")
-    cursor = conn.cursor()
-    conn = sqlite3.connect("clinical_data.db")
-    df = pd.read_sql_query("SELECT * FROM ClinicalMeasurements", conn)
-    conn.close()
-    st.dataframe(df)
-        
 
 
 # Loading the Orginal Data
@@ -263,13 +250,20 @@ elif option == "Kidney Disease Prediction":
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
             
-            conn = create_connection()
             Class = str(prediction[0])
-            insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-              red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-              sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-              coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
-              appetite, pus_cell_clumps, bacteria, peda_edema, Class)
+            Variables = [
+                age, blood_pressure, specific_gravity, albumin, sugar, red_blood_cells,
+                pus_cell, pus_cell_clumps, bacteria, blood_glucose, blood_urea,
+                serum_creatinine, sodium, potassium, haemoglobin, packed_cell_volume,
+                white_blood_cell_count, red_blood_cell_count, hypertension, diabetes_mellitus,
+                coronary_artery_disease, appetite, peda_edema, aanemia, Class
+            ]
+            conn = create_connection()
+            data_tuple = tuple(Variables)
+            conn = create_connection()
+            insert_data(conn, data_tuple)
+            conn.close()
+            
 
     
 
