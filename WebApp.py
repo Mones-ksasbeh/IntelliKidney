@@ -81,12 +81,17 @@ def create_connection():
     return conn
 
 # Function to insert Data into Database 
+import sqlite3
+import streamlit as st
+
 def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-              red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-              sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-              coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
-              appetite, pus_cell_clumps, bacteria, peda_edema, Class ):
+                red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
+                sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
+                coronary_artery_disease, anemia, red_blood_cells, pus_cell,
+                appetite, pus_cell_clumps, bacteria, pedal_edema, Class):
+
     cursor = conn.cursor()
+
     insert_query = '''
     INSERT INTO ClinicalMeasurements (
         Age, BloodPressure, BloodGlucoseRandom, BloodUrea, WhiteBloodCellCount,
@@ -96,14 +101,21 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
         Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     '''
-    st.markdown("<h3 style= font-family: 'Times New Roman''>Urinalysis/Metabolic Markers", unsafe_allow_html=True)
-    cursor.execute(insert_query, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-              red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-              sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-              coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
-              appetite, pus_cell_clumps, bacteria, peda_edema, Class)
+
+    # Create tuple of values
+    data_tuple = (age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+                  red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
+                  sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
+                  coronary_artery_disease, anemia, red_blood_cells, pus_cell,
+                  appetite, pus_cell_clumps, bacteria, pedal_edema, Class)
+
+    # Execute query
+    cursor.execute(insert_query, data_tuple)
     conn.commit()
-    st.write("Inserting data:", data_tuple)  # Debugging
+
+    # Debugging
+    st.write("Data successfully inserted:", data_tuple)
+
 
 
 
