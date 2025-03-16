@@ -83,7 +83,8 @@ def create_connection():
         user="Mones",          # Database user
         password="Mones2003",  # Database password
         host="localhost",       # Database host (use remote IP for cloud databases)
-        port="5432"             # Database port)
+        port="5432"             # Database port
+        )
         return conn
 
 # Function to insert Data into Database 
