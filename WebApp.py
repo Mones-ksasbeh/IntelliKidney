@@ -82,6 +82,7 @@ def create_connection():
 
 # Function to insert Data into Database 
 def insert_data(conn, data_tuple):
+    conn = sqlite3.connect('clinical_data.db')
     cursor = conn.cursor()
     insert_query = '''
     INSERT INTO ClinicalMeasurements (
