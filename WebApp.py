@@ -1,114 +1,134 @@
-
 import streamlit as st  
-import pickle  
-import pandas as pd
-import numpy as np
-from PIL import Image
-import shap 
-import psycopg2
-
-# Function to PreProcessing Input Data
-def Preprocessing(record, Data):
-    """
-    Preprocesses a single input record by applying log transformation, imputation (median, mode, KNN),
-    label encoding.
-    - record: pandas Series (Row of data)
-    - Data: The original data (Needed for imputation)
-    """
-    
-    # Log Transformation for specific columns (ensure positive numerical values)
-    def log_transform(record, columns):
-        for col in columns:
-            if isinstance(record[col], (int, float)) and record[col] > 0:  # Ensure value is numeric and positive
-                record[col] = np.log(record[col])
-            else:
-                record[col] = np.nan  # Handle non-positive or non-numeric values gracefully
-
-            
-    # List of columns to apply log transformation
-    columns_to_transform = ['Blood Glucose Random', 'Blood Urea', 'Serum Creatinine', 'Potassium']
-    log_transform(record, columns_to_transform)
-   
-    
-    # Encoding mappings for categorical features
-    encodings = {
-        "Pus Cell": {"normal": 0, "abnormal": 1},
-        "Pus Cell Clumps": {"notpresent": 0, "present": 1},
-        "Bacteria": {"notpresent": 0, "present": 1},
-        "Hypertension": {"no": 0, "yes": 1},
-        "Diabetes Mellitus": {"no": 0, "yes": 1},
-        "Coronary Artery Aisease": {"no": 0, "yes": 1},
-        "Appetite": {"good": 0, "poor": 1},
-        "Peda Edema": {"no": 0, "yes": 1},
-        "Aanemia": {"no": 0, "yes": 1},
-        "Red Blood Cells": {"normal": 0, "abnormal": 1},
-    }
-
-    # Apply encoding
-    for col, mapping in encodings.items():
-        record[col] = mapping[record[col]]  # Directly map without checking for missing values
-
-    return record
-
-
-
-# Function To Apply Independent Discriminational Analysis 
-def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
-    """
-    Loads a trained LDA model and applies it to transform the input data.
-
-    Parameters:
-        input_data (numpy.ndarray or list): Input data to transform (1D list or array).
-        model_path (str): Path to the saved LDA model.
-
-    Returns:
-        transformed_data (numpy.ndarray): LDA-transformed input.
-    """
-    # Load the trained LDA model
-    with open(model_path, "rb") as file:
-        lda = pickle.load(file)
-
-    # Ensure input is a 2D array (required for transform)
-    input_data = np.array(input_data).reshape(1, -1)
-
-    # Apply LDA transformation
-    transformed_data = lda.transform(input_data)
-
-    return transformed_data
-
-# Function to create a connection to the PostgreSQL database
-def create_connection():
-            conn = psycopg2.connect(
-                dbname="clinical_data",
-                user="Mones",
-                password="Mones2003",
-                host="localhost",
-                port="5432"
-            )
-            conn.close()
-
-# Function to insert Data into Database 
-def insert_data(conn , data_tuple):
-    cursor = conn.cursor()
-    insert_query = '''
-    INSERT INTO ClinicalMeasurements (
-        Age, BloodPressure, BloodGlucoseRandom, BloodUrea, WhiteBloodCellCount,
-        RedBloodCellCount, Potassium, Haemoglobin, PackedCellVolume, SerumCreatinine,
-        Sodium, SpecificGravity, Albumin, Sugar, Hypertension, DiabetesMellitus,
-        CoronaryArteryDisease, Anemia, RedBloodCellsInUrine, PusCellsInUrine,
-        Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
-    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-    '''
-    
-    # Execute query
-    cursor.execute(insert_query, data_tuple)
-    conn.commit()
-
-    # Debugging
-    st.write("Data successfully inserted:", data_tuple)
-    conn.close()
-
-
+ import pickle  
+ import pandas as pd
+ import numpy as np
+ from PIL import Image
+ import shap 
+ import sqlite3
+ 
+ # Function to PreProcessing Input Data
+ def Preprocessing(record, Data):
+     """
+     Preprocesses a single input record by applying log transformation, imputation (median, mode, KNN),
+     label encoding.
+     - record: pandas Series (Row of data)
+     - Data: The original data (Needed for imputation)
+     """
+ 
+     # Log Transformation for specific columns (ensure positive numerical values)
+     def log_transform(record, columns):
+         for col in columns:
+             if isinstance(record[col], (int, float)) and record[col] > 0:  # Ensure value is numeric and positive
+                 record[col] = np.log(record[col])
+             else:
+                 record[col] = np.nan  # Handle non-positive or non-numeric values gracefully
+ 
+ 
+     # List of columns to apply log transformation
+     columns_to_transform = ['Blood Glucose Random', 'Blood Urea', 'Serum Creatinine', 'Potassium']
+     log_transform(record, columns_to_transform)
+ 
+ 
+     # Encoding mappings for categorical features
+     encodings = {
+         "Pus Cell": {"normal": 0, "abnormal": 1},
+         "Pus Cell Clumps": {"notpresent": 0, "present": 1},
+         "Bacteria": {"notpresent": 0, "present": 1},
+         "Hypertension": {"no": 0, "yes": 1},
+         "Diabetes Mellitus": {"no": 0, "yes": 1},
+         "Coronary Artery Aisease": {"no": 0, "yes": 1},
+         "Appetite": {"good": 0, "poor": 1},
+         "Peda Edema": {"no": 0, "yes": 1},
+         "Aanemia": {"no": 0, "yes": 1},
+         "Red Blood Cells": {"normal": 0, "abnormal": 1},
+     }
+ 
+     # Apply encoding
+     for col, mapping in encodings.items():
+         record[col] = mapping[record[col]]  # Directly map without checking for missing values
+ 
+     return record
+ 
+ 
+ 
+ # Function To Apply Independent Discriminational Analysis 
+ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
+     """
+     Loads a trained LDA model and applies it to transform the input data.
+ 
+     Parameters:
+         input_data (numpy.ndarray or list): Input data to transform (1D list or array).
+         model_path (str): Path to the saved LDA model.
+ 
+     Returns:
+         transformed_data (numpy.ndarray): LDA-transformed input.
+     """
+     # Load the trained LDA model
+     with open(model_path, "rb") as file:
+         lda = pickle.load(file)
+ 
+     # Ensure input is a 2D array (required for transform)
+     input_data = np.array(input_data).reshape(1, -1)
+ 
+     # Apply LDA transformation
+     transformed_data = lda.transform(input_data)
+ 
+     return transformed_data
+ 
+ # Function to create a connection to the SQLite database
+ def create_connection():
+     conn = sqlite3.connect('clinical_data.db')
+     return conn
+ 
+ # Function to insert Data into Database 
+ 
+ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+                 red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
+                 sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
+                 coronary_artery_disease, anemia, red_blood_cells, pus_cell,
+                 appetite, pus_cell_clumps, bacteria, pedal_edema, Class):
+ 
+     cursor = conn.cursor()
+ 
+     insert_query = '''
+     INSERT INTO ClinicalMeasurements (
+         Age, BloodPressure, BloodGlucoseRandom, BloodUrea, WhiteBloodCellCount,
+         RedBloodCellCount, Potassium, Haemoglobin, PackedCellVolume, SerumCreatinine,
+         Sodium, SpecificGravity, Albumin, Sugar, Hypertension, DiabetesMellitus,
+         CoronaryArteryDisease, Anemia, RedBloodCellsInUrine, PusCellsInUrine,
+         Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+     '''
+ 
+     # Create tuple of values
+     data_tuple = (age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+                   red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
+                   sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
+                   coronary_artery_disease, anemia, red_blood_cells, pus_cell,
+                   appetite, pus_cell_clumps, bacteria, pedal_edema, Class)
+ 
+     # Execute query
+     cursor.execute(insert_query, data_tuple)
+     conn.commit()
+ 
+     # Debugging
+     st.write("Data successfully inserted:", data_tuple)
+     conn.close()
+ 
+     conn = sqlite3.connect("clinical_data.db")
+     cursor = conn.cursor()
+    conn = sqlite3.connect("clinical_data.db")
+     conn = sqlite3.connect("clinical_data.db")
+     df = pd.read_sql_query("SELECT * FROM ClinicalMeasurements", conn)
+     conn.close()
+     st.dataframe(df)
+ 
+ 
+ 
+ # Loading the Orginal Data
+ Data = pd.read_csv('PreProcessdData.xls')
+ Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
+ 
 # Loading the Orginal Data
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
