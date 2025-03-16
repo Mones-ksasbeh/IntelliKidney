@@ -75,7 +75,7 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 
     return transformed_data
 
-# Function to create a connection to the SQLite database
+# Function to create a connection to the PostgreSQL database
 def create_connection():
     conn = psycopg2.connect(
         dbname="clinical_data",  # Database name
@@ -85,12 +85,10 @@ def create_connection():
         port="5432"             # Database port
     )
     return conn
+    
 # Function to insert Data into Database 
-
 def insert_data(conn , data_tuple):
-
     cursor = conn.cursor()
-
     insert_query = '''
     INSERT INTO ClinicalMeasurements (
         Age, BloodPressure, BloodGlucoseRandom, BloodUrea, WhiteBloodCellCount,
