@@ -81,8 +81,6 @@ def create_connection():
     return conn
 
 # Function to insert Data into Database 
-import sqlite3
-import streamlit as st
 
 def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
                 red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
@@ -115,6 +113,17 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
 
     # Debugging
     st.write("Data successfully inserted:", data_tuple)
+    conn.close()
+
+    conn = sqlite3.connect("clinical_data.db")
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT * FROM ClinicalMeasurements")
+    data = cursor.fetchall()
+    conn.close()
+    
+    st.write("Data successfully inserted:", data)
+
 
 
 
