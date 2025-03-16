@@ -240,9 +240,8 @@ elif option == "Kidney Disease Prediction":
                 pus_cell, pus_cell_clumps, bacteria, blood_glucose, blood_urea,
                 serum_creatinine, sodium, potassium, haemoglobin, packed_cell_volume,
                 white_blood_cell_count, red_blood_cell_count, hypertension, diabetes_mellitus,
-                coronary_artery_disease, appetite, peda_edema, aanemia
+                coronary_artery_disease, appetite, peda_edema, aanemia, prediction[0]
             ]
-        Variables.append(prediction[0])
         data_tuple = tuple(Variables)
         conn = create_connection()
         insert_data(conn, data_tuple)
