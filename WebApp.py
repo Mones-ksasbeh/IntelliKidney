@@ -93,7 +93,8 @@ def insert_data(conn, data_tuple):
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     '''
     cursor.execute(insert_query, data_tuple)
-    conn.commit()  # Commit changes to save the data properly
+    conn.commit()
+
 
 
 # Loading the Orginal Data
@@ -243,7 +244,6 @@ elif option == "Kidney Disease Prediction":
               appetite, pus_cell_clumps, bacteria, peda_edema, prediction[0])
 
             insert_data(conn, data_tuple)
-            conn.close()  # Always close the connection after use
 
     
 
