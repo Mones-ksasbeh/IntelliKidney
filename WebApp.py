@@ -124,6 +124,9 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
     
     st.write("Data successfully inserted:", data)
 
+    import os
+    db_path = os.path.abspath("clinical_data.db")
+    st.write(f"Database file location: {db_path}")
 
 
 
