@@ -98,8 +98,7 @@ def insert_data(conn , data_tuple):
         Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
     ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
     '''
-
-
+    
     # Execute query
     cursor.execute(insert_query, data_tuple)
     conn.commit()
