@@ -80,8 +80,8 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 def create_connection():
         conn = psycopg2.connect(
         dbname="clinical_data",  # Database name
-        user="myuser",          # Database user
-        password="mypassword",  # Database password
+        user="Mones",          # Database user
+        password="Mones2003",  # Database password
         host="localhost",       # Database host (use remote IP for cloud databases)
         port="5432"             # Database port
     )
@@ -248,13 +248,13 @@ elif option == "Kidney Disease Prediction":
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
             
-            Class = str(prediction[0])
+            Class1 = str(prediction[0])
             Variables = [
                 age, blood_pressure, specific_gravity, albumin, sugar, red_blood_cells,
                 pus_cell, pus_cell_clumps, bacteria, blood_glucose, blood_urea,
                 serum_creatinine, sodium, potassium, haemoglobin, packed_cell_volume,
                 white_blood_cell_count, red_blood_cell_count, hypertension, diabetes_mellitus,
-                coronary_artery_disease, appetite, peda_edema, aanemia, Class
+                coronary_artery_disease, appetite, peda_edema, aanemia, Class1
             ]
             conn = create_connection()
             data_tuple = tuple(Variables)
