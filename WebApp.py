@@ -1,13 +1,13 @@
 import streamlit as st  
 import pickle  
- import pandas as pd
- import numpy as np
- from PIL import Image
- import shap 
- import sqlite3
+import pandas as pd
+import numpy as np
+from PIL import Image
+import shap 
+import sqlite3
  
- # Function to PreProcessing Input Data
- def Preprocessing(record, Data):
+# Function to PreProcessing Input Data
+def Preprocessing(record, Data):
      """
      Preprocesses a single input record by applying log transformation, imputation (median, mode, KNN),
      label encoding.
@@ -76,13 +76,13 @@ import pickle
      return transformed_data
  
  # Function to create a connection to the SQLite database
- def create_connection():
+def create_connection():
      conn = sqlite3.connect('clinical_data.db')
      return conn
  
  # Function to insert Data into Database 
  
- def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
                  red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
                  sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
                  coronary_artery_disease, anemia, red_blood_cells, pus_cell,
