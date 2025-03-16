@@ -1,5 +1,5 @@
 import streamlit as st  
- import pickle  
+import pickle  
  import pandas as pd
  import numpy as np
  from PIL import Image
@@ -117,7 +117,7 @@ import streamlit as st
  
      conn = sqlite3.connect("clinical_data.db")
      cursor = conn.cursor()
-    conn = sqlite3.connect("clinical_data.db")
+     conn = sqlite3.connect("clinical_data.db")
      conn = sqlite3.connect("clinical_data.db")
      df = pd.read_sql_query("SELECT * FROM ClinicalMeasurements", conn)
      conn.close()
