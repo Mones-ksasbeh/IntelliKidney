@@ -78,7 +78,6 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 
 # Function to create a connection to the PostgreSQL database
 def create_connection():
-        try:
             conn = psycopg2.connect(
                 dbname="clinical_data",
                 user="Mones",
@@ -86,10 +85,7 @@ def create_connection():
                 host="localhost",
                 port="5432"
             )
-            print("Connection successful!")
             conn.close()
-        except Exception as e:
-            print(f"Connection failed: {e}")
 
 # Function to insert Data into Database 
 def insert_data(conn , data_tuple):
