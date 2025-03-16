@@ -127,7 +127,11 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
     import os
     db_path = os.path.abspath("clinical_data.db")
     st.write(f"Database file location: {db_path}")
-
+    import os
+    db_path = os.path.abspath("clinical_data.db")
+    st.write(f"Database file location: {db_path}")
+    st.write(f"File Exists: {os.path.exists(db_path)}")
+    
 
 
 
