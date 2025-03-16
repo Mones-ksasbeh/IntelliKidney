@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 import shap 
+import sqlite3
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
