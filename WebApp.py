@@ -74,7 +74,24 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 
     return transformed_data
 
+# Function to create a connection to the SQLite database
+def create_connection():
+    conn = sqlite3.connect('predictions.db')
+    return conn
 
+def insert_data(conn, data_tuple):
+    cursor = conn.cursor()
+    insert_query = '''
+    INSERT INTO ClinicalMeasurements (
+        Age, BloodPressure, BloodGlucoseRandom, BloodUrea, WhiteBloodCellCount,
+        RedBloodCellCount, Potassium, Haemoglobin, PackedCellVolume, SerumCreatinine,
+        Sodium, SpecificGravity, Albumin, Sugar, Hypertension, DiabetesMellitus,
+        CoronaryArteryDisease, Anemia, RedBloodCellsInUrine, PusCellsInUrine,
+        Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Prediction
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+    '''
+    cursor.execute(insert_query, data_tuple)
+    conn.commit()
 
 # Loading the Orginal Data
 Data = pd.read_csv('PreProcessdData.xls')
@@ -217,8 +234,11 @@ elif option == "Kidney Disease Prediction":
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
 
-            
-
+            data_tuple = tuple(required_fields , prediction)
+            conn = create_connection()
+            insert_data(conn, data_tuple)
+            conn.close()
+    
 
 
 # If the Option CT Image Classification
