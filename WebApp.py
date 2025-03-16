@@ -243,7 +243,7 @@ elif option == "Kidney Disease Prediction":
               red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
               sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
               coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
-              appetite, pus_cell_clumps, bacteria, peda_edema, 'prediction[0]')
+              appetite, pus_cell_clumps, bacteria, peda_edema, str(prediction[0]))
 
             insert_data(conn, data_tuple)
 
