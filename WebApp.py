@@ -92,10 +92,11 @@ def insert_data(conn, data_tuple):
         Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     '''
-    st.write("Inserting data:", data_tuple)  # Debugging
     st.markdown("<h3 style= font-family: 'Times New Roman''>Urinalysis/Metabolic Markers", unsafe_allow_html=True)
     cursor.execute(insert_query, data_tuple)
     conn.commit()
+    st.write("Inserting data:", data_tuple)  # Debugging
+
 
 
 
