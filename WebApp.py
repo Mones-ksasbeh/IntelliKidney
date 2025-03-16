@@ -79,6 +79,7 @@ def create_connection():
     conn = sqlite3.connect('predictions.db')
     return conn
 
+# Function to insert Data into Database 
 def insert_data(conn, data_tuple):
     cursor = conn.cursor()
     insert_query = '''
