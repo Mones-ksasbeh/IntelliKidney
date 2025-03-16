@@ -117,23 +117,12 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
 
     conn = sqlite3.connect("clinical_data.db")
     cursor = conn.cursor()
-    
     cursor.execute("SELECT * FROM ClinicalMeasurements")
     data = cursor.fetchall()
     conn.close()
     
-    st.write("Data successfully inserted:", data)
-
-    import os
-    db_path = os.path.abspath("clinical_data.db")
-    st.write(f"Database file location: {db_path}")
-    import os
-    db_path = os.path.abspath("clinical_data.db")
-    st.write(f"Database file location: {db_path}")
-    st.write(f"File Exists: {os.path.exists(db_path)}")
+    st.write("Stored Data:", data)
     
-
-
 
 
 # Loading the Orginal Data
