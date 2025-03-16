@@ -79,14 +79,14 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 # Function to create a connection to the PostgreSQL database
 def create_connection():
         conn = psycopg2.connect(
-            dbname="your_database",
-            user="your_username",
-            password="your_password",
-            host="localhost",
-            port="5432"
-        )
-       return conn 
-        
+        dbname="clinical_data",  # Database name
+        user="myuser",          # Database user
+        password="mypassword",  # Database password
+        host="localhost",       # Database host (use remote IP for cloud databases)
+        port="5432"             # Database port
+    )
+    return conn
+
 # Function to insert Data into Database 
 def insert_data(conn , data_tuple):
     cursor = conn.cursor()
