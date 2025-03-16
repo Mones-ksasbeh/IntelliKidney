@@ -87,7 +87,7 @@ def insert_data(conn, data_tuple):
         RedBloodCellCount, Potassium, Haemoglobin, PackedCellVolume, SerumCreatinine,
         Sodium, SpecificGravity, Albumin, Sugar, Hypertension, DiabetesMellitus,
         CoronaryArteryDisease, Anemia, RedBloodCellsInUrine, PusCellsInUrine,
-        Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Prediction
+        Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     '''
     cursor.execute(insert_query, data_tuple)
@@ -234,7 +234,8 @@ elif option == "Kidney Disease Prediction":
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
 
-            data_tuple = tuple(required_fields , prediction)
+            data_tuple = tuple(required_fields)
+            data_tuple.append(prediction[0])
             conn = create_connection()
             insert_data(conn, data_tuple)
             conn.close()
