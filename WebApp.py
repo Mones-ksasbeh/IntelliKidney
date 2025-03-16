@@ -117,7 +117,7 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
 
     conn = sqlite3.connect("clinical_data.db")
     cursor = conn.cursor()
-   conn = sqlite3.connect("clinical_data.db")
+    conn = sqlite3.connect("clinical_data.db")
     df = pd.read_sql_query("SELECT * FROM ClinicalMeasurements", conn)
     conn.close()
     st.dataframe(df)
