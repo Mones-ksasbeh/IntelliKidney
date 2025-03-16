@@ -1,3 +1,5 @@
+pip install psycopg2
+
 import streamlit as st  
 import pickle  
 import pandas as pd
