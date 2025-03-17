@@ -250,11 +250,12 @@ elif option == "Kidney Disease Prediction":
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
 
             Class = str(prediction[0])
-            data_tuple = tuple(age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+            data_tuple = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
               red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
               sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
               coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
-              appetite, pus_cell_clumps, bacteria, peda_edema, Class)
+              appetite, pus_cell_clumps, bacteria, peda_edema, Class]
+            data_tuple = tuple(data_tuple)
             
             conn = create_connection()
             insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
