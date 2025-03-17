@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image
 import shap 
 import sqlite3
+import postgre2
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
@@ -77,19 +78,16 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 
 # Function to create a connection to the SQLite database
 def create_connection():
-    conn = sqlite3.connect('clinical_data.db')
-    return conn
+    try:
+        conn = psycopg2.connect(DB_URL)
+        return conn
+    except Exception as e:
+        st.error(f"Database connection error: {e}")
+        return None
 
 # Function to insert Data into Database 
-
-def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-                red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-                sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-                coronary_artery_disease, anemia, red_blood_cells, pus_cell,
-                appetite, pus_cell_clumps, bacteria, pedal_edema, Class):
-
+def insert_data(conn, data_tuple):
     cursor = conn.cursor()
-
     insert_query = '''
     INSERT INTO ClinicalMeasurements (
         Age, BloodPressure, BloodGlucoseRandom, BloodUrea, WhiteBloodCellCount,
@@ -99,30 +97,17 @@ def insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_bloo
         Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     '''
-
-    # Create tuple of values
-    data_tuple = (age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-                  red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-                  sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-                  coronary_artery_disease, anemia, red_blood_cells, pus_cell,
-                  appetite, pus_cell_clumps, bacteria, pedal_edema, Class)
-
     # Execute query
     cursor.execute(insert_query, data_tuple)
     conn.commit()
-
+    
     # Debugging
     st.write("Data successfully inserted:", data_tuple)
     conn.close()
 
-    conn = sqlite3.connect("clinical_data.db")
-    cursor = conn.cursor()
-    conn = sqlite3.connect("clinical_data.db")
-    df = pd.read_sql_query("SELECT * FROM ClinicalMeasurements", conn)
-    conn.close()
-    st.dataframe(df)
-        
 
+# Database URL 
+DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
 # Loading the Orginal Data
 Data = pd.read_csv('PreProcessdData.xls')
@@ -262,14 +247,22 @@ elif option == "Kidney Disease Prediction":
                 st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
+
+            Class = str(prediction[0])
+            data_tuple = tuple(age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+              red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
+              sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
+              coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
+              appetite, pus_cell_clumps, bacteria, peda_edema, Class)
             
             conn = create_connection()
-            Class = str(prediction[0])
             insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
               red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
               sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
               coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
               appetite, pus_cell_clumps, bacteria, peda_edema, Class)
+            conn.commit()
+            conn.close()
 
     
 
