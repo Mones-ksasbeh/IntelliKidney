@@ -77,9 +77,9 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
     return transformed_data
 
 # Function to create a connection to the SQLite database
-def create_connection():
+def create_connection(DatabaseURL):
     try:
-        conn = psycopg2.connect(DB_URL)
+        conn = psycopg2.connect(DatabaseURL)
         return conn
     except Exception as e:
         st.error(f"Database connection error: {e}")
@@ -257,7 +257,7 @@ elif option == "Kidney Disease Prediction":
               appetite, pus_cell_clumps, bacteria, peda_edema, Class]
             data_tuple = tuple(data_tuple)
             
-            conn = create_connection()
+            conn = create_connection(DatabaseURL)
             insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
               red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
               sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
