@@ -102,9 +102,7 @@ def insert_data(conn, data_tuple):
     cursor.execute(insert_query, data_tuple)
     conn.commit()
     
-    # Debugging
-    st.write("Data successfully inserted:", data_tuple)
-    conn.close()
+  
 
 
 # Database URL 
