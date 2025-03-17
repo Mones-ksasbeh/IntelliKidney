@@ -5,4 +5,4 @@ pillow
 scikit-learn
 shap
 psycopg2-binary
-postgre2
+
