@@ -259,8 +259,7 @@ elif option == "Kidney Disease Prediction":
             
             conn = create_connection(DatabaseURL)
             insert_data(conn, data_tuple)
-            conn.commit()
-            conn.close()
+         
 
     
 
