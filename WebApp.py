@@ -96,7 +96,7 @@ def insert_data(conn, data_tuple):
         Sodium, SpecificGravity, Albumin, Sugar, Hypertension, DiabetesMellitus,
         CoronaryArteryDisease, Anemia, RedBloodCellsInUrine, PusCellsInUrine,
         Appetite, PusCellClumpsInUrine, BacteriaInUrine, PedalEdema, Class
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
     '''
     # Execute query
     cursor.execute(insert_query, data_tuple)
