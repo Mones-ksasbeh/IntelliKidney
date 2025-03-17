@@ -258,11 +258,7 @@ elif option == "Kidney Disease Prediction":
             data_tuple = tuple(data_tuple)
             
             conn = create_connection(DatabaseURL)
-            insert_data(conn, age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-              red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-              sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-              coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
-              appetite, pus_cell_clumps, bacteria, peda_edema, Class)
+            insert_data(conn, data_tuple)
             conn.commit()
             conn.close()
 
