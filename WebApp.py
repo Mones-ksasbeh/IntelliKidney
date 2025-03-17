@@ -4,8 +4,7 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 import shap 
-import postgre2
-import psycopg2-binary
+import psycopg2
 
 
 # Function to PreProcessing Input Data
@@ -80,7 +79,7 @@ def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
 # Function to create a connection to the SQLite database
 def create_connection():
     try:
-        conn = psycopg2-binary.connect(DB_URL)
+        conn = psycopg2.connect(DB_URL)
         return conn
     except Exception as e:
         st.error(f"Database connection error: {e}")
