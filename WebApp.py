@@ -129,11 +129,25 @@ st.sidebar.image('Kid.png')
 
 # Side Bar Menu 
 st.sidebar.title('Models')
-option = st.sidebar.selectbox("Choose a model" , [" ", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
+# option = st.sidebar.selectbox("Choose a model" , [" ", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
+# Use Columns for Card-Like Design
+col1, col2, col3 = st.sidebar.columns(3)
+
+with col1:
+    if st.button("Kidney Disease Prediction"):
+        option = "Kidney Disease Prediction"
+
+with col2:
+    if st.button("CT Image Classification"):
+        option = "CT Image Classification"
+
+with col3:
+    if st.button("Results Dashboard"):
+        option = "Results Dashboard"
 
 # Selecting Model
 if option == "Choose a model":
-    st.markdown("<h5 style= font-family: 'Times New Roman''>Please Select a Model From The Sidebar.", unsafe_allow_html=True)
+    st.markdown("<h5 style= font-family: 'Times New Roman''>Welcome to the Kidney Disease Diagnostic Web Application Please select a model from the sidebar to get started.", unsafe_allow_html=True)
 
 # If the Option Kidney Disease Prediction
 elif option == "Kidney Disease Prediction":
@@ -273,8 +287,6 @@ elif option == "Kidney Disease Prediction":
          
 
     
-
-
 # If the Option CT Image Classification
 elif option == "CT Image Classification":
     st.markdown("<h2 style= font-family: 'Times New Roman''>CT Image Classification</h2>", unsafe_allow_html=True)
