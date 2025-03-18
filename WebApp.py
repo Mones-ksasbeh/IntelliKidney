@@ -234,7 +234,8 @@ elif option == "Kidney Disease Prediction":
             
             # Example new record (Ensure it matches the training data format)
             new_record = np.array([list(processed_input_data)])  # Replace with actual values
-            
+            new_record = new_record.astype(np.float64)
+
             # Generate SHAP values for explanation
             shap_values = ada_model_XAI(new_record)
             
