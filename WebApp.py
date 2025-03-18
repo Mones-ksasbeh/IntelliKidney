@@ -250,7 +250,7 @@ elif option == "Kidney Disease Prediction":
             # Display the prediction result
             if prediction[0] == 1:
                 st.markdown("<h6 style='font-family: Times New Roman;'>The model has identified a likelihood of Chronic Kidney Disease (CKD) based on the patient's data.\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance. </h5>", unsafe_allow_html=True)
-                st.markdown(explanation_markdown)
+                st.markdown(f"<h6 style='font-family: Times New Roman;'>{explanation_markdown}</b>.</h5>", unsafe_allow_html=True)
                 st.markdown("<h6 style='font-family: Times New Roman;'> For more detailed analysis or to investigate possible structural causes or forms of CKD (e.g., kidney stones, cysts, or abnormalities), please proceed to the <b>CT Image Analysis model</b>.</h5>", unsafe_allow_html=True)
                                 
             else:
