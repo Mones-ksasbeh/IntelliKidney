@@ -239,25 +239,29 @@ elif option == "Kidney Disease Prediction":
             # Generate SHAP values for explanation
             shap_values = ada_model_XAI(new_record)
             
-            top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
             
-            for feature in top_features:
-                explanation_text += f"- {input_data.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
 
             # Visualize explanation
             # shap.plots.waterfall(shap_values[0])
 
             # Display the prediction result
             if prediction[0] == 1:
-                st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). This diagnosis is influenced by: </h5>", unsafe_allow_html=True)
+                st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). This diagnosis is influenced by: </h5>", unsafe_allow_html=True
+                top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
+                
+                for feature in top_features:
+                    explanation_text += f"- {input_data.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
                 st.info(explanation_text)
 
 
                 
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required, This diagnosis is influenced by</h5>", unsafe_allow_html=True)
+                top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
+                
+                for feature in top_features:
+                    explanation_text += f"- {input_data.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
                 st.info(explanation_text)
-
 
             
      
