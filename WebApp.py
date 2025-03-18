@@ -360,6 +360,7 @@ with col3:
 with col4:
     Author_button = st.button("Author's")
 
+st.write('\n\n')
 # Display the contact information when the "Contact" button is clicked
 if Author_button:
     st.markdown(
