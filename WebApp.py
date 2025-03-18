@@ -135,13 +135,12 @@ st.markdown(
             This enhances interpretability and helps radiologists identify areas of concern.
             </p>
 
-            <p style= font-family: 'Times New Roman'';'>
-            <b>Comprehensive Results Dashboard</b> 
-            </p>
+          
     """, 
     unsafe_allow_html=True
 )
 
+st.write('---')
 # image 
 st.sidebar.image('Kid.png')
 
