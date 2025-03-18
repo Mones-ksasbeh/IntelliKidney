@@ -225,8 +225,8 @@ elif option == "Kidney Disease Prediction":
     """
     <style>
     .stButton>button {
-        width: 300px;  /* Adjust the width as needed */
-        height: 150px;  /* Adjust the height as needed */
+        width: 100px;  /* Adjust the width as needed */
+        height: 50px;  /* Adjust the height as needed */
         font-size: 18px;  /* Adjust the font size as needed */
         margin: 0 auto;  /* Center the button horizontally */
         display: block;  /* Ensure the button is treated as a block element */
