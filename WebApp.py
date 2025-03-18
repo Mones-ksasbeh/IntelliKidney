@@ -246,8 +246,6 @@ elif option == "Kidney Disease Prediction":
             explanation_text = ''
             for feature in top_features:
                 explanation_text += f"- {new_record_df.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
-            # Visualize explanation
-            # shap.plots.waterfall(shap_values[0])
 
             # Display the prediction result
             if prediction[0] == 1:
@@ -259,9 +257,15 @@ elif option == "Kidney Disease Prediction":
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required, This diagnosis is influenced by</h5>", unsafe_allow_html=True)
                 top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
-                st.info(explanation_text)
-
-            
+                # Display explanation text
+                explanation_html = "<ul>"  # Create an unordered list for features
+                for feature in top_features:
+                    explanation_html += f"<li><strong>{new_record_df.columns[feature]}</strong> (Impact: {shap_values.values[0][feature]:.2f})</li>"
+                explanation_html += "</ul>"
+                
+                # Display the explanation as HTML
+                st.markdown(explanation_html, unsafe_allow_html=True)
+                            
      
             Class = str(prediction[0])
             data_tuple = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
