@@ -249,7 +249,7 @@ elif option == "Kidney Disease Prediction":
                                                 
             # Display the prediction result
             if prediction[0] == 1:
-                st.markdown("<h style='font-family: Times New Roman;'>The model has identified a likelihood of Chronic Kidney Disease (CKD) based on the patient's data.\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance. </h5>", unsafe_allow_html=True)
+                st.markdown("<h5 style='font-family: Times New Roman;'>The model has identified a likelihood of Chronic Kidney Disease (CKD) based on the patient's data.\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance. </h5>", unsafe_allow_html=True)
                 st.markdown(explanation_markdown)
                 
             else:
