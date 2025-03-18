@@ -362,13 +362,17 @@ with col4:
 
 # Display the contact information when the "Contact" button is clicked
 if Author_button:
-    st.markdown("### Contact Information:")
-    st.markdown("#### **Mones Nazih Ksasbeh**")
-    st.markdown("[Email](https://mail.google.com/mail/?view=cm&fs=1&to=moksasbeh@gmail.com)")
-
-    st.markdown("#### **Yazan Amjed Mansour**")
-    st.markdown("[Email](https://mail.google.com/mail/?view=cm&fs=1&to=am5294690@gmail.com)")
-
-    st.markdown("#### **Basel Mwafq Hammo**")
-    st.markdown("[Email](https://mail.google.com/mail/?view=cm&fs=1&to=basel.11hammo@gmail.com)")
-
+    st.markdown(
+        '''
+        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
+            <strong>Mones Nazih Ksasbeh</strong> - <a href="mailto:moksasbeh@gmail.com">Email</a>
+        </p>
+        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
+            <strong>Yazan Amjed Mansour</strong> - <a href="mailto:am5294690@gmail.com">Email</a>
+        </p>
+        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
+            <strong>Basel Mwafq Hammo</strong> - <a href="mailto:basel.11hammo@gmail.com">Email</a>
+        </p>
+        ''',
+        unsafe_allow_html=True
+    )
