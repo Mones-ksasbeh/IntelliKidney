@@ -250,20 +250,12 @@ elif option == "Kidney Disease Prediction":
             # Display the prediction result
             if prediction[0] == 1:
                 st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). This diagnosis is influenced by: </h5>", unsafe_allow_html=True)
-                st.success(explanation_text)
+                st.info(explanation_text)
                 
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required, This diagnosis is influenced by</h5>", unsafe_allow_html=True)
-                top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
-                # Display explanation text
-                        # Display explanation text with bullet points
-                explanation_markdown = "\n".join([f"- **{new_record_df.columns[feature]}** (Impact: {shap_values.values[0][feature]:.2f})"
-                                                  for feature in top_features])
-                
-                # Display explanation with markdown styling
-                st.markdown(f"### Top 5 Features by Impact:\n{explanation_markdown}")
-                # Display the explanation as HTML
-                st.markdown(explanation_html, unsafe_allow_html=True)
+                st.info(explanation_text)
+
                             
      
             Class = str(prediction[0])
