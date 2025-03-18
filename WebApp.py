@@ -221,7 +221,21 @@ elif option == "Kidney Disease Prediction":
     st.write("---")
 
 
-        
+    st.markdown(
+    """
+    <style>
+    .stButton>button {
+        width: 200px;  /* Adjust the width as needed */
+        height: 50px;  /* Adjust the height as needed */
+        font-size: 18px;  /* Adjust the font size as needed */
+        margin: 0 auto;  /* Center the button horizontally */
+        display: block;  /* Ensure the button is treated as a block element */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
     if st.button("Predict"):
         required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
                                potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
