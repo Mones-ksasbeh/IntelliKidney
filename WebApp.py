@@ -110,7 +110,7 @@ with open("Best_model.pkl", "rb") as file:
 # Loading Model WithOut IDA (XAI)
 with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
- ada_model_XAI
+
 st.set_page_config(layout="wide")  # Make the layout full-width
 
 # Header 
