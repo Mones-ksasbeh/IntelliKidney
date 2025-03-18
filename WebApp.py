@@ -233,7 +233,11 @@ elif option == "Kidney Disease Prediction":
             prediction = ada_model.predict(Ready_data)
             
             # Example new record (Ensure it matches the training data format)
-            new_record = np.array([[processed_input_data]])  # Replace with actual values
+            new_record = np.array([[age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+              red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
+              sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
+              coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
+              appetite, pus_cell_clumps, bacteria, peda_edema]])  # Replace with actual values
             
             # Generate SHAP values for explanation
             shap_values = ada_model_XAI(new_record)
