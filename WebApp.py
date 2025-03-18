@@ -9,13 +9,6 @@ import psycopg2
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
-    """
-    Preprocesses a single input record by applying log transformation, imputation (median, mode, KNN),
-    label encoding.
-    - record: pandas Series (Row of data)
-    - Data: The original data (Needed for imputation)
-    """
-    
     # Log Transformation for specific columns (ensure positive numerical values)
     def log_transform(record, columns):
         for col in columns:
@@ -24,12 +17,10 @@ def Preprocessing(record, Data):
             else:
                 record[col] = np.nan  # Handle non-positive or non-numeric values gracefully
 
-            
     # List of columns to apply log transformation
     columns_to_transform = ['Blood Glucose Random', 'Blood Urea', 'Serum Creatinine', 'Potassium']
     log_transform(record, columns_to_transform)
    
-    
     # Encoding mappings for categorical features
     encodings = {
         "Pus Cell": {"normal": 0, "abnormal": 1},
@@ -46,8 +37,8 @@ def Preprocessing(record, Data):
 
     # Apply encoding
     for col, mapping in encodings.items():
-        record[col] = mapping[record[col]]  # Directly map without checking for missing values
-
+        record[col] = mapping[record[col]]  
+        
     return record
 
 
@@ -108,7 +99,7 @@ def insert_data(conn, data_tuple):
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
-# Loading the Orginal Data
+# Loading the Orginal Data ?????
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
 
@@ -119,7 +110,7 @@ with open("Best_model.pkl", "rb") as file:
 # Loading Model WithOut IDA (XAI)
 with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
- 
+ ada_model_XAI
 st.set_page_config(layout="wide")  # Make the layout full-width
 
 # Header 
@@ -218,7 +209,7 @@ elif option == "Kidney Disease Prediction":
         required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
                                potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
                                sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
-            
+            #????????
         if any(field == '' or field == 0 for field in required_fields):
                 st.error("⚠️ Please fill  all fields!")
         else:   
@@ -246,6 +237,16 @@ elif option == "Kidney Disease Prediction":
                 st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). Further clinical evaluation is recommended.</h5>", unsafe_allow_html=True)
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required.</h5>", unsafe_allow_html=True)
+            
+            # Generate SHAP values
+            shap_values = ada_model_XAI(processed_input_data)
+        
+            # SHAP summary plot
+            st.subheader("SHAP Summary Plot")
+            fig, ax = plt.subplots()
+            shap.summary_plot(shap_values, input_data, show=False)
+            st.pyplot(fig)
+
 
             Class = str(prediction[0])
             data_tuple = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
@@ -290,6 +291,7 @@ elif option == "Explainable AI (XAI)":
 
     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
 
+    
    
 
 
