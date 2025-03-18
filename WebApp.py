@@ -232,7 +232,7 @@ elif option == "Kidney Disease Prediction":
     
             prediction = ada_model.predict(Ready_data)
 
-            XAI_Data = processed_input_data.reshape(-1,1)
+            XAI_Data = processed_input_data.values.reshape(-1,1)
             # Generate SHAP values
             shap_values = ada_model_XAI(processed_input_data)
 
