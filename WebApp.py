@@ -364,15 +364,17 @@ with col4:
 if Author_button:
     st.markdown(
         '''
-        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
-            <strong>Mones Nazih Ksasbeh</strong> - <a href="mailto:moksasbeh@gmail.com">Email</a>
-        </p>
-        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
-            <strong>Yazan Amjed Mansour</strong> - <a href="mailto:am5294690@gmail.com">Email</a>
-        </p>
-        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
-            <strong>Basel Mwafq Hammo</strong> - <a href="mailto:basel.11hammo@gmail.com">Email</a>
-        </p>
+        <div style="text-align: center;">
+            <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
+                <strong>Mones Nazih Ksasbeh</strong> - <a href="mailto:moksasbeh@gmail.com">Email</a>
+            </p>
+            <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
+                <strong>Yazan Amjed Mansour</strong> - <a href="mailto:am5294690@gmail.com">Email</a>
+            </p>
+            <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; display: inline-block; margin-right: 20px;">
+                <strong>Basel Mwafq Hammo</strong> - <a href="mailto:basel.11hammo@gmail.com">Email</a>
+            </p>
+        </div>
         ''',
         unsafe_allow_html=True
     )
