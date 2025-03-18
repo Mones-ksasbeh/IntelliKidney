@@ -243,7 +243,7 @@ elif option == "Kidney Disease Prediction":
             top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
             explanation_text = ''
             for feature in top_features:
-                explanation_text += f"- {input_data.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
+                explanation_text += f"- {new_record.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
             # Visualize explanation
             # shap.plots.waterfall(shap_values[0])
 
