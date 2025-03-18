@@ -354,14 +354,14 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.button("Project Documentation")
 with col2:
-    contact_button = st.button("Contact")
+    t.button("Medical Report")
 with col3:
     st.button("Performance Evaluation")
 with col4:
-    st.button("Author's")
+    Author_button = st.button("Author's")
 
 # Display the contact information when the "Contact" button is clicked
-if contact_button:
+if Author_button:
     st.write("Contact Information:")
     st.write("**Mones Nazih Ksasbeh** - [Email](https://mail.google.com/mail/?view=cm&fs=1&to=moksasbeh@gmail.com)")
     st.write("**Yazan Amjed Mansour** - [Email](https://mail.google.com/mail/?view=cm&fs=1&to=am5294690@gmail.com)")
