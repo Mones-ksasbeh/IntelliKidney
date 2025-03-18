@@ -242,7 +242,7 @@ elif option == "Kidney Disease Prediction":
             shap_values = ada_model_XAI(new_record)
 
 
-            top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
+            top_features = np.argsort(-np.abs(shap_values.values[0]))[:3]
             explanation_text = ''
             for feature in top_features:
                 explanation_text += f"- {new_record_df.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
