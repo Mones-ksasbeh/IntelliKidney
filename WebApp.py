@@ -243,7 +243,7 @@ elif option == "Kidney Disease Prediction":
 
 
             top_features = np.argsort(-np.abs(shap_values.values[0]))[:3]
-            explanation_text = ''
+            explanation_markdown = ''
             for feature in top_features:
                 explanation_markdown += "\n".join([f"- **{new_record_df.columns[feature]}** (Impact: {shap_values.values[0][feature]:.2f})"])
                                                 
