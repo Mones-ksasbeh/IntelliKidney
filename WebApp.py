@@ -150,7 +150,7 @@ option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction
 
 # Selecting Model
 if option == "Choose a model":
-    st.markdown("<p style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started.", unsafe_allow_html=True)
+    st.markdown("<center><h6 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started.", unsafe_allow_html=True)
 
 # If the Option Kidney Disease Prediction
 elif option == "Kidney Disease Prediction":
