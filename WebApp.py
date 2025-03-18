@@ -112,13 +112,7 @@ with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
 
 st.set_page_config(layout="wide")  # Make the layout full-width
-st.markdown("""
-<style>
-html, body, [class*="css"] {
-    font-family: 'Times New Roman', serif;
-}
-</style>
-""", unsafe_allow_html=True)
+
 # Header 
 st.markdown("<h1 style= font-family: 'Times New Roman'';'>IntelliKidnye</h1><br><br>", unsafe_allow_html=True)
 #About the Project
@@ -249,10 +243,12 @@ elif option == "Kidney Disease Prediction":
 
 
             top_features = np.argsort(-np.abs(shap_values.values[0]))[:3]
-            explanation_markdown = ''
+            # Build the explanation markdown
+            explanation_markdown = "<div style='font-family: Times New Roman;'>"
             for feature in top_features:
-                explanation_markdown += "\n".join([f"- **{new_record_df.columns[feature]}** (Impact: {shap_values.values[0][feature]:.2f})\n"])
-                                                
+                explanation_markdown += f"- <b>{new_record_df.columns[feature]}</b> (Impact: {shap_values.values[0][feature]:.2f})<br>"
+            explanation_markdown += "</div>"                            
+            
             # Display the prediction result
             if prediction[0] == 1:
                 st.markdown("<h6 style='font-family: Times New Roman;'>The model has identified a likelihood of Chronic Kidney Disease (CKD) based on the patient's data.\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance. </h5>", unsafe_allow_html=True)
