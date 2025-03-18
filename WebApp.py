@@ -121,21 +121,20 @@ st.markdown("<h5 style= font-family: 'Times New Roman'';'>About the Project</h5>
 st.markdown("<p style= font-family: 'Times New Roman'';'>This web application is part of a research-driven project focused on Machine Learning & Medical Imaging for Kidney Disease Prediction and Diagnosis. The system leverages advanced deep learning models to assist medical professionals in identifying kidney diseases from CT scan images and structured clinical data.</p>", unsafe_allow_html=True)
 st.markdown(
     """
-    <h3 style='font-family: Times New Roman; color: #1f77b4;'>Web App Components</h3>
     <ul style='font-family: Times New Roman; text-align: left;'>
-        <li>
+        <p><li>
             <b>Kidney Disease Prediction:</b> 
             The model analyzes 24 clinical features to predict the likelihood of Chronic Kidney Disease (CKD). 
             Using <b>Explainable AI (XAI)</b>, the system provides <b>feature importance</b> scores, highlighting the top clinical factors (e.g., Haemoglobin, Specific Gravity, Sodium) that influenced the prediction. 
             This helps doctors understand the model's reasoning and make informed decisions.
         </li>
-        <li>
+        <p><li>
             <b>CT Image Classification:</b> 
             A CNN-based model classifies kidney CT scans into four categories: <b>Tumor</b>, <b>Cyst</b>, <b>Stones</b>, or <b>Normal</b>. 
             Using <b>Grad-CAM (Gradient-weighted Class Activation Mapping)</b>, the system highlights critical regions in the CT images that influenced the classification. 
             This enhances interpretability and helps radiologists identify areas of concern.
         </li>
-        <li>
+        <p><li>
             <b>Comprehensive Results Dashboard:</b> 
             Users can view predictions, probability scores, and AI-generated insights, including <b>feature importance</b> for clinical data and <b>heatmaps</b> for CT images. 
             This provides a holistic view of the model's decisions and supports clinical decision-making.
