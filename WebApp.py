@@ -231,28 +231,20 @@ elif option == "Kidney Disease Prediction":
             Ready_data = transform_with_lda(processed_input_data)
     
             prediction = ada_model.predict(Ready_data)
-            # Ensure processed_input_data is in the correct shape
-            if isinstance(processed_input_data, (int, float)): 
-                processed_input_data = np.array([[processed_input_data]])
             
-            # Generate SHAP values
-            shap_values = ada_model_XAI(processed_input_data)
+            # Example new record (Ensure it matches the training data format)
+            new_record = np.array([[processed_input_data]])  # Replace with actual values
             
-            # Ensure SHAP values are in the correct format
-            if hasattr(shap_values, "values") and len(shap_values.values) > 0:
-                top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
-                explanation_text = ""
-
-            XAI_Data = processed_input_data.values.reshape(-1,1)
-        
-            # Generate SHAP values
-            shap_values = ada_model_XAI(processed_input_data)
-
+            # Generate SHAP values for explanation
+            shap_values = Adaboost_shap_explainer(new_record)
+            
             top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
             
             for feature in top_features:
                 explanation_text += f"- {input_data.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
 
+             # Visualize explanation
+            shap.plots.waterfall(shap_values[0])
 
             # Display the prediction result
             if prediction[0] == 1:
