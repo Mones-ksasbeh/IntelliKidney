@@ -236,6 +236,8 @@ elif option == "Kidney Disease Prediction":
             new_record = np.array([list(processed_input_data)])  # Replace with actual values
             new_record = new_record.astype(np.float64)
 
+            # Convert to pandas DataFrame with the same columns as the training data
+            new_record_df = pd.DataFrame(new_record, columns=Data.columns)
             # Generate SHAP values for explanation
             shap_values = ada_model_XAI(new_record)
 
@@ -243,7 +245,7 @@ elif option == "Kidney Disease Prediction":
             top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
             explanation_text = ''
             for feature in top_features:
-                explanation_text += f"- {new_record.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
+                explanation_text += f"- {new_record_df.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
             # Visualize explanation
             # shap.plots.waterfall(shap_values[0])
 
