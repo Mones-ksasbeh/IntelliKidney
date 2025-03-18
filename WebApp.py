@@ -129,16 +129,15 @@ st.markdown(
             Using <b>Explainable AI (XAI)</b>, the system provides <b>feature importance</b> scores, highlighting the top clinical factors (e.g., Haemoglobin, Specific Gravity, Sodium) that influenced the prediction. 
             This helps doctors understand the model's reasoning and make informed decisions.
             </p>
-
         </li>
-        <li >
+        <li>
             <p style= font-family: 'Times New Roman'';'>
             <b>CT Image Classification</b> 
             A CNN-based model classifies kidney CT scans into four categories: <b>Tumor</b>, <b>Cyst</b>, <b>Stones</b>, or <b>Normal</b>. 
             Using <b>Grad-CAM (Gradient-weighted Class Activation Mapping)</b>, the system highlights critical regions in the CT images that influenced the classification. 
             This enhances interpretability and helps radiologists identify areas of concern.
             </p>
-        </li style='font-family: Times New Roman; text-align: left>
+        </li>
         <li>
             <p style= font-family: 'Times New Roman'';'>
             <b>Comprehensive Results Dashboard</b> 
