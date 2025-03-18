@@ -354,7 +354,7 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.button("Project Documentation")
 with col2:
-    t.button("Medical Report")
+    st.button("Medical Report")
 with col3:
     st.button("Performance Evaluation")
 with col4:
