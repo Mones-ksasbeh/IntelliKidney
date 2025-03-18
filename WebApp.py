@@ -129,21 +129,8 @@ st.sidebar.image('Kid.png')
 
 # Side Bar Menu 
 st.sidebar.title('Models')
-# option = st.sidebar.selectbox("Choose a model" , [" ", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
+option = st.sidebar.selectbox("Choose a model" , [" ", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
 # Use Columns for Card-Like Design
-col1, col2, col3 = st.sidebar.columns(3)
-
-with col1:
-    if st.button("Kidney Disease Prediction"):
-        option = "Kidney Disease Prediction"
-
-with col2:
-    if st.button("CT Image Classification"):
-        option = "CT Image Classification"
-
-with col3:
-    if st.button("Results Dashboard"):
-        option = "Results Dashboard"
 
 # Selecting Model
 if option == "Choose a model":
