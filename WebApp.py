@@ -246,13 +246,11 @@ elif option == "Kidney Disease Prediction":
             explanation_text = ''
             for feature in top_features:
                 explanation_text += f"- {new_record_df.columns[feature]} (Impact: {shap_values.values[0][feature]:.2f})\n"
-
+                st.success(explanation_text)
             # Display the prediction result
             if prediction[0] == 1:
                 st.markdown("<h5 style='font-family: Times New Roman;'>The model indicates a likelihood of Chronic Kidney Disease (CKD). This diagnosis is influenced by: </h5>", unsafe_allow_html=True)
-                st.info(explanation_text)
-
-
+                st.success(explanation_text)
                 
             else:
                 st.markdown("<h5 style='font-family: Times New Roman;'>No significant indicators of Chronic kidney disease (CKD) detected. However, clinical judgment and further assessment may be required, This diagnosis is influenced by</h5>", unsafe_allow_html=True)
