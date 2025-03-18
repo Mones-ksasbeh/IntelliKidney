@@ -243,12 +243,10 @@ elif option == "Kidney Disease Prediction":
 
 
             top_features = np.argsort(-np.abs(shap_values.values[0]))[:3]
-            # Build the explanation markdown
-            explanation_markdown = "<div style='font-family: Times New Roman;'>"
+            explanation_markdown = ''
             for feature in top_features:
-                explanation_markdown += f"- <b>{new_record_df.columns[feature]}</b> (Impact: {shap_values.values[0][feature]:.2f})<br>"
-            explanation_markdown += "</div>"                            
-            
+                explanation_markdown += "\n".join([f"- **{new_record_df.columns[feature]}** (Impact: {shap_values.values[0][feature]:.2f})\n"])                         
+                    
             # Display the prediction result
             if prediction[0] == 1:
                 st.markdown("<h6 style='font-family: Times New Roman;'>The model has identified a likelihood of Chronic Kidney Disease (CKD) based on the patient's data.\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance. </h5>", unsafe_allow_html=True)
