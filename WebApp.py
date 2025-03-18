@@ -362,6 +362,7 @@ with col4:
 
 st.write('\n\n')
 st.write('\n\n')
+st.write('---')
 
 # Display the contact information when the "Contact" button is clicked
 if Author_button:
