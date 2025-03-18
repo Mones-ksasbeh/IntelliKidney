@@ -236,7 +236,7 @@ elif option == "Kidney Disease Prediction":
             new_record = np.array([[processed_input_data]])  # Replace with actual values
             
             # Generate SHAP values for explanation
-            shap_values = Adaboost_shap_explainer(new_record)
+            shap_values = ada_model_XAI(new_record)
             
             top_features = np.argsort(-np.abs(shap_values.values[0]))[:5]
             
