@@ -122,22 +122,21 @@ st.markdown("<p style= font-family: 'Times New Roman'';'>This web application is
 st.markdown(
     """
     <ul style='font-family: Times New Roman; text-align: left;'>
-        <p><li>
-            <b>Kidney Disease Prediction:</b> 
+        <li style='font-family: Times New Roman; text-align: left>
+            <b>Kidney Disease Prediction</b> 
             The model analyzes 24 clinical features to predict the likelihood of Chronic Kidney Disease (CKD). 
             Using <b>Explainable AI (XAI)</b>, the system provides <b>feature importance</b> scores, highlighting the top clinical factors (e.g., Haemoglobin, Specific Gravity, Sodium) that influenced the prediction. 
             This helps doctors understand the model's reasoning and make informed decisions.
         </li>
-        <p><li>
-            <b>CT Image Classification:</b> 
+        <li style='font-family: Times New Roman; text-align: left>
+            <b>CT Image Classification</b> 
             A CNN-based model classifies kidney CT scans into four categories: <b>Tumor</b>, <b>Cyst</b>, <b>Stones</b>, or <b>Normal</b>. 
             Using <b>Grad-CAM (Gradient-weighted Class Activation Mapping)</b>, the system highlights critical regions in the CT images that influenced the classification. 
             This enhances interpretability and helps radiologists identify areas of concern.
-        </li>
-        <p><li>
-            <b>Comprehensive Results Dashboard:</b> 
-            Users can view predictions, probability scores, and AI-generated insights, including <b>feature importance</b> for clinical data and <b>heatmaps</b> for CT images. 
-            This provides a holistic view of the model's decisions and supports clinical decision-making.
+        </li style='font-family: Times New Roman; text-align: left>
+        <li>
+            <b>Comprehensive Results Dashboard</b> 
+           
         </li>
     </ul>
     """, 
