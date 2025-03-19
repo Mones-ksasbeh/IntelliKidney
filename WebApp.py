@@ -180,7 +180,7 @@ elif option == "Kidney Disease Prediction":
     st.markdown("<h3 style= font-family: 'Times New Roman''>Urinalysis/Metabolic Markers", unsafe_allow_html=True)
     
     # Urinalysis/Metabolic Markers
-    specific_gravity = st.selectbox('Specific Gravity (The ratio of the density of urine)', ['1.005', '1.010', '1.015', '1.020','1.025']) 
+    specific_gravity = st.selectbox('Specific Gravity (The ratio of the density of urine)', ['1.000','1.005', '1.010', '1.015', '1.020','1.025', '1.030']) 
 
     col3 , col4 = st.columns(2)
     with col3 : 
