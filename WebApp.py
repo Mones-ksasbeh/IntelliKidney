@@ -371,8 +371,8 @@ if Author_button:
         '''
         <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; text-align: center;">
             Mones Nazih Ksasbeh - <a href="mailto:moksasbeh@gmail.com">Email</a>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; | &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            <strong>Yazan Amjed Mansour</strong> - <a href="mailto:am5294690@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; | &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            <strong>Basel Mwafq Hammo</strong> - <a href="mailto:basel.11hammo@gmail.com">Email</a>
+            Yazan Amjed Mansour - <a href="mailto:am5294690@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; | &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+            Basel Mwafq Hammo - <a href="mailto:basel.11hammo@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         </p>
         ''',
         unsafe_allow_html=True
