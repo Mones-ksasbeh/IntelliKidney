@@ -9,14 +9,14 @@ import psycopg2
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
-    # Log Transformation for specific columns (ensure positive numerical values)
+
     def log_transform(record, columns):
         for col in columns:
             if isinstance(record[col], (int, float)) and record[col] > 0:  # Ensure value is numeric and positive
                 record[col] = np.log(record[col])
             else:
-                record[col] = np.nan  # Handle non-positive or non-numeric values gracefully
-
+                record[col] = np.nan  
+                
     # List of columns to apply log transformation
     columns_to_transform = ['Blood Glucose Random', 'Blood Urea', 'Serum Creatinine', 'Potassium']
     log_transform(record, columns_to_transform)
@@ -45,16 +45,7 @@ def Preprocessing(record, Data):
 
 # Function To Apply Independent Discriminational Analysis 
 def transform_with_lda(input_data, model_path="trained_ida_model.pkl"):
-    """
-    Loads a trained LDA model and applies it to transform the input data.
-
-    Parameters:
-        input_data (numpy.ndarray or list): Input data to transform (1D list or array).
-        model_path (str): Path to the saved LDA model.
-
-    Returns:
-        transformed_data (numpy.ndarray): LDA-transformed input.
-    """
+    
     # Load the trained LDA model
     with open(model_path, "rb") as file:
         lda = pickle.load(file)
@@ -76,7 +67,6 @@ def create_connection(DatabaseURL):
         st.error(f"Database connection error: {e}")
         return None
 
-
 # Function to insert Data into Database 
 def insert_data(conn, data_tuple):
     cursor = conn.cursor()
@@ -93,13 +83,11 @@ def insert_data(conn, data_tuple):
     cursor.execute(insert_query, data_tuple)
     conn.commit()
     
-  
-
 
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
-# Loading the Orginal Data ?????
+# Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
 
@@ -111,11 +99,12 @@ with open("Best_model.pkl", "rb") as file:
 with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
 
-st.set_page_config(layout="wide")  # Make the layout full-width
+# Make the layout full-width
+st.set_page_config(layout="wide")  
 
 # Header 
 st.markdown("<h1 style= font-family: 'Times New Roman'';'>IntelliKidnye</h1><br><br>", unsafe_allow_html=True)
-#About the Project
+# About the Project
 st.markdown("<h5 style= font-family: 'Times New Roman'';'>About the Project</h5>", unsafe_allow_html=True)
 
 st.markdown("<p style= font-family: 'Times New Roman'';'>This web application is part of a research-driven project focused on Machine Learning & Medical Imaging for Kidney Disease Prediction and Diagnosis. The system leverages advanced deep learning models to assist medical professionals in identifying kidney diseases from CT scan images and structured clinical data.</p>", unsafe_allow_html=True)
@@ -139,28 +128,31 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-
+# Seperator
 st.write('---')
+
 # image 
 st.sidebar.image('Kid.png')
 
+# Button Style
 st.markdown(
     """
     <style>
     .stButton>button {
-        width: 200px;  /* Adjust the width as needed */
-        height: 50px;  /* Adjust the height as needed */
-        font-size: 18px;  /* Adjust the font size as needed */
-        margin: 0 auto;  /* Center the button horizontally */
-        display: block;  /* Ensure the button is treated as a block element */
+        width: 200px;  
+        height: 50px;  
+        font-size: 18px;  
+        margin: 0 auto;  
+        display: block;  
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
+
 # Side Bar Menu 
 option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
-# Use Columns for Card-Like Design
 
 # Selecting Model
 if option == "Choose a model":
@@ -170,7 +162,7 @@ if option == "Choose a model":
 elif option == "Kidney Disease Prediction":
     st.markdown("<h2 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
     st.markdown("<h3 style= font-family: 'Times New Roman''>Clinical Measurements", unsafe_allow_html=True)
-    
+
     # Clinical Measurements
     age = st.number_input('Age', min_value=0, max_value=120, step=1)
     
@@ -190,10 +182,9 @@ elif option == "Kidney Disease Prediction":
         sodium = st.number_input('Sodium (mEq/L)', min_value=0.0, step=0.1)
     st.write('---')
 
-
+    # Urinalysis/Metabolic Markers
     st.markdown("<h3 style= font-family: 'Times New Roman''>Urinalysis/Metabolic Markers", unsafe_allow_html=True)
     
-    # Urinalysis/Metabolic Markers
     specific_gravity = st.selectbox('Specific Gravity (The ratio of the density of urine)', ['1.000','1.005', '1.010', '1.015', '1.020','1.025', '1.030']) 
 
     col3 , col4 = st.columns(2)
@@ -204,10 +195,9 @@ elif option == "Kidney Disease Prediction":
 
     st.write('---')
 
-    
+    # Presence of Medical Condition
     st.markdown("<h3 style= font-family: 'Times New Roman''>Presence of Medical Condition", unsafe_allow_html=True)
 
-    # Presence of Medical Condition
     col5 , col6 = st.columns(2)
     with col5 : 
         hypertension = st.selectbox('Hypertension', ['yes', 'no'])
@@ -218,10 +208,9 @@ elif option == "Kidney Disease Prediction":
     
     st.write('---')
 
-    
+    # Symptoms and Clinical Signs
     st.markdown("<h3 style= font-family: 'Times New Roman''>Symptoms and Clinical Signs", unsafe_allow_html=True)
 
-    # Symptoms and Clinical Signs
     col7 , col8 = st.columns(2)
     with col7 : 
         red_blood_cells = st.selectbox('Red Blood Cells in Urine', ['normal', 'abnormal'])
@@ -241,9 +230,10 @@ elif option == "Kidney Disease Prediction":
                                potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
                                sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
             #????????
-        if any(field == '' or field == 0 for field in required_fields):
+        if any(field == 0 for field in required_fields):
                 st.error("⚠️ Please fill  all fields!")
         else:   
+            # Input Data
             input_data = pd.Series({
                     "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
                     "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
@@ -258,20 +248,22 @@ elif option == "Kidney Disease Prediction":
             
             # Proceed with processing the input data
             processed_input_data = Preprocessing(input_data, Data)
+            
             # Apply IDA 
             Ready_data = transform_with_lda(processed_input_data)
-    
+
+            # Prediction
             prediction = ada_model.predict(Ready_data)
             
-            # Example new record (Ensure it matches the training data format)
-            new_record = np.array([list(processed_input_data)])  # Replace with actual values
+            # Example new record ( For the XAI Model)
+            new_record = np.array([list(processed_input_data)]) 
             new_record = new_record.astype(np.float64)
 
-            # Convert to pandas DataFrame with the same columns as the training data
+            # Convert to pandas DataFrame ( For the XAI Model)
             new_record_df = pd.DataFrame(new_record, columns=Data.columns)
+            
             # Generate SHAP values for explanation
             shap_values = ada_model_XAI(new_record)
-
 
             top_features = np.argsort(-np.abs(shap_values.values[0]))[:3]
             explanation_markdown = ''
@@ -290,7 +282,7 @@ elif option == "Kidney Disease Prediction":
                 st.markdown("<p>For further analysis or to rule out any potential early signs of kidney-related issues (e.g., kidney stones, cysts, or other abnormalities), please proceed to the <b>CT Image Analysis model</b>.</p>", unsafe_allow_html=True)
 
                             
-     
+            # Add the Class to the Record (data_tuple)
             Class = str(prediction[0])
             data_tuple = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
               red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
@@ -298,7 +290,8 @@ elif option == "Kidney Disease Prediction":
               coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
               appetite, pus_cell_clumps, bacteria, peda_edema, Class]
             data_tuple = tuple(data_tuple)
-            
+
+            # Connect with the Database and inser tuple
             conn = create_connection(DatabaseURL)
             insert_data(conn, data_tuple)
          
@@ -334,19 +327,14 @@ elif option == "CT Image Classification":
 
     
    
-
-
 # If the Option Results Dashboard
+
 elif option == "Results Dashboard":
     st.markdown("<h2 style= font-family: 'Times New Roman';'>Results Dashboard</h2>", unsafe_allow_html=True)
     st.markdown("<h2 style= font-family: 'Times New Roman';'>Results Dashboard</h2>", unsafe_allow_html=True)
 
 
 st.write("---")  # Separator
-
-# Function to switch pages
-def navigate_to(page):
-    st.session_state.page = page
 
 # Create a navigation bar with buttons
 col1, col2, col3, col4 = st.columns(4)
