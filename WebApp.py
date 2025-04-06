@@ -85,12 +85,13 @@ def insert_data(conn, data_tuple):
     cursor.execute(insert_query, data_tuple)
     conn.commit()
     
-# Preprocessing function for the image before feeding it to the VGG16 model
+
 def preprocess_image(uploaded_file):
     img = Image.open(uploaded_file)
+    img = img.convert("RGB")  # Ensure the image is in RGB mode (3 channels)
     img = img.resize((224, 224))  # Resize image to match VGG16 input shape
     img_array = np.array(img)
-    img_array = np.expand_dims(img_array, axis=0)  
+    img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension (1, 224, 224, 3)
     img_array = preprocess_input(img_array)  # Apply VGG16 preprocessing
     return img_array
 
