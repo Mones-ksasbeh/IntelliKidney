@@ -337,16 +337,12 @@ elif option == "CT Image Classification":
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
-        st.success("Image uploaded successfully!")
-
         # Preprocess the image
         img_array = preprocess_image(uploaded_file)
-
         # Get the prediction
         predicted_class = predict_image(CT_Model , img_array)
-
         # Display the predicted class
-        st.markdown(f"**Prediction**: {predicted_class}")
+        # st.markdown(f"**Prediction**: {predicted_class}")
         
 
 # If the Option Explainable AI (XAI)
