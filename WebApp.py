@@ -95,9 +95,9 @@ def preprocess_image(uploaded_file):
     return img_array
 
 # Function to display the prediction
-def predict_image(img_array):
+def predict_image(CT_Model , img_array):
     # Make the prediction
-    predictions = model.predict(img_array)
+    predictions = CT_Model.predict(img_array)
     class_names = ['Normal', 'Cyst', 'Stones', 'Tumor']  
     predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
     return predicted_class
@@ -332,7 +332,7 @@ elif option == "CT Image Classification":
         img_array = preprocess_image(uploaded_file)
 
         # Get the prediction
-        predicted_class = predict_image(img_array)
+        predicted_class = predict_image(CT_Model , img_array)
 
         # Display the predicted class
         st.markdown(f"**Prediction**: {predicted_class}")
