@@ -94,24 +94,26 @@ def preprocess_image(uploaded_file):
     img_array = preprocess_input(img_array)  # Apply VGG16 preprocessing
     return img_array
 
+# Function to make prediction and print the doctor-like message directly
 def predict_image(CT_Model, img_array):
     # Make the prediction
     predictions = CT_Model.predict(img_array)
     class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
     predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
     
-    # Generate the doctor-like message based on the predicted class
     if predicted_class == 'Normal':
-        result_message = "The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function."
+        st.write("Prediction: Normal")
+        st.write("The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.")
     elif predicted_class == 'Cyst':
-        result_message = "A cyst is detected in the kidney. Simple renal cysts are typically benign and often don't require treatment, but their size and any associated symptoms may require follow-up imaging."
+        st.write("Prediction: Cyst")
+        st.write("A cyst is detected in the kidney. Simple renal cysts are typically benign and often don't require treatment, but their size and any associated symptoms may require follow-up imaging.")
     elif predicted_class == 'Stone':
-        result_message = "Kidney stones are present, which may cause pain or discomfort. The stones' size, location, and potential for obstruction should be evaluated to determine appropriate management options."
+        st.write("Prediction: Stone")
+        st.write("Kidney stones are present, which may cause pain or discomfort. The stones' size, location, and potential for obstruction should be evaluated to determine appropriate management options.")
     elif predicted_class == 'Tumor':
-        result_message = "A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action."
-    
-    # Return both the predicted class and the message
-    return predicted_class 
+        st.write("Prediction: Tumor")
+        st.write("A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.")
+
 
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
@@ -341,8 +343,7 @@ elif option == "CT Image Classification":
         img_array = preprocess_image(uploaded_file)
         # Get the prediction
         predicted_class = predict_image(CT_Model , img_array)
-        # Display the predicted class
-        st.markdown(f"**Prediction**: {predicted_class}")
+
         
 
 # If the Option Explainable AI (XAI)
