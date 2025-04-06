@@ -328,10 +328,6 @@ elif option == "CT Image Classification":
     if uploaded_file is not None:
         st.success("Image uploaded successfully!")
 
-        # Display the uploaded image
-        img = Image.open(uploaded_file)
-        st.image(img, caption='Uploaded CT Image', use_column_width=True)
-
         # Preprocess the image
         img_array = preprocess_image(uploaded_file)
 
