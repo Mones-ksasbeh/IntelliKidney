@@ -7,7 +7,7 @@ import shap
 import psycopg2
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
-
+from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
