@@ -5,6 +5,8 @@ import numpy as np
 from PIL import Image
 import shap 
 import psycopg2
+import tensorflow as tf
+from tensorflow.keras.preprocessing import image
 
 
 # Function to PreProcessing Input Data
@@ -83,6 +85,22 @@ def insert_data(conn, data_tuple):
     cursor.execute(insert_query, data_tuple)
     conn.commit()
     
+# Preprocessing function for the image before feeding it to the VGG16 model
+def preprocess_image(uploaded_file):
+    img = Image.open(uploaded_file)
+    img = img.resize((224, 224))  # Resize image to match VGG16 input shape
+    img_array = np.array(img)
+    img_array = np.expand_dims(img_array, axis=0)  
+    img_array = preprocess_input(img_array)  # Apply VGG16 preprocessing
+    return img_array
+
+# Function to display the prediction
+def predict_image(img_array):
+    # Make the prediction
+    predictions = model.predict(img_array)
+    class_names = ['Normal', 'Cyst', 'Stones', 'Tumor']  
+    predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
+    return predicted_class
 
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
@@ -98,6 +116,9 @@ with open("Best_model.pkl", "rb") as file:
 # Loading Model WithOut IDA (XAI)
 with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
+
+# Loading the Transfer learning model 
+CT_Model = tf.keras.models.load_model('fine_tuned_vgg16_model.h5') 
 
 # Make the layout full-width
 st.set_page_config(layout="wide")  
@@ -299,13 +320,26 @@ elif option == "Kidney Disease Prediction":
     
 # If the Option CT Image Classification
 elif option == "CT Image Classification":
-    st.markdown("<h2 style= font-family: 'Times New Roman''>CT Image Classification</h2>", unsafe_allow_html=True)
-    st.markdown("<h5 style= font-family: 'Times New Roman''>Upload a Kidney CT Image</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-family: Times New Roman'>CT Image Classification</h2>", unsafe_allow_html=True)
+    st.markdown("<h5 style='font-family: Times New Roman'>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
         st.success("Image uploaded successfully!")
+
+        # Display the uploaded image
+        img = Image.open(uploaded_file)
+        st.image(img, caption='Uploaded CT Image', use_column_width=True)
+
+        # Preprocess the image
+        img_array = preprocess_image(uploaded_file)
+
+        # Get the prediction
+        predicted_class = predict_image(img_array)
+
+        # Display the predicted class
+        st.markdown(f"**Prediction**: {predicted_class}")
         
 
 # If the Option Explainable AI (XAI)
