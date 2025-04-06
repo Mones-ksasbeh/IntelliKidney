@@ -111,7 +111,7 @@ def predict_image(CT_Model, img_array):
         result_message = "A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action."
     
     # Return both the predicted class and the message
-    return predicted_class, result_message
+    return predicted_class 
 
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
@@ -342,7 +342,7 @@ elif option == "CT Image Classification":
         # Get the prediction
         predicted_class = predict_image(CT_Model , img_array)
         # Display the predicted class
-        # st.markdown(f"**Prediction**: {predicted_class}")
+        st.markdown(f"**Prediction**: {predicted_class}")
         
 
 # If the Option Explainable AI (XAI)
