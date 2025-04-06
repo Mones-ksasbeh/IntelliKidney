@@ -98,7 +98,7 @@ def preprocess_image(uploaded_file):
 def predict_image(CT_Model , img_array):
     # Make the prediction
     predictions = CT_Model.predict(img_array)
-    class_names = ['Normal', 'Cyst', 'Stones', 'Tumor']  
+    class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
     predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
     return predicted_class
 
