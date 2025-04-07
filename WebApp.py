@@ -105,13 +105,9 @@ def preprocess_image(uploaded_file):
 
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
-try:
-    client = MongoClient('mongodb://localhost:27017')
-    # Test connection by getting database names
-    print(client.list_database_names())  # Should list the databases if the connection works
-except Exception as e:
-    print(f"Error connecting to MongoDB: {e}")
-    
+
+
+client = MongoClient("mongodb://192.168.1.101:27017/")
 db = client['IntelliKidney']  # Database created in Compass
 
 # Set up GridFS for each collection
