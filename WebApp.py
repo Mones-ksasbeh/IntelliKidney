@@ -107,15 +107,6 @@ def preprocess_image(uploaded_file):
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
 
-# client = MongoClient("mongodb://192.168.1.101:27017/")
-# db = client['IntelliKidney']  # Database created in Compass
-
-# # Set up GridFS for each collection
-# fs_cyst = gridfs.GridFS(db, collection='Cyst')
-# fs_normal = gridfs.GridFS(db, collection='Normal')
-# fs_stone = gridfs.GridFS(db, collection='Stone')
-# fs_tumor = gridfs.GridFS(db, collection='Tumor')
-
 # Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
@@ -135,7 +126,7 @@ CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5')
 st.set_page_config(layout="wide")  
 
 # Header 
-# st.markdown("<h1 style= font-family: 'Times New Roman'';'>IntelliKidnye</h1><br><br>", unsafe_allow_html=True)
+st.markdown("<h1 style= font-family: 'Times New Roman'';'>IntelliKidnye</h1><br><br>", unsafe_allow_html=True)
 # About the Project
 st.markdown("<h5 style= font-family: 'Times New Roman'';'>About the Project</h5>", unsafe_allow_html=True)
 
@@ -351,23 +342,22 @@ elif option == "CT Image Classification":
         # img.save(image_bytes_io, format='JPEG')
         # image_bytes_io.seek(0)  # Move cursor to the start of the image data
     
-        # Store the image in the corresponding MongoDB collection
+
         if predicted_class == 'Normal':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
             st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
-            # file_id = fs_normal.put(image_bytes, filename='normal_image.jpg')
+
         elif predicted_class == 'Cyst':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Cyst</h3>", unsafe_allow_html=True)
             st.markdown("<p>A cyst is detected in the kidney. Simple renal cysts are typically benign and often don't require treatment, but their size and any associated symptoms may require follow-up imaging.</p>", unsafe_allow_html=True)
-            # file_id = fs_cyst.put(image_bytes, filename='cyst_image.jpg')
+
         elif predicted_class == 'Stone':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Stone</h3>", unsafe_allow_html=True)
             st.markdown("<p>Kidney stones are present, which may cause pain or discomfort. The stones' size, location, and potential for obstruction should be evaluated to determine appropriate management options.</p>", unsafe_allow_html=True)
-            # file_id = fs_stone.put(image_bytes, filename='stone_image.jpg')
+
         elif predicted_class == 'Tumor':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Tumor</h3>", unsafe_allow_html=True)
             st.markdown("<p>A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.</p>", unsafe_allow_html=True)
-            # file_id = fs_tumor.put(image_file, filename='tumor_image.jpg')
 
 # If the Option Explainable AI (XAI)
 # elif option == "Explainable AI (XAI)":
