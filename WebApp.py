@@ -8,6 +8,7 @@ import psycopg2
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
+import torch
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
@@ -346,7 +347,7 @@ elif option == "CT Image Classification":
         # Get the prediction
         predicted_class = predict_image(CT_Model , img_array)
         # Choose the last convolutional layer
-        target_layer = model.layer4[-1]
+        target_layer = CT_Model.layer4[-1]
 
         # To store gradients and activations
         gradients = []
