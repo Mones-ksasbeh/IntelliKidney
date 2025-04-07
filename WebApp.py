@@ -8,7 +8,6 @@ import psycopg2
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
-import torch
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
@@ -340,63 +339,105 @@ elif option == "CT Image Classification":
     st.markdown("<h5 style='font-family: Times New Roman'>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
+    import torch
+    import torch.nn.functional as F
+    import numpy as np
+    import cv2
+    import matplotlib.pyplot as plt
+    from PIL import Image
 
-    if uploaded_file is not None:
-        # Preprocess the image
-        img_array = preprocess_image(uploaded_file)
-        # Get the prediction
-        predicted_class = predict_image(CT_Model , img_array)
-        # Choose the last convolutional layer
-        target_layer = CT_Model.layer4[-1]
-
-        # To store gradients and activations
-        gradients = []
+    # Grad-CAM function
+    def generate_gradcam(model, img_tensor, target_layer, class_idx=None):
+        model.eval()
+    
         activations = []
+        gradients = []
 
-        def backward_hook(module, grad_input, grad_output):
-            gradients.append(grad_output[0])
+    def forward_hook(module, input, output):
+        activations.append(output)
 
-        def forward_hook(module, input, output):
-            activations.append(output)
+    def backward_hook(module, grad_input, grad_output):
+        gradients.append(grad_output[0])
 
-        # Register hooks
-        target_layer.register_forward_hook(forward_hook)
-        target_layer.register_backward_hook(backward_hook)
-        # Get hooked activations and gradients
-        grad = gradients[0]  # [B, C, H, W]
-        act = activations[0]  # [B, C, H, W]
+    # Register hooks
+    forward_handle = target_layer.register_forward_hook(forward_hook)
+    backward_handle = target_layer.register_backward_hook(backward_hook)
 
-        # Global Average Pooling on gradients
-        weights = torch.mean(grad, dim=(2, 3), keepdim=True)  # [B, C, 1, 1]
+    # Forward pass
+    output = model(img_tensor)
+    if class_idx is None:
+        class_idx = torch.argmax(output, dim=1).item()
 
-        # Weighted sum of activations
-        grad_cam = torch.sum(weights * act, dim=1)[0]  # [H, W]
-        grad_cam = torch.relu(grad_cam)  # ReLU
+    # Backward pass
+    model.zero_grad()
+    output[0, class_idx].backward()
 
-        # Normalize to 0-1
-        grad_cam -= grad_cam.min()
-        grad_cam /= grad_cam.max()
-        import matplotlib.pyplot as plt
-        import numpy as np
-        import cv2
+    # Get the gradients and activations
+    grads = gradients[0]
+    acts = activations[0]
+    pooled_grads = torch.mean(grads, dim=(2, 3), keepdim=True)
 
-        # Convert to numpy
-        heatmap = grad_cam.detach().cpu().numpy()
-        heatmap = cv2.resize(heatmap, (uploaded_file.size[0], uploaded_file.size[1]))
-        heatmap = np.uint8(255 * heatmap)
-        heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+    # Weight the activations
+    cam = torch.sum(pooled_grads * acts, dim=1)[0]
+    cam = torch.relu(cam)
 
-        # Convert original image to numpy
-        img_np = np.array(uploaded_file)
-        img_np = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
+    # Normalize
+    cam -= cam.min()
+    cam /= cam.max()
 
-        # Overlay heatmap on original image
-        superimposed_img = cv2.addWeighted(img_np, 0.6, heatmap, 0.4, 0)
+    # Resize to image size
+    cam_np = cam.detach().cpu().numpy()
+    cam_np = cv2.resize(cam_np, (img_tensor.shape[3], img_tensor.shape[2]))
 
-        # Show it
-        plt.imshow(cv2.cvtColor(superimposed_img, cv2.COLOR_BGR2RGB))
-        plt.axis('off')
-        plt.show()
+    # Remove hooks
+    forward_handle.remove()
+    backward_handle.remove()
+
+    return cam_np
+
+
+# Grad-CAM Overlay function
+def show_gradcam_on_image(orig_img, cam, alpha=0.5):
+    heatmap = cv2.applyColorMap(np.uint8(255 * cam), cv2.COLORMAP_JET)
+    heatmap = np.float32(heatmap) / 255
+    orig_img = np.array(orig_img.resize((cam.shape[1], cam.shape[0]))) / 255.0
+    if orig_img.shape[-1] == 1:
+        orig_img = np.repeat(orig_img, 3, axis=-1)
+    superimposed_img = heatmap * alpha + orig_img
+    superimposed_img = np.clip(superimposed_img, 0, 1)
+    plt.imshow(superimposed_img)
+    plt.axis('off')
+    plt.title("Grad-CAM")
+    plt.show()
+
+
+# Your main code with Grad-CAM
+if uploaded_file is not None:
+    # Original PIL image for visualization
+    original_img = Image.open(uploaded_file).convert('RGB')
+
+    # Preprocess the image
+    img_array = preprocess_image(uploaded_file)  # Should return tensor [1, 3, H, W]
+
+    # Get the prediction
+    predicted_class = predict_image(CT_Model, img_array)
+
+    # Choose the target convolutional layer (adjust this based on your model)
+    # For example, if using ResNet:
+    target_layer = CT_Model.layer4[-1]
+
+    # Generate Grad-CAM
+    cam = generate_gradcam(CT_Model, img_array, target_layer, class_idx=predicted_class)
+
+    # Overlay and show
+    show_gradcam_on_image(original_img, cam)
+
+
+    #if uploaded_file is not None:
+        # Preprocess the image
+        #img_array = preprocess_image(uploaded_file)
+        # Get the prediction
+        #predicted_class = predict_image(CT_Model , img_array)
 
 
 
