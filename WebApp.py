@@ -345,6 +345,62 @@ elif option == "CT Image Classification":
         img_array = preprocess_image(uploaded_file)
         # Get the prediction
         predicted_class = predict_image(CT_Model , img_array)
+        # Choose the last convolutional layer
+        target_layer = model.layer4[-1]
+
+        # To store gradients and activations
+        gradients = []
+        activations = []
+
+        def backward_hook(module, grad_input, grad_output):
+            gradients.append(grad_output[0])
+
+        def forward_hook(module, input, output):
+            activations.append(output)
+
+        # Register hooks
+        target_layer.register_forward_hook(forward_hook)
+        target_layer.register_backward_hook(backward_hook)
+        # Get hooked activations and gradients
+        grad = gradients[0]  # [B, C, H, W]
+        act = activations[0]  # [B, C, H, W]
+
+        # Global Average Pooling on gradients
+        weights = torch.mean(grad, dim=(2, 3), keepdim=True)  # [B, C, 1, 1]
+
+        # Weighted sum of activations
+        grad_cam = torch.sum(weights * act, dim=1)[0]  # [H, W]
+        grad_cam = torch.relu(grad_cam)  # ReLU
+
+        # Normalize to 0-1
+        grad_cam -= grad_cam.min()
+        grad_cam /= grad_cam.max()
+        import matplotlib.pyplot as plt
+        import numpy as np
+        import cv2
+
+        # Convert to numpy
+        heatmap = grad_cam.detach().cpu().numpy()
+        heatmap = cv2.resize(heatmap, (uploaded_file.size[0], uploaded_file.size[1]))
+        heatmap = np.uint8(255 * heatmap)
+        heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+
+        # Convert original image to numpy
+        img_np = np.array(uploaded_file)
+        img_np = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
+
+        # Overlay heatmap on original image
+        superimposed_img = cv2.addWeighted(img_np, 0.6, heatmap, 0.4, 0)
+
+        # Show it
+        plt.imshow(cv2.cvtColor(superimposed_img, cv2.COLOR_BGR2RGB))
+        plt.axis('off')
+        plt.show()
+
+
+
+
+        
 
         
 
