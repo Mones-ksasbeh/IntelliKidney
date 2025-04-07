@@ -339,7 +339,8 @@ elif option == "CT Image Classification":
     st.markdown("<h5 style='font-family: Times New Roman'>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
-    !pip install torch torchvision torchaudio
+    conda install pytorch torchvision torchaudio -c pytorch
+
     import torch
     import torch.nn.functional as F
     import numpy as np
