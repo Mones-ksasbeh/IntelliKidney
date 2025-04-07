@@ -106,7 +106,7 @@ def preprocess_image(uploaded_file):
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
-client = MongoClient('mongodb://localhost:27017')  # Default MongoDB URI
+client = MongoClient('mongodb://localhost:27017/')  # Default MongoDB URI
 db = client['IntelliKidney']  # Database created in Compass
 
 # Set up GridFS for each collection
@@ -115,6 +115,7 @@ fs_normal = gridfs.GridFS(db, collection='Normal')
 fs_stone = gridfs.GridFS(db, collection='Stone')
 fs_tumor = gridfs.GridFS(db, collection='Tumor')
 
+st.write(client.list_database_names())  
 # Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
@@ -345,10 +346,6 @@ elif option == "CT Image Classification":
         class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
         predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
         
-        # Display the prediction
-        st.image(img, caption='Uploaded Image', use_column_width=True)
-        st.write(f"Predicted class: {predicted_class}")
-    
         # Convert image to bytes for MongoDB storage
         image_bytes_io = io.BytesIO()
         img.save(image_bytes_io, format='JPEG')
