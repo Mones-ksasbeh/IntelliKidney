@@ -135,7 +135,7 @@ CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5')
 st.set_page_config(layout="wide")  
 
 # Header 
-st.markdown("<h1 style= font-family: 'Times New Roman'';'>IntelliKidnye</h1><br><br>", unsafe_allow_html=True)
+# st.markdown("<h1 style= font-family: 'Times New Roman'';'>IntelliKidnye</h1><br><br>", unsafe_allow_html=True)
 # About the Project
 st.markdown("<h5 style= font-family: 'Times New Roman'';'>About the Project</h5>", unsafe_allow_html=True)
 
