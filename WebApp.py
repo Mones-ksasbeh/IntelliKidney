@@ -339,107 +339,11 @@ elif option == "CT Image Classification":
     st.markdown("<h5 style='font-family: Times New Roman'>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
-    conda install pytorch torchvision torchaudio -c pytorch
-
-    import torch
-    import torch.nn.functional as F
-    import numpy as np
-    import cv2
-    import matplotlib.pyplot as plt
-    from PIL import Image
-
-    # Grad-CAM function
-    def generate_gradcam(model, img_tensor, target_layer, class_idx=None):
-        model.eval()
-    
-        activations = []
-        gradients = []
-
-        def forward_hook(module, input, output):
-            activations.append(output)
-
-        def backward_hook(module, grad_input, grad_output):
-            gradients.append(grad_output[0])
-
-        # Register hooks
-        forward_handle = target_layer.register_forward_hook(forward_hook)
-        backward_handle = target_layer.register_backward_hook(backward_hook)
-
-        # Forward pass
-        output = model(img_tensor)
-        if class_idx is None:
-            class_idx = torch.argmax(output, dim=1).item()
-
-        # Backward pass
-        model.zero_grad()
-        output[0, class_idx].backward()
-
-        # Get the gradients and activations
-        grads = gradients[0]
-        acts = activations[0]
-        pooled_grads = torch.mean(grads, dim=(2, 3), keepdim=True)
-
-        # Weight the activations
-        cam = torch.sum(pooled_grads * acts, dim=1)[0]
-        cam = torch.relu(cam)
-
-        # Normalize
-        cam -= cam.min()
-        cam /= cam.max()
-
-        # Resize to image size
-        cam_np = cam.detach().cpu().numpy()
-        cam_np = cv2.resize(cam_np, (img_tensor.shape[3], img_tensor.shape[2]))
-
-        # Remove hooks
-        forward_handle.remove()
-        backward_handle.remove()
-
-        return cam_np
-
-
-    # Grad-CAM Overlay function
-    def show_gradcam_on_image(orig_img, cam, alpha=0.5):
-        heatmap = cv2.applyColorMap(np.uint8(255 * cam), cv2.COLORMAP_JET)
-        heatmap = np.float32(heatmap) / 255
-        orig_img = np.array(orig_img.resize((cam.shape[1], cam.shape[0]))) / 255.0
-        if orig_img.shape[-1] == 1:
-            orig_img = np.repeat(orig_img, 3, axis=-1)
-        superimposed_img = heatmap * alpha + orig_img
-        superimposed_img = np.clip(superimposed_img, 0, 1)
-        plt.imshow(superimposed_img)
-        plt.axis('off')
-        plt.title("Grad-CAM")
-        plt.show()
-
-
-    # Your main code with Grad-CAM
     if uploaded_file is not None:
-        # Original PIL image for visualization
-        original_img = Image.open(uploaded_file).convert('RGB')
-
         # Preprocess the image
-        img_array = preprocess_image(uploaded_file)  # Should return tensor [1, 3, H, W]
-
+        img_array = preprocess_image(uploaded_file)
         # Get the prediction
-        predicted_class = predict_image(CT_Model, img_array)
-
-        # Choose the target convolutional layer (adjust this based on your model)
-        # For example, if using ResNet:
-        target_layer = CT_Model.layer4[-1]
-
-        # Generate Grad-CAM
-        cam = generate_gradcam(CT_Model, img_array, target_layer, class_idx=predicted_class)
-
-        # Overlay and show
-        show_gradcam_on_image(original_img, cam)
-
-
-    #if uploaded_file is not None:
-        # Preprocess the image
-        #img_array = preprocess_image(uploaded_file)
-        # Get the prediction
-        #predicted_class = predict_image(CT_Model , img_array)
+        predicted_class = predict_image(CT_Model , img_array)
 
 
 
