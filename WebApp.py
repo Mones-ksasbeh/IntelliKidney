@@ -107,14 +107,14 @@ def preprocess_image(uploaded_file):
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
 
-client = MongoClient("mongodb://192.168.1.101:27017/")
-db = client['IntelliKidney']  # Database created in Compass
+# client = MongoClient("mongodb://192.168.1.101:27017/")
+# db = client['IntelliKidney']  # Database created in Compass
 
-# Set up GridFS for each collection
-fs_cyst = gridfs.GridFS(db, collection='Cyst')
-fs_normal = gridfs.GridFS(db, collection='Normal')
-fs_stone = gridfs.GridFS(db, collection='Stone')
-fs_tumor = gridfs.GridFS(db, collection='Tumor')
+# # Set up GridFS for each collection
+# fs_cyst = gridfs.GridFS(db, collection='Cyst')
+# fs_normal = gridfs.GridFS(db, collection='Normal')
+# fs_stone = gridfs.GridFS(db, collection='Stone')
+# fs_tumor = gridfs.GridFS(db, collection='Tumor')
 
 # Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
