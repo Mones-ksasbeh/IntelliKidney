@@ -105,8 +105,13 @@ def preprocess_image(uploaded_file):
 
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
-
-client = MongoClient('mongodb://localhost:27017/')  # Default MongoDB URI
+try:
+    client = MongoClient('mongodb://localhost:27017')
+    # Test connection by getting database names
+    print(client.list_database_names())  # Should list the databases if the connection works
+except Exception as e:
+    print(f"Error connecting to MongoDB: {e}")
+    
 db = client['IntelliKidney']  # Database created in Compass
 
 # Set up GridFS for each collection
@@ -115,7 +120,6 @@ fs_normal = gridfs.GridFS(db, collection='Normal')
 fs_stone = gridfs.GridFS(db, collection='Stone')
 fs_tumor = gridfs.GridFS(db, collection='Tumor')
 
-st.write(client.list_database_names())  
 # Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
