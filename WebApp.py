@@ -343,11 +343,13 @@ elif option == "CT Image Classification":
 
         image = Image.open(io.BytesIO(img_array))
     
+        image = Image.open(io.BytesIO(img_array))  # Open image using PIL from byte stream
+        
         # Convert image to bytes for MongoDB storage
         image_bytes = io.BytesIO()
         image.save(image_bytes, format='JPEG')
         image_bytes.seek(0)  # Move cursor to the start of the image data
-        
+
         if predicted_class == 'Normal':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
             st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
