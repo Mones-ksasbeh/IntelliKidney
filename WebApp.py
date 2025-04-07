@@ -336,20 +336,19 @@ elif option == "CT Image Classification":
         # Preprocess the image
         img_array = preprocess_image(uploaded_file)
 
-        predicted_class = CT_Model.predict(img_array)
-        class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
-        predicted_class = class_names[np.argmax(predicted_class)]  # Get the predicted class label
-
-
-        image = Image.open(io.BytesIO(img_array))
-    
+        # Convert byte stream to PIL image
         image = Image.open(io.BytesIO(img_array))  # Open image using PIL from byte stream
+        image = image.convert('RGB')  # Ensure the image is in RGB mode to avoid errors
+
+        # Make the prediction
+        predictions = CT_Model.predict(np.expand_dims(np.array(image), axis=0))  # Ensure shape (1, height, width, channels)
+        class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
+        predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
         
         # Convert image to bytes for MongoDB storage
-        image_bytes = io.BytesIO()
-        image.save(image_bytes, format='JPEG')
-        image_bytes.seek(0)  # Move cursor to the start of the image data
-
+        image_bytes_io = io.BytesIO()
+        image.save(image_bytes_io, format='JPEG')
+        image_bytes_io.seek(0)  # Move cursor to the start of the image data
         if predicted_class == 'Normal':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
             st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
