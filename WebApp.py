@@ -99,7 +99,7 @@ def preprocess_image(uploaded_file):
     img_array = np.array(img)
     img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension (1, 224, 224, 3)
     img_array = preprocess_input(img_array)  # Apply EfficientNetV2B0 preprocessing
-    return img, img_array  # Return both the image and its numpy array
+    return  img_array  # Return both the image and its numpy array
 
 
  
@@ -335,11 +335,11 @@ elif option == "CT Image Classification":
     st.markdown("<h5 style='font-family: Times New Roman'>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
    # File uploader and image classification
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
     
     if uploaded_file is not None:
         # Preprocess the image
-        img, img_array = preprocess_image(uploaded_file)
+        img_array = preprocess_image(uploaded_file)
     
         # Make the prediction
         predictions = CT_Model.predict(img_array)  # Ensure shape (1, 224, 224, 3)
