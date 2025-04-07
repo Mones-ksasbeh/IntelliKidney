@@ -333,15 +333,14 @@ elif option == "CT Image Classification":
     if uploaded_file is not None:
         # Preprocess the image
         img_array = preprocess_image(uploaded_file)
-        # Get the prediction
 
         predicted_class = CT_Model.predict(img_array)
         class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
         predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
 
         if predicted_class == 'Normal':
-        st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
-        st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
+            st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
+            st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
         elif predicted_class == 'Cyst':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Cyst</h3>", unsafe_allow_html=True)
             st.markdown("<p>A cyst is detected in the kidney. Simple renal cysts are typically benign and often don't require treatment, but their size and any associated symptoms may require follow-up imaging.</p>", unsafe_allow_html=True)
