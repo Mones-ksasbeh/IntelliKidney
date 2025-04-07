@@ -347,9 +347,9 @@ elif option == "CT Image Classification":
         predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
         
         # Convert image to bytes for MongoDB storage
-        image_bytes_io = io.BytesIO()
-        img.save(image_bytes_io, format='JPEG')
-        image_bytes_io.seek(0)  # Move cursor to the start of the image data
+        # image_bytes_io = io.BytesIO()
+        # img.save(image_bytes_io, format='JPEG')
+        # image_bytes_io.seek(0)  # Move cursor to the start of the image data
     
         # Store the image in the corresponding MongoDB collection
         if predicted_class == 'Normal':
