@@ -6,3 +6,5 @@ scikit-learn
 shap
 psycopg2-binary
 matplotlib 
+tensorflow
+pymongo
