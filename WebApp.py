@@ -5,9 +5,12 @@ import numpy as np
 from PIL import Image
 import shap 
 import psycopg2
+import pymongo
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
+from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
+
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
@@ -89,11 +92,12 @@ def insert_data(conn, data_tuple):
 def preprocess_image(uploaded_file):
     img = Image.open(uploaded_file)
     img = img.convert("RGB")  # Ensure the image is in RGB mode (3 channels)
-    img = img.resize((224, 224))  # Resize image to match VGG16 input shape
+    img = img.resize((224, 224))  # Resize image to match EfficientNetV2B0 input shape
     img_array = np.array(img)
     img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension (1, 224, 224, 3)
-    img_array = preprocess_input(img_array)  # Apply VGG16 preprocessing
+    img_array = preprocess_input(img_array)  # Apply EfficientNetV2B0 preprocessing
     return img_array
+
 
 # Function to make prediction and print the doctor-like message directly
 def predict_image(CT_Model, img_array):
@@ -119,6 +123,7 @@ def predict_image(CT_Model, img_array):
 
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
+MongoPass =  "mongodb+srv://moksasbeh:<Mmm2003>@cluster0.cmk64.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
@@ -133,7 +138,7 @@ with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
 
 # Loading the Transfer learning model 
-CT_Model = tf.keras.models.load_model('fine_tuned_vgg16_model.h5') 
+CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
 
 # Make the layout full-width
 st.set_page_config(layout="wide")  
