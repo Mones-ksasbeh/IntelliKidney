@@ -102,7 +102,7 @@ def preprocess_image(uploaded_file):
     return img, img_array  # Return both the image and its numpy array
 
 
-
+ 
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
