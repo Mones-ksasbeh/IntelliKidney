@@ -161,9 +161,6 @@ st.markdown(
 # Seperator
 st.write('---')
 
-# image 
-st.image('Kid.png', width=200, height=150)
-
 # Button Style
 st.markdown(
     """
@@ -180,7 +177,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.sidebar.image('Kid.png', width=50 )
+st.sidebar.image('Kid.png', width=50)
 
 # Side Bar Menu 
 option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
