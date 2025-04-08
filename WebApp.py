@@ -414,7 +414,7 @@ with col3:
 with col4:
     Author_button = st.button("Author's")
 
-st.write('---')
+st.write('---') 
 
 st.write('\n\n')
 st.write('\n\n')
