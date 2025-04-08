@@ -113,12 +113,10 @@ fs_normal = gridfs.GridFS(MongoDB, collection="Normal")  # For storing images re
 fs_stone = gridfs.GridFS(MongoDB, collection="Stone")  # For storing images related to Stone
 fs_tumor = gridfs.GridFS(MongoDB, collection="Tumor")  # For storing images related to Tumor
 
-try:
-    client = MongoClient("mongodb+srv://moksasbeh:<Mmm2003>@cluster0.cmk64.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-    st.write("MongoDB connection successful")
-except Exception as e:
-    st.write(f"Error connecting to MongoDB: {e}")
-
+st.write(f"fs_cyst: {fs_cyst}")
+st.write(f"fs_normal: {fs_normal}")
+st.write(f"fs_stone: {fs_stone}")
+st.write(f"fs_tumor: {fs_tumor}")
 
 
 # Loading the Orginal Data 
