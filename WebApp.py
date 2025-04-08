@@ -185,7 +185,7 @@ st.markdown(
 option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
 
 with st.sidebar:
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4 = st.columns(1) , st.columns(1) , st.columns(1)  , st.columns(1)
     with col1:
         st.button("Project Documentation")
     with col2:
