@@ -181,6 +181,12 @@ st.sidebar.image('Kid.png', width=200)
 
 # Side Bar Menu 
 option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
+
+st.write('')
+st.write('')
+st.write('')
+
+
 # Create a sidebar with 1 column and 4 rows for buttons
 with st.sidebar:
     Project_Documentation =st.button("Project Documentation", key="btn_1")
