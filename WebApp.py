@@ -343,11 +343,15 @@ elif option == "CT Image Classification":
         predictions = CT_Model.predict(img_array)  # Ensure shape (1, 224, 224, 3)
         class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
         predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
-        # Convert the image to bytes
-        image_bytes_io = io.BytesIO()
+     # Open image and get format
         image = Image.open(uploaded_file)
-        image.save(image_bytes_io, format='JPEG')
-        image_bytes_io.seek(0)  # Rewind to start of the image data
+        image_format = image.format  # Example: 'PNG', 'JPEG', etc.
+        
+        # Convert the image to bytes using its original format
+        image_bytes_io = io.BytesIO()
+        image.save(image_bytes_io, format=image_format)
+        image_bytes_io.seek(0)  # Rewind to the beginning
+
          
         if predicted_class == 'Normal':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
