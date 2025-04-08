@@ -113,11 +113,6 @@ fs_normal = gridfs.GridFS(MongoDB, collection="Normal")  # For storing images re
 fs_stone = gridfs.GridFS(MongoDB, collection="Stone")  # For storing images related to Stone
 fs_tumor = gridfs.GridFS(MongoDB, collection="Tumor")  # For storing images related to Tumor
 
-st.write(f"fs_cyst: {fs_cyst}")
-st.write(f"fs_normal: {fs_normal}")
-st.write(f"fs_stone: {fs_stone}")
-st.write(f"fs_tumor: {fs_tumor}")
-
 
 # Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
@@ -358,20 +353,26 @@ elif option == "CT Image Classification":
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
             st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
             file_id = fs_normal.put(image_bytes_io, filename='normal_image.jpg')
+            print(f"File inserted with ID: {file_id}")
             
         elif predicted_class == 'Cyst':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Cyst</h3>", unsafe_allow_html=True)
             st.markdown("<p>A cyst is detected in the kidney. Simple renal cysts are typically benign and often don't require treatment, but their size and any associated symptoms may require follow-up imaging.</p>", unsafe_allow_html=True)
             file_id = fs_cyst.put(image_bytes_io, filename='cyst_image.jpg')
+            print(f"File inserted with ID: {file_id}")
+
         elif predicted_class == 'Stone':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Stone</h3>", unsafe_allow_html=True)
             st.markdown("<p>Kidney stones are present, which may cause pain or discomfort. The stones' size, location, and potential for obstruction should be evaluated to determine appropriate management options.</p>", unsafe_allow_html=True)
-            file_id = fs_stone.put(image_bytes_io, filename='stone_image.jpg') 
+            file_id = fs_stone.put(image_bytes_io, filename='stone_image.jpg')
+            print(f"File inserted with ID: {file_id}")
             
         elif predicted_class == 'Tumor':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Tumor</h3>", unsafe_allow_html=True)
             st.markdown("<p>A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.</p>", unsafe_allow_html=True)
             file_id = fs_tumor.put(image_bytes_io, filename='tumor_image.jpg') 
+            print(f"File inserted with ID: {file_id}")
+
 
 # If the Option Explainable AI (XAI)
 # elif option == "Explainable AI (XAI)":
