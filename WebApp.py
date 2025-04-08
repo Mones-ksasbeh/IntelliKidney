@@ -184,6 +184,20 @@ st.markdown(
 # Side Bar Menu 
 option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
 
+with st.sidebar:
+    col1, col2 = st.columns(2)
+    with col1:
+        st.button("Project Documentation")
+    with col2:
+        st.button("Medical Report")
+
+    col3, col4 = st.columns(2)
+    with col3:
+        st.button("System Performance")
+    with col4:
+        st.button("Author's")
+
+
 # Selecting Model
 if option == "Choose a model":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
@@ -412,8 +426,6 @@ with col2:
     st.button("Medical Report")
 with col3:
     System_Performance = st.button("System Performance")
-
-  
 with col4:
     Author_button = st.button("Author's")
 
