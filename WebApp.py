@@ -177,6 +177,26 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Add custom CSS to style the selectbox and other elements in the sidebar
+st.markdown("""
+    <style>
+        /* Style the selectbox in the sidebar */
+        .stSelectbox select {
+            width: 180px;  
+            height: 30px;  
+            font-size: 16px;  
+            margin: 0 auto;  
+            display: block;  
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+        }
+        /* Optionally style the sidebar container */
+        .css-1d391kg { 
+            padding: 20px;
+        }
+    </style>
+
 st.sidebar.image('Kid.png', width=200)
 
 # Side Bar Menu 
