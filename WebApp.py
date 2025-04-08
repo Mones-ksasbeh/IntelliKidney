@@ -196,11 +196,13 @@ st.markdown("""
             padding: 20px;
         }
     </style>
+    """, unsafe_allow_html=True)
 
-st.sidebar.image('Kid.png', width=200)
-
-# Side Bar Menu 
-option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
+# Create the selectbox in the sidebar
+option = st.sidebar.selectbox(
+    'Choose an option:', 
+    ["Choose a model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
+)
 
 st.write('')
 st.write('')
