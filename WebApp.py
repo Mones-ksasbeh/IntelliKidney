@@ -161,45 +161,30 @@ st.markdown(
 # Seperator
 st.write('---')
 
-# Button Style
-st.markdown(
-    """
-    <style>
-    .stButton>button {
-        width: 180px;  
-        height: 30px;  
-        font-size: 16px;  
-        margin: 0 auto;  
-        display: block;  
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-# Custom CSS to style sidebar elements including selectbox
+# Custom CSS to style the button similar to the selectbox
 st.markdown("""
     <style>
-        /* Style the sidebar container */
-        .css-1d391kg { 
-            padding: 20px;
-        }
-        
-        /* Style the selectbox component */
-        .stSelectbox select {
-            width: 180px !important;
-            height: 40px !important;
-            font-size: 16px !important;
+        /* Style the sidebar button */
+        .stButton > button {
+            background-color: #f9f9f9;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 180px;
+            height: 40px;
             margin: 10px auto;
             display: block;
-            border-radius: 5px;
-            background-color: #f1f1f1;
-            border: 1px solid #ccc;
+        }
+
+        /* Style the sidebar background */
+        .css-1d391kg {
+            background-color: #f0f0f0;
         }
     </style>
     """, unsafe_allow_html=True)
 
-# Sidebar selectbox
+
 option = st.sidebar.selectbox(
     'Choose an option:', 
     ["Choose a model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
