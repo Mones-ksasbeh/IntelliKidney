@@ -183,18 +183,13 @@ st.markdown(
 
 # Side Bar Menu 
 option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
-
+# Create a sidebar with 1 column and 4 rows for buttons
 with st.sidebar:
-    col1, col2, col3, col4 = st.columns(1) , st.columns(1) , st.columns(1)  , st.columns(1)
-    with col1:
-        st.button("Project Documentation")
-    with col2:
-        st.button("Medical Report")
-    with col3:
-        System_Performance = st.button("System Performance")
-    with col4:
-        Author_button = st.button("Author's")
-    
+    st.button("Project Documentation")
+    st.button("Medical Report")
+    st.button("System Performance")
+    st.button("Author's")
+
 
 # Selecting Model
 if option == "Choose a model":
