@@ -418,7 +418,6 @@ with col4:
     Author_button = st.button("Author's")
 
 st.write('---') 
-st.write('---') 
 
 
 if System_Performance:
