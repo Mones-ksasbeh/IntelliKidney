@@ -105,7 +105,7 @@ def preprocess_image(uploaded_file):
  
 # Database URL 
 DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
-Client = MongoClient("mongodb+srv://moksasbeh:<Mmm2003>@cluster0.cmk64.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+Client = MongoClient("mongodb+srv://Mones:<Ksasbeh>@cluster0.cmk64.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 MongoDB = Client['CT_Images']
 fs_cyst = gridfs.GridFS(MongoDB, collection="Cyst")  # For storing images related to Cyst
