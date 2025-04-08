@@ -205,7 +205,7 @@ with st.sidebar:
 if System_Performance:
         st.markdown(
             """
-            <div style="font-family: 'Times New Roman', Times, serif; font-size: 18px; text-align: justify;">
+            <div style= font-family: 'Times New Roman'';; font-size: 18px; text-align: justify;">
             <h3>System Performance Report</h3>
                 <p>
                 The diagnostic system developed in this project includes two advanced artificial intelligence models designed to assist in the early detection and classification of kidney-related conditions. The first model is a structured-data-based predictive system trained using the AdaBoost classifier. It analyzes patient clinical information, such as laboratory test results, symptoms, and medical history, to predict the likelihood of kidney disease. This model demonstrated exceptional performance, achieving a training accuracy of 95.6% and a testing accuracy of 95.2%. These figures indicate that the model maintains a strong ability to generalize from training data to unseen patient cases. Furthermore, its precision reached 93.8%, meaning that the majority of patients identified as having kidney disease were correctly diagnosed. Most notably, the model achieved a recall (sensitivity) of 96.9%, which is critically important in medical applications. A high recall means that the system effectively detects nearly all actual kidney disease cases, minimizing the risk of overlooking affected patients. The F1 score, which reflects a balance between precision and recall, was 95.3%, confirming the overall reliability of this model in clinical scenarios.
