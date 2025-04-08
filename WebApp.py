@@ -177,28 +177,29 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Add custom CSS to style the selectbox and other elements in the sidebar
+# Custom CSS to style sidebar elements including selectbox
 st.markdown("""
     <style>
-        /* Style the selectbox in the sidebar */
+        /* Style the sidebar container */
+        .css-1d391kg { 
+            padding: 20px;
+        }
+        
+        /* Style the selectbox component */
         .stSelectbox select {
-            width: 180px;  
-            height: 30px;  
-            font-size: 16px;  
-            margin: 0 auto;  
-            display: block;  
+            width: 180px !important;
+            height: 40px !important;
+            font-size: 16px !important;
+            margin: 10px auto;
+            display: block;
             border-radius: 5px;
             background-color: #f1f1f1;
             border: 1px solid #ccc;
         }
-        /* Optionally style the sidebar container */
-        .css-1d391kg { 
-            padding: 20px;
-        }
     </style>
     """, unsafe_allow_html=True)
 
-# Create the selectbox in the sidebar
+# Sidebar selectbox
 option = st.sidebar.selectbox(
     'Choose an option:', 
     ["Choose a model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
