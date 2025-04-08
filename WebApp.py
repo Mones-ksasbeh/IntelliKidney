@@ -413,7 +413,15 @@ with col2:
 with col3:
     System_Performance = st.button("System Performance")
 
-    if System_Performance:
+  
+with col4:
+    Author_button = st.button("Author's")
+
+st.write('---') 
+st.write('---') 
+
+
+if System_Performance:
     st.markdown(
         """
         <div style="font-family: 'Times New Roman', Times, serif; font-size: 18px; text-align: justify;">
@@ -430,11 +438,6 @@ with col3:
         """,
         unsafe_allow_html=True
     )
-with col4:
-    Author_button = st.button("Author's")
-
-st.write('---') 
-
 st.write('\n\n')
 st.write('\n\n')
 
