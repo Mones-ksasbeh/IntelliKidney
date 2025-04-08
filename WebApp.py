@@ -171,7 +171,7 @@ st.markdown("""
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            width: 230px;
+            width: 180px;
             height: 40px;
             margin: 10px auto;
             display: block;
