@@ -162,7 +162,7 @@ st.markdown(
 st.write('---')
 
 # image 
-st.sidebar.image('Kid.png')
+st.image('Kid.png', width=200, height=150)
 
 # Button Style
 st.markdown(
