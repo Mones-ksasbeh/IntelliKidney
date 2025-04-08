@@ -180,16 +180,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st..sidebar.image('Kid.png', width=200, height=150)
+st.sidebar.image('Kid.png', width=200, height=150)
 
 # Side Bar Menu 
 option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
 # Create a sidebar with 1 column and 4 rows for buttons
 with st.sidebar:
-    st.button("Project Documentation")
-    st.button("Medical Report")
-    st.button("System Performance")
-    st.button("Author's")
+    st.button("Project Documentation", key="btn_1")
+    st.button("Medical Report", key="btn_2")
+    st.button("System Performance", key="btn_3")
+    st.button("Author's", key="btn_4")
 
 if System_Performance:
         st.markdown(
