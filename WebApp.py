@@ -166,7 +166,7 @@ st.markdown(
     """
     <style>
     .stButton>button {
-        width: 1800px;  
+        width: 180px;  
         height: 30px;  
         font-size: 16px;  
         margin: 0 auto;  
