@@ -166,9 +166,9 @@ st.markdown(
     """
     <style>
     .stButton>button {
-        width: 200px;  
+        width: 150px;  
         height: 50px;  
-        font-size: 18px;  
+        font-size: 16px;  
         margin: 0 auto;  
         display: block;  
     }
@@ -177,16 +177,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.sidebar.image('Kid.png', width=50)
+st.sidebar.image('Kid.png', width=150)
 
 # Side Bar Menu 
 option = st.sidebar.selectbox('' , ["Choose a model", "Kidney Disease Prediction" , "CT Image Classification"  , " Results Dashboard"])
 # Create a sidebar with 1 column and 4 rows for buttons
 with st.sidebar:
-    st.button("Project Documentation", key="btn_1")
-    st.button("Medical Report", key="btn_2")
-    st.button("System Performance", key="btn_3")
-    st.button("Author's", key="btn_4")
+    Project_Documentation =st.button("Project Documentation", key="btn_1")
+    medical_Report = st.button("Medical Report", key="btn_2")
+    System_Performance = st.button("System Performance", key="btn_3")
+    Author = st.button("Author's", key="btn_4")
 
 if System_Performance:
         st.markdown(
@@ -438,7 +438,7 @@ st.write('\n\n')
 st.write('\n\n')
 
 # Display the contact information when the "Contact" button is clicked
-if Author_button:
+if Author:
     st.markdown(
         '''
         <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; text-align: center;">
