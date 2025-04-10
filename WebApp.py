@@ -191,7 +191,7 @@ st.markdown("""
             background-color: #ffffff;
             font-size: 16px;
             border-radius: 7px;
-            border: 1px solid #000000;
+            border: 1px solid #ccc;
             width: 196px;
             height: 40px;
             justify-content: center;
