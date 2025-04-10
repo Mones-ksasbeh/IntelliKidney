@@ -126,7 +126,7 @@ with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
 
 # Loading the Transfer learning model 
-# CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
+CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
 
 # Make the layout full-width
 st.set_page_config(layout="wide")  
