@@ -169,12 +169,10 @@ st.markdown("""
          .stButton > button {
              background-color: #ffffff;
              font-size: 16px;
-             padding: 10px;
              border-radius: 7px;
              border: 1px solid #ccc;
              width: 196px;
              height: 40px;
-             margin: 10px auto;
              display: block;
          }
  
