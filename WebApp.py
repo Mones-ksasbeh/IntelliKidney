@@ -165,7 +165,7 @@ st.sidebar.write('')
 
 # Custom CSS to style the button similar to the selectbox
 st.markdown("""
-    <style>
+    <style class = '1'>
         /* Style the sidebar button */
         .stButton > button {
             background-color: #ffffff;
@@ -183,6 +183,23 @@ st.markdown("""
         }
     </style>
     """, unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
+        /* Style the custom button with class 'custom-button' */
+        .custom-button button {
+            background-color: #ffffff;
+            font-size: 16px;
+            border-radius: 7px;
+            border: 1px solid #000000;
+            width: 246px;
+            height: 40px;
+            justify-content: center;
+            display: block;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
 
 st.sidebar.image("Kid.png" , width = 250)
 st.sidebar.write('')
@@ -295,9 +312,12 @@ elif option == "Kidney Disease Prediction":
 
     st.write("---")
 
+    st.markdown('<div class="custom-button">', unsafe_allow_html=True)
+    Predict_butt = st.button("Styled Button 1")
+    st.markdown('</div>', unsafe_allow_html=True)
+    
 
-
-    if st.button("Predict"):
+    if Predict_butt:
         required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
                                potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
                                sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
