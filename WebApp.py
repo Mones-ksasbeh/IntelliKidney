@@ -170,6 +170,7 @@ st.markdown("""
              background-color: #ffffff;
              font-size: 16px;
              border-radius: 7px;
+             justify-content: center;
              border: 1px solid #ccc;
              width: 196px;
              height: 40px;
@@ -193,6 +194,10 @@ option = st.sidebar.selectbox(
     '', 
     ["Choose a Model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
 )
+
+st.sidebar.write('---')
+st.sidebar.write('')
+st.sidebar.write('')
 
 
 # Create a sidebar with 1 column and 4 rows for buttons
