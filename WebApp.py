@@ -163,42 +163,28 @@ st.write('---')
 st.sidebar.write('')
 
 
-# Custom CSS to style the button similar to the selectbox
 st.markdown("""
-    <style class = '1'>
-        /* Style the sidebar button */
-        .stButton > button {
-            background-color: #ffffff;
-            font-size: 16px;
-            border-radius: 7px;
-            border: 1px solid #ffffff;
-            width: 196px;
-            height: 40px;
-            display: block;
-        }
-
-        /* Style the sidebar background */
-        .css-1d391kg {
-            background-color: #f0f0f0;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-        /* Style the custom button with class 'custom-button' */
-        .custom-button button {
-            background-color: #ffffff;
-            font-size: 16px;
-            border-radius: 7px;
-            border: 1px solid #ccc;
-            width: 196px;
-            height: 40px;
-            justify-content: center;
-            display: block;
-        }
-    </style>
-    """, unsafe_allow_html=True)
+     <style>
+         /* Style the sidebar button */
+         .stButton > button {
+             background-color: #ffffff;
+             font-size: 16px;
+             padding: 10px;
+             border-radius: 7px;
+             border: 1px solid #ccc;
+             width: 196px;
+             height: 40px;
+             margin: 10px auto;
+             display: block;
+         }
+ 
+         /* Style the sidebar background */
+         .css-1d391kg {
+             background-color: #f0f0f0;
+         }
+     </style>
+     """, unsafe_allow_html=True)
+ 
 
 
 st.sidebar.image("Kid.png" , width = 250)
