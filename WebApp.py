@@ -16,7 +16,6 @@ from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
-
     def log_transform(record, columns):
         for col in columns:
             if isinstance(record[col], (int, float)) and record[col] > 0:  # Ensure value is numeric and positive
@@ -162,7 +161,6 @@ st.markdown(
 st.write('---')
 st.sidebar.write('')
 
-
 st.markdown("""
      <style>
          /* Style the sidebar button */
@@ -184,20 +182,15 @@ st.markdown("""
      </style>
      """, unsafe_allow_html=True)
  
-
-
 st.sidebar.image("Kid.png" , width = 250)
 st.sidebar.write('')
 st.sidebar.write('')
-
 option = st.sidebar.selectbox(
     '', 
     ["Choose a Model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
 )
-
 st.sidebar.write('---')
 st.sidebar.write('')
-
 
 # Create a sidebar with 1 column and 4 rows for buttons
 with st.sidebar:
@@ -229,12 +222,9 @@ if System_Performance:
         )
         st.write('---')
 
-
-
 # Selecting Model
 if option == "Choose a Model":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
-
 # If the Option Kidney Disease Prediction
 elif option == "Kidney Disease Prediction":
     st.markdown("<h2 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
