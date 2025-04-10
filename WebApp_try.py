@@ -364,61 +364,67 @@ elif option == "Kidney Disease Prediction":
             insert_data(conn, data_tuple)
          
     
-# If the Option CT Image Classification
-elif option == "CT Image Classification":
-    # Loading the Transfer learning model 
+# Add the Prediction button
+if option == "CT Image Classification":
+    # Loading the Transfer learning model
     CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
     st.markdown("<h2 style='font-family: Times New Roman'>CT Image Classification</h2>", unsafe_allow_html=True)
     st.markdown("<h5 style='font-family: Times New Roman'>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
-   # File uploader and image classification
+    # File uploader and image classification
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
     
+    # Display a button for prediction
     if uploaded_file is not None:
-        # Preprocess the image
-        img_array = preprocess_image(uploaded_file)
-    
-        # Make the prediction
-        predictions = CT_Model.predict(img_array)  # Ensure shape (1, 224, 224, 3)
-        class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
-        predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
-        # Open image and get format
-        image = Image.open(uploaded_file)
-        image_format = image.format  # Example: 'PNG', 'JPEG', etc.
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        prediction_button = st.button("Predict")  # Button for prediction
         
-        # Convert the image to bytes using its original format
-        image_bytes_io = io.BytesIO()
-        image.save(image_bytes_io, format=image_format)
-        image_bytes_io.seek(0)  # Rewind to the beginning
-
-        Client = MongoClient("mongodb+srv://Mones:Ksasbeh@cluster0.cmk64.mongodb.net/CT_Images?retryWrites=true&w=majority")
+        if prediction_button:
+            # Preprocess the image
+            img_array = preprocess_image(uploaded_file)
         
-        MongoDB = Client['CT_Images']
-        fs_cyst = gridfs.GridFS(MongoDB, collection="Cyst")  # For storing images related to Cyst
-        fs_normal = gridfs.GridFS(MongoDB, collection="Normal")  # For storing images related to Normal
-        fs_stone = gridfs.GridFS(MongoDB, collection="Stone")  # For storing images related to Stone
-        fs_tumor = gridfs.GridFS(MongoDB, collection="Tumor")  # For storing images related to Tumor
-        
-
-        if predicted_class == 'Normal':
-            st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
-            st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
-            file_id = fs_normal.put(image_bytes_io, filename='normal_image.jpg')
+            # Make the prediction
+            predictions = CT_Model.predict(img_array)  # Ensure shape (1, 224, 224, 3)
+            class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
+            predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
             
-        elif predicted_class == 'Cyst':
-            st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Cyst</h3>", unsafe_allow_html=True)
-            st.markdown("<p>A cyst is detected in the kidney. Simple renal cysts are typically benign and often don't require treatment, but their size and any associated symptoms may require follow-up imaging.</p>", unsafe_allow_html=True)
-            file_id = fs_cyst.put(image_bytes_io, filename='cyst_image.jpg')
-
-        elif predicted_class == 'Stone':
-            st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Stone</h3>", unsafe_allow_html=True)
-            st.markdown("<p>Kidney stones are present, which may cause pain or discomfort. The stones' size, location, and potential for obstruction should be evaluated to determine appropriate management options.</p>", unsafe_allow_html=True)
-            file_id = fs_stone.put(image_bytes_io, filename='stone_image.jpg')
+            # Open image and get format
+            image = Image.open(uploaded_file)
+            image_format = image.format  # Example: 'PNG', 'JPEG', etc.
             
-        elif predicted_class == 'Tumor':
-            st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Tumor</h3>", unsafe_allow_html=True)
-            st.markdown("<p>A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.</p>", unsafe_allow_html=True)
-            file_id = fs_tumor.put(image_bytes_io, filename='tumor_image.jpg') 
+            # Convert the image to bytes using its original format
+            image_bytes_io = io.BytesIO()
+            image.save(image_bytes_io, format=image_format)
+            image_bytes_io.seek(0)  # Rewind to the beginning
+
+            # MongoDB connection
+            Client = MongoClient("mongodb+srv://Mones:Ksasbeh@cluster0.cmk64.mongodb.net/CT_Images?retryWrites=true&w=majority")
+            MongoDB = Client['CT_Images']
+            fs_cyst = gridfs.GridFS(MongoDB, collection="Cyst")
+            fs_normal = gridfs.GridFS(MongoDB, collection="Normal")
+            fs_stone = gridfs.GridFS(MongoDB, collection="Stone")
+            fs_tumor = gridfs.GridFS(MongoDB, collection="Tumor")
+            
+            # Display prediction and store image based on prediction
+            if predicted_class == 'Normal':
+                st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
+                st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
+                file_id = fs_normal.put(image_bytes_io, filename='normal_image.jpg')
+                
+            elif predicted_class == 'Cyst':
+                st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Cyst</h3>", unsafe_allow_html=True)
+                st.markdown("<p>A cyst is detected in the kidney. Simple renal cysts are typically benign and often don't require treatment, but their size and any associated symptoms may require follow-up imaging.</p>", unsafe_allow_html=True)
+                file_id = fs_cyst.put(image_bytes_io, filename='cyst_image.jpg')
+
+            elif predicted_class == 'Stone':
+                st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Stone</h3>", unsafe_allow_html=True)
+                st.markdown("<p>Kidney stones are present, which may cause pain or discomfort. The stones' size, location, and potential for obstruction should be evaluated to determine appropriate management options.</p>", unsafe_allow_html=True)
+                file_id = fs_stone.put(image_bytes_io, filename='stone_image.jpg')
+                
+            elif predicted_class == 'Tumor':
+                st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Tumor</h3>", unsafe_allow_html=True)
+                st.markdown("<p>A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.</p>", unsafe_allow_html=True)
+                file_id = fs_tumor.put(image_bytes_io, filename='tumor_image.jpg') 
    
 # If the Option Results Dashboard
 
