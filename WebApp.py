@@ -190,7 +190,7 @@ st.sidebar.write('')
 
 option = st.sidebar.selectbox(
     '', 
-    ["Choose a model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
+    ["Choose a Model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
 )
 
 
