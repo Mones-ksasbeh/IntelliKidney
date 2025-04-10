@@ -172,7 +172,7 @@ st.markdown("""
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 200px;
-            height: 50px;
+            height: 40px;
             margin: 10px auto;
             display: block;
         }
