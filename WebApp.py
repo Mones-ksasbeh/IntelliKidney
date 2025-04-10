@@ -184,13 +184,13 @@ st.markdown("""
 
 st.sidebar.image("Kid.png" , width = 200)
 option = st.sidebar.selectbox(
-    'Choose an option:', 
+    '', 
     ["Choose a model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
 )
 
-st.write('')
-st.write('')
-st.write('')
+st.sidebar.write('')
+st.sidebar.write('')
+st.sidebar.write('')
 
 
 # Create a sidebar with 1 column and 4 rows for buttons
