@@ -197,7 +197,7 @@ option = st.sidebar.selectbox(
 # Create a sidebar with 1 column and 4 rows for buttons
 with st.sidebar:
     Project_Documentation =st.button("Project Documentation", key="btn_1")
-    medical_Report = st.button("Medical Report", key="btn_2")
+    # medical_Report = st.button("Medical Report", key="btn_2")
     System_Performance = st.button("System Performance", key="btn_3")
     Author = st.button("Author's", key="btn_4")
 
