@@ -356,8 +356,10 @@ elif option == "Kidney Disease Prediction":
               appetite, pus_cell_clumps, bacteria, peda_edema, Class]
             
             data_tuple = tuple(data_tuple)
-
-            # Connect with the Database and inser tuple
+             
+            # Database URL 
+            DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
+                # Connect with the Database and inser tuple
             conn = create_connection(DatabaseURL)
             insert_data(conn, data_tuple)
          
@@ -389,7 +391,15 @@ elif option == "CT Image Classification":
         image.save(image_bytes_io, format=image_format)
         image_bytes_io.seek(0)  # Rewind to the beginning
 
-         
+        Client = MongoClient("mongodb+srv://Mones:Ksasbeh@cluster0.cmk64.mongodb.net/CT_Images?retryWrites=true&w=majority")
+        
+        MongoDB = Client['CT_Images']
+        fs_cyst = gridfs.GridFS(MongoDB, collection="Cyst")  # For storing images related to Cyst
+        fs_normal = gridfs.GridFS(MongoDB, collection="Normal")  # For storing images related to Normal
+        fs_stone = gridfs.GridFS(MongoDB, collection="Stone")  # For storing images related to Stone
+        fs_tumor = gridfs.GridFS(MongoDB, collection="Tumor")  # For storing images related to Tumor
+        
+
         if predicted_class == 'Normal':
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
             st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
