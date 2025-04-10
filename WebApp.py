@@ -156,7 +156,7 @@ st.markdown("""
              font-size: 16px;
              border-radius: 7px;
              border: 1px solid #ccc;
-             width: 196px;
+             width: 296px;
              height: 40px;
              margin: 0 auto; 
              display: block;
