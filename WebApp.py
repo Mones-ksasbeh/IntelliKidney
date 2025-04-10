@@ -306,7 +306,7 @@ elif option == "Kidney Disease Prediction":
         required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
                                potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
                                sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
-            #????????
+            
         if any(field == 0 for field in required_fields):
                 st.error("⚠️ Please fill  all fields!")
         else:   
@@ -366,13 +366,13 @@ elif option == "Kidney Disease Prediction":
               sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
               coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
               appetite, pus_cell_clumps, bacteria, peda_edema, Class]
+            
             data_tuple = tuple(data_tuple)
 
             # Connect with the Database and inser tuple
             conn = create_connection(DatabaseURL)
             insert_data(conn, data_tuple)
          
-
     
 # If the Option CT Image Classification
 elif option == "CT Image Classification":
@@ -390,7 +390,7 @@ elif option == "CT Image Classification":
         predictions = CT_Model.predict(img_array)  # Ensure shape (1, 224, 224, 3)
         class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
         predicted_class = class_names[np.argmax(predictions)]  # Get the predicted class label
-     # Open image and get format
+        # Open image and get format
         image = Image.open(uploaded_file)
         image_format = image.format  # Example: 'PNG', 'JPEG', etc.
         
@@ -419,40 +419,14 @@ elif option == "CT Image Classification":
             st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Tumor</h3>", unsafe_allow_html=True)
             st.markdown("<p>A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.</p>", unsafe_allow_html=True)
             file_id = fs_tumor.put(image_bytes_io, filename='tumor_image.jpg') 
-
-
-
-# If the Option Explainable AI (XAI)
-# elif option == "Explainable AI (XAI)":
-#     st.markdown("<h2 style= font-family: 'Times New Roman'> Explainable Artificial Intelligence</h2>", unsafe_allow_html=True)
-#     st.markdown("<p style= font-family: 'Times New Roman'> This section will display the <b> feature importance </b> for the <b> kidney disease prediction model</b> , highlighting which features contribute the most to the model's decision-making. This helps in understanding the impact of different medical parameters, such as blood pressure, serum creatinine, and hemoglobin levels, on the prediction.</p><br>", unsafe_allow_html=True)
-    
-#     st.markdown("<p style= font-family: 'Times New Roman'>Each health factor like (hemoglobin level, serum creatinine, diabetes, etc.) is represented by the associated bar. The length of these bars denotes the extent to which each health factor has been incorporated into the kidney disease prediction. Thus, the longer the bar, the more impact that factor has been upon the prediction.This is combined with Haemoglobin (+0.22), which is mainly the most effective one. If your hemoglobin levels are low or high, it has a direct effect on how the model thinks. Serum creatinine (+0.08): This is a marker of kidney function. But it goes a long way in the health outcome prediction, Diabetes Mellitus (+0.06): If you are a diabetic, it greatly affects your prediction, Specific Gravity (+0.05): This one is linked to urine concentration, which may reflect kidney functional problems. The addition of other 15 features results in a joint SHAP value of +0.06, which tells that although these other features are contributing to prediction, their respective contributions are rather small, even having the consideration of these features being in the model in some situations; their overall significance is minor. So, Hemoglobin and serum creatinine values are the most crucial and in response, your doctor might touch base on those values while diagnosing or under treatment.</p><br>", unsafe_allow_html=True)
-
-#     # image 
-#     st.image('SHAP Summary Bar Chart.png')
-
-#     st.write('---')
-#     st.markdown("<p style= font-family: 'Times New Roman'>Predicted outcome by AI model reason for prediction for you, Baseline Prediction (E[f(X)]=0.59): Mean or baseline prediction for all patients before assessing individual health variables=Red Bar (+ values) Higher=pushes prediction higher. Increases chance that this condition is predicted. Blue Bars (- values) lower-pushed prediction. Decreases chance that this condition is predicted.Diabetes Mellitus (+0.24):This increases the prediction significantly resorted diabetes means it is an important factor for your condition.In case of Hypertension (+0.22):This means that blood pressure raises strong odds through prediction, Meaning that prediction seems to have close association between this condition-hypertension and condition prediction. Blood Urea (+0.17):A high concentration of urea in the blood suggests kidney damage, Building in prediction towards confidence. Potassium (+0.14):Having low or high abnormal potassium levels affects your kidneys. In addition, this makes prediction rise in the model. Haemoglobin (-0.17):haemoglobin levels tend to adversely affect prediction, This can be interpreted as your hemoglobin might be normal or higher, thus lowering the ratio of having the condition. Serum Creatinine (-0.1):Creatinine is one major key kidney functional parameters, since it is causing the reduction of prediction. Other minor factors such as Specific Gravity (-0.06) and Blood Glucose Random (-0.04) have some lesser influences, but continue to positively contribute toward predicting. Most important factors for health risk are diabetes and hypertension, however blood urea and potassium levels also contribute to increasing the prediction. Haemoglobin and serum creatinine levels are reducing the prediction, which shows it may be normal for you. This information might be shared with your doctor to manage diabetes, blood pressure.</p><br>", unsafe_allow_html=True)
-#     st.image('XAI ( Feature Importance).png')
-
-
-#     st.markdown("<p style= font-family: 'Times New Roman'>Additionally, this section will include the <b>Grad-CAM heatmap</b> for <b>CT images</b>, providing a visual explanation of which regions in the image were most influential in the model's classification. This enhances interpretability by showing areas of interest for diagnosing kidney conditions such as tumors, cysts, or stones.</p>", unsafe_allow_html=True)
-
-    
    
 # If the Option Results Dashboard
 
 elif option == "Results Dashboard":
     st.markdown("<h2 style= font-family: 'Times New Roman';'>Results Dashboard</h2>", unsafe_allow_html=True)
     st.markdown("<h2 style= font-family: 'Times New Roman';'>Results Dashboard</h2>", unsafe_allow_html=True)
-
-
-st.write("---")  # Separator
-
     
-            
-       
+st.write("---")  # Separator  
 st.write('\n\n')
 st.write('\n\n')
 
