@@ -125,8 +125,6 @@ with open("Best_model.pkl", "rb") as file:
 with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
 
-# Loading the Transfer learning model 
-# CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
 
 # Make the layout full-width
 st.set_page_config(layout="wide")  
@@ -366,6 +364,8 @@ elif option == "Kidney Disease Prediction":
     
 # If the Option CT Image Classification
 elif option == "CT Image Classification":
+    # Loading the Transfer learning model 
+    CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
     st.markdown("<h2 style='font-family: Times New Roman'>CT Image Classification</h2>", unsafe_allow_html=True)
     st.markdown("<h5 style='font-family: Times New Roman'>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
