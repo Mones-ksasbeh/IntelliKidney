@@ -166,11 +166,11 @@ st.markdown("""
     <style>
         /* Style the sidebar button */
         .stButton > button {
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             font-size: 16px;
             border-radius: 5px;
-            border: 1px solid #f9f9f9;
-            width: 190px;
+            border: 1px solid #ffffff;
+            width: 196px;
             height: 40px;
             display: block;
         }
