@@ -172,7 +172,7 @@ st.markdown("""
             font-size: 16px;
             border-radius: 7px;
             border: 1px solid #ffffff;
-            width: 246px;
+            width: 196px;
             height: 40px;
             display: block;
         }
@@ -192,7 +192,7 @@ st.markdown("""
             font-size: 16px;
             border-radius: 7px;
             border: 1px solid #000000;
-            width: 246px;
+            width: 196px;
             height: 40px;
             justify-content: center;
             display: block;
@@ -313,7 +313,7 @@ elif option == "Kidney Disease Prediction":
     st.write("---")
 
     st.markdown('<div class="custom-button">', unsafe_allow_html=True)
-    Predict_butt = st.button("Styled Button 1")
+    Predict_butt = st.button("Predict")
     st.markdown('</div>', unsafe_allow_html=True)
     
 
