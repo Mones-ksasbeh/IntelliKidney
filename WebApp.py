@@ -168,9 +168,9 @@ st.markdown("""
         .stButton > button {
             background-color: #ffffff;
             font-size: 16px;
-            border-radius: 10px;
+            border-radius: 7px;
             border: 1px solid #ffffff;
-            width: 198px;
+            width: 196px;
             height: 40px;
             display: block;
         }
