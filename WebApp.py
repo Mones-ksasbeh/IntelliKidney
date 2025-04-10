@@ -2,7 +2,7 @@ import streamlit as st
 import pickle  
 import pandas as pd
 import numpy as np
-from PIL import Image
+from PIL import Image 
 import io 
 import shap 
 import psycopg2
