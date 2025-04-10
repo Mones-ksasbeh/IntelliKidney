@@ -102,17 +102,6 @@ def preprocess_image(uploaded_file):
 
 
  
-# Database URL 
-DatabaseURL = "postgresql://neondb_owner:npg_MCBW0Q8pqvVJ@ep-tight-rain-a55tsq6b-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
-Client = MongoClient("mongodb+srv://Mones:Ksasbeh@cluster0.cmk64.mongodb.net/CT_Images?retryWrites=true&w=majority")
-
-MongoDB = Client['CT_Images']
-fs_cyst = gridfs.GridFS(MongoDB, collection="Cyst")  # For storing images related to Cyst
-fs_normal = gridfs.GridFS(MongoDB, collection="Normal")  # For storing images related to Normal
-fs_stone = gridfs.GridFS(MongoDB, collection="Stone")  # For storing images related to Stone
-fs_tumor = gridfs.GridFS(MongoDB, collection="Tumor")  # For storing images related to Tumor
-
-
 # Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
@@ -225,8 +214,8 @@ if option == "Choose a Model":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
 # If the Option Kidney Disease Prediction
 elif option == "Kidney Disease Prediction":
-    st.markdown("<h2 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
-    st.markdown("<h3 style= font-family: 'Times New Roman''>Clinical Measurements", unsafe_allow_html=True)
+    st.markdown("<center><h3 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
+    st.markdown("<h4 style= font-family: 'Times New Roman''>Clinical Measurements", unsafe_allow_html=True)
 
     # Clinical Measurements
     age = st.number_input('Age', min_value=0, max_value=120, step=1)
@@ -366,11 +355,12 @@ elif option == "Kidney Disease Prediction":
     
 # Add the Prediction button
 if option == "CT Image Classification":
-    # Loading the Transfer learning model
-    CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
-    st.markdown("<h2 style='font-family: Times New Roman'; text-align: center;>CT Image Classification</h2>", unsafe_allow_html=True)
+    
+    st.markdown("<center><h3 style='font-family: Times New Roman'; text-align: center;>CT Image Classification</h2>", unsafe_allow_html=True)
     st.markdown("<h5 style='font-family: Times New Roman'; text-align: center;>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
+    # Loading the Transfer learning model
+    CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
     # File uploader and image classification
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
     
