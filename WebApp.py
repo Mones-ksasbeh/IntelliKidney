@@ -172,7 +172,7 @@ st.markdown("""
             font-size: 16px;
             border-radius: 7px;
             border: 1px solid #ffffff;
-            width: 196px;
+            width: 246px;
             height: 40px;
             display: block;
         }
@@ -184,7 +184,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.sidebar.image("Kid.png" , width = 200)
+st.sidebar.image("Kid.png" , width = 250)
 st.sidebar.write('')
 st.sidebar.write('')
 
