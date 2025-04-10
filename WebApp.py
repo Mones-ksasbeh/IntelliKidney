@@ -227,7 +227,7 @@ if System_Performance:
 
 
 # Selecting Model
-if option == "Choose a model":
+if option == "Choose a Model":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
 
 # If the Option Kidney Disease Prediction
