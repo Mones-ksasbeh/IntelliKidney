@@ -170,7 +170,7 @@ st.markdown("""
             font-size: 16px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            width: 200px;
+            width: 198px;
             height: 40px;
             display: block;
         }
