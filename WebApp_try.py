@@ -377,8 +377,8 @@ if option == "CT Image Classification":
     # Display a button for prediction
     if uploaded_file is not None:
         st.markdown("<br><br>", unsafe_allow_html=True)
-        prediction_button = st.button("Predict")  # Button for prediction
         st.write('---')
+        prediction_button = st.button("Predict")  # Button for prediction
         if prediction_button:
             # Preprocess the image
             img_array = preprocess_image(uploaded_file)
