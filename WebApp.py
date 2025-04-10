@@ -160,6 +160,8 @@ st.markdown(
 )
 # Seperator
 st.write('---')
+st.sidebar.write('')
+
 
 # Custom CSS to style the button similar to the selectbox
 st.markdown("""
@@ -183,14 +185,13 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 st.sidebar.image("Kid.png" , width = 200)
+st.sidebar.write('')
+st.sidebar.write('')
+
 option = st.sidebar.selectbox(
     '', 
     ["Choose a model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
 )
-
-st.sidebar.write('')
-st.sidebar.write('')
-st.sidebar.write('')
 
 
 # Create a sidebar with 1 column and 4 rows for buttons
