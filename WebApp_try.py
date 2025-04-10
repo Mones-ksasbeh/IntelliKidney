@@ -368,8 +368,8 @@ elif option == "Kidney Disease Prediction":
 if option == "CT Image Classification":
     # Loading the Transfer learning model
     CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
-    st.markdown("<h2 style='font-family: Times New Roman'>CT Image Classification</h2>", unsafe_allow_html=True)
-    st.markdown("<h5 style='font-family: Times New Roman'>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-family: Times New Roman'; text-align: center;">CT Image Classification</h2>", unsafe_allow_html=True)
+    st.markdown("<h5 style='font-family: Times New Roman'; text-align: center;">Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
 
     # File uploader and image classification
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
