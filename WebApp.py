@@ -225,143 +225,143 @@ if System_Performance:
 # Selecting Model
 if option == "Choose a Model":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
-# If the Option Kidney Disease Prediction
-elif option == "Kidney Disease Prediction":
-    st.markdown("<h2 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
-    st.markdown("<h3 style= font-family: 'Times New Roman''>Clinical Measurements", unsafe_allow_html=True)
+# # If the Option Kidney Disease Prediction
+# elif option == "Kidney Disease Prediction":
+#     st.markdown("<h2 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
+#     st.markdown("<h3 style= font-family: 'Times New Roman''>Clinical Measurements", unsafe_allow_html=True)
 
-    # Clinical Measurements
-    age = st.number_input('Age', min_value=0, max_value=120, step=1)
+#     # Clinical Measurements
+#     age = st.number_input('Age', min_value=0, max_value=120, step=1)
     
-    col1 , col2 = st.columns(2)
-    with col1 : 
-        blood_pressure = st.number_input('Blood Pressure (mmHg)', min_value=0, max_value=200, step=1)
-        blood_glucose = st.number_input('Blood Glucose Random (mgs/dL)', min_value=0, step=1)
-        blood_urea = st.number_input('Blood Urea (mgs/dL)', min_value=0, step=1)
-        white_blood_cell_count = st.number_input('White Blood Cell Count (cells/cumm)', min_value=0, step=1)
-        red_blood_cell_count = st.number_input('Red Blood Cell Count (millions/cmm)', min_value=0.0, step=0.1)
+#     col1 , col2 = st.columns(2)
+#     with col1 : 
+#         blood_pressure = st.number_input('Blood Pressure (mmHg)', min_value=0, max_value=200, step=1)
+#         blood_glucose = st.number_input('Blood Glucose Random (mgs/dL)', min_value=0, step=1)
+#         blood_urea = st.number_input('Blood Urea (mgs/dL)', min_value=0, step=1)
+#         white_blood_cell_count = st.number_input('White Blood Cell Count (cells/cumm)', min_value=0, step=1)
+#         red_blood_cell_count = st.number_input('Red Blood Cell Count (millions/cmm)', min_value=0.0, step=0.1)
         
-    with col2 :     
-        potassium = st.number_input('Potassium (mEq/L)', min_value=0.0, step=0.1)
-        haemoglobin = st.number_input('Haemoglobin (gms)', min_value=0.0, step=0.1)
-        packed_cell_volume = st.number_input('Packed Cell Volume', min_value=0.0, step=0.1)
-        serum_creatinine = st.number_input('Serum Creatinine (mgs/dL)', min_value=0.0, step=0.1)
-        sodium = st.number_input('Sodium (mEq/L)', min_value=0.0, step=0.1)
-    st.write('---')
+#     with col2 :     
+#         potassium = st.number_input('Potassium (mEq/L)', min_value=0.0, step=0.1)
+#         haemoglobin = st.number_input('Haemoglobin (gms)', min_value=0.0, step=0.1)
+#         packed_cell_volume = st.number_input('Packed Cell Volume', min_value=0.0, step=0.1)
+#         serum_creatinine = st.number_input('Serum Creatinine (mgs/dL)', min_value=0.0, step=0.1)
+#         sodium = st.number_input('Sodium (mEq/L)', min_value=0.0, step=0.1)
+#     st.write('---')
 
-    # Urinalysis/Metabolic Markers
-    st.markdown("<h3 style= font-family: 'Times New Roman''>Urinalysis/Metabolic Markers", unsafe_allow_html=True)
+#     # Urinalysis/Metabolic Markers
+#     st.markdown("<h3 style= font-family: 'Times New Roman''>Urinalysis/Metabolic Markers", unsafe_allow_html=True)
     
-    specific_gravity = st.selectbox('Specific Gravity (The ratio of the density of urine)', ['1.000','1.005', '1.010', '1.015', '1.020','1.025', '1.030']) 
+#     specific_gravity = st.selectbox('Specific Gravity (The ratio of the density of urine)', ['1.000','1.005', '1.010', '1.015', '1.020','1.025', '1.030']) 
 
-    col3 , col4 = st.columns(2)
-    with col3 : 
-        albumin = st.selectbox('Albumin (Albumin level in the blood)', ['0', '1',  '2', '3', '4','5'])
-    with col4 : 
-        sugar = st.selectbox('Sugar ( Sugar level of the patient)', ['0', '1', '2' , '3' ,  '4'  ,'5'])
+#     col3 , col4 = st.columns(2)
+#     with col3 : 
+#         albumin = st.selectbox('Albumin (Albumin level in the blood)', ['0', '1',  '2', '3', '4','5'])
+#     with col4 : 
+#         sugar = st.selectbox('Sugar ( Sugar level of the patient)', ['0', '1', '2' , '3' ,  '4'  ,'5'])
 
-    st.write('---')
+#     st.write('---')
 
-    # Presence of Medical Condition
-    st.markdown("<h3 style= font-family: 'Times New Roman''>Presence of Medical Condition", unsafe_allow_html=True)
+#     # Presence of Medical Condition
+#     st.markdown("<h3 style= font-family: 'Times New Roman''>Presence of Medical Condition", unsafe_allow_html=True)
 
-    col5 , col6 = st.columns(2)
-    with col5 : 
-        hypertension = st.selectbox('Hypertension', ['yes', 'no'])
-        diabetes_mellitus = st.selectbox('Diabetes Mellitus', [ 'yes', 'no'])
-    with col6 : 
-        coronary_artery_disease = st.selectbox('Coronary Artery Disease', ['yes', 'no'])
-        aanemia = st.selectbox('Aanemia', ['yes', 'no'])
+#     col5 , col6 = st.columns(2)
+#     with col5 : 
+#         hypertension = st.selectbox('Hypertension', ['yes', 'no'])
+#         diabetes_mellitus = st.selectbox('Diabetes Mellitus', [ 'yes', 'no'])
+#     with col6 : 
+#         coronary_artery_disease = st.selectbox('Coronary Artery Disease', ['yes', 'no'])
+#         aanemia = st.selectbox('Aanemia', ['yes', 'no'])
     
-    st.write('---')
+#     st.write('---')
 
-    # Symptoms and Clinical Signs
-    st.markdown("<h3 style= font-family: 'Times New Roman''>Symptoms and Clinical Signs", unsafe_allow_html=True)
+#     # Symptoms and Clinical Signs
+#     st.markdown("<h3 style= font-family: 'Times New Roman''>Symptoms and Clinical Signs", unsafe_allow_html=True)
 
-    col7 , col8 = st.columns(2)
-    with col7 : 
-        red_blood_cells = st.selectbox('Red Blood Cells in Urine', ['normal', 'abnormal'])
-        pus_cell = st.selectbox('Pus Cells in Urine', ['normal', 'abnormal'])
-        appetite = st.selectbox('Appetite', ['good', 'poor'])
-    with col8 : 
-        pus_cell_clumps = st.selectbox('Pus Cell Clumps in Urine', ['present', 'notpresent'])
-        bacteria = st.selectbox('Bacteria in Urine', ['present', 'notpresent'])
-        peda_edema = st.selectbox('Peda Edema (Swelling)', ['yes', 'no'])
+#     col7 , col8 = st.columns(2)
+#     with col7 : 
+#         red_blood_cells = st.selectbox('Red Blood Cells in Urine', ['normal', 'abnormal'])
+#         pus_cell = st.selectbox('Pus Cells in Urine', ['normal', 'abnormal'])
+#         appetite = st.selectbox('Appetite', ['good', 'poor'])
+#     with col8 : 
+#         pus_cell_clumps = st.selectbox('Pus Cell Clumps in Urine', ['present', 'notpresent'])
+#         bacteria = st.selectbox('Bacteria in Urine', ['present', 'notpresent'])
+#         peda_edema = st.selectbox('Peda Edema (Swelling)', ['yes', 'no'])
 
-    st.write("---")
+#     st.write("---")
 
 
 
-    if st.button("Predict"):
-        required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
-                               potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
-                               sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
+#     if st.button("Predict"):
+#         required_fields = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count, red_blood_cell_count, 
+#                                potassium, haemoglobin, packed_cell_volume, serum_creatinine, sodium, specific_gravity, albumin, 
+#                                sugar, hypertension, diabetes_mellitus, coronary_artery_disease, aanemia]
             
-        if any(field == 0 for field in required_fields):
-                st.error("⚠️ Please fill  all fields!")
-        else:   
-            # Input Data
-            input_data = pd.Series({
-                    "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
-                    "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
-                    "Pus Cell": pus_cell, "Pus Cell Clumps": pus_cell_clumps, "Bacteria": bacteria, 
-                    "Blood Glucose Random": blood_glucose, "Blood Urea": blood_urea, 
-                    "Serum Creatinine": serum_creatinine, "Sodium": sodium, "Potassium": potassium, 
-                    "Haemoglobin": haemoglobin, "Packed Cell Volume": packed_cell_volume, 
-                    "White Blood Cell Count": white_blood_cell_count, "Red Blood Cell Count": red_blood_cell_count, 
-                    "Hypertension": hypertension, "Diabetes Mellitus": diabetes_mellitus, 
-                    "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
-                    "Peda Edema": peda_edema, "Aanemia": aanemia})
+#         if any(field == 0 for field in required_fields):
+#                 st.error("⚠️ Please fill  all fields!")
+#         else:   
+#             # Input Data
+#             input_data = pd.Series({
+#                     "Age": age, "Blood Pressure": blood_pressure, "Specific Gravity": specific_gravity, 
+#                     "Albumin": albumin, "Sugar": sugar, "Red Blood Cells": red_blood_cells, 
+#                     "Pus Cell": pus_cell, "Pus Cell Clumps": pus_cell_clumps, "Bacteria": bacteria, 
+#                     "Blood Glucose Random": blood_glucose, "Blood Urea": blood_urea, 
+#                     "Serum Creatinine": serum_creatinine, "Sodium": sodium, "Potassium": potassium, 
+#                     "Haemoglobin": haemoglobin, "Packed Cell Volume": packed_cell_volume, 
+#                     "White Blood Cell Count": white_blood_cell_count, "Red Blood Cell Count": red_blood_cell_count, 
+#                     "Hypertension": hypertension, "Diabetes Mellitus": diabetes_mellitus, 
+#                     "Coronary Artery Aisease": coronary_artery_disease, "Appetite": appetite, 
+#                     "Peda Edema": peda_edema, "Aanemia": aanemia})
             
-            # Proceed with processing the input data
-            processed_input_data = Preprocessing(input_data, Data)
+#             # Proceed with processing the input data
+#             processed_input_data = Preprocessing(input_data, Data)
             
-            # Apply IDA 
-            Ready_data = transform_with_lda(processed_input_data)
+#             # Apply IDA 
+#             Ready_data = transform_with_lda(processed_input_data)
 
-            # Prediction
-            prediction = ada_model.predict(Ready_data)
+#             # Prediction
+#             prediction = ada_model.predict(Ready_data)
             
-            # Example new record ( For the XAI Model)
-            new_record = np.array([list(processed_input_data)]) 
-            new_record = new_record.astype(np.float64)
+#             # Example new record ( For the XAI Model)
+#             new_record = np.array([list(processed_input_data)]) 
+#             new_record = new_record.astype(np.float64)
 
-            # Convert to pandas DataFrame ( For the XAI Model)
-            new_record_df = pd.DataFrame(new_record, columns=Data.columns)
+#             # Convert to pandas DataFrame ( For the XAI Model)
+#             new_record_df = pd.DataFrame(new_record, columns=Data.columns)
             
-            # Generate SHAP values for explanation
-            shap_values = ada_model_XAI(new_record)
+#             # Generate SHAP values for explanation
+#             shap_values = ada_model_XAI(new_record)
 
-            top_features = np.argsort(-np.abs(shap_values.values[0]))[:3]
-            explanation_markdown = ''
-            for feature in top_features:
-                explanation_markdown += "\n".join([f"- **{new_record_df.columns[feature]}** (Impact: {shap_values.values[0][feature]:.2f})\n"])                         
+#             top_features = np.argsort(-np.abs(shap_values.values[0]))[:3]
+#             explanation_markdown = ''
+#             for feature in top_features:
+#                 explanation_markdown += "\n".join([f"- **{new_record_df.columns[feature]}** (Impact: {shap_values.values[0][feature]:.2f})\n"])                         
                     
-            # Display the prediction result
-            if prediction[0] == 1:
-                st.markdown("<p>The model has identified a likelihood of Chronic Kidney Disease (CKD) based on the patient's data.\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance. </h5>", unsafe_allow_html=True)
-                st.markdown(explanation_markdown)
-                st.markdown("<p> For more detailed analysis or to investigate possible structural causes or forms of CKD (e.g., kidney stones, cysts, or abnormalities), please proceed to the <b>CT Image Analysis model</b>.</h5>", unsafe_allow_html=True)
+#             # Display the prediction result
+#             if prediction[0] == 1:
+#                 st.markdown("<p>The model has identified a likelihood of Chronic Kidney Disease (CKD) based on the patient's data.\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance. </h5>", unsafe_allow_html=True)
+#                 st.markdown(explanation_markdown)
+#                 st.markdown("<p> For more detailed analysis or to investigate possible structural causes or forms of CKD (e.g., kidney stones, cysts, or abnormalities), please proceed to the <b>CT Image Analysis model</b>.</h5>", unsafe_allow_html=True)
                                 
-            else:
-                st.markdown("<p>The model has assessed the patient's data and found no significant likelihood of Chronic Kidney Disease (CKD).\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance.</h5>", unsafe_allow_html=True)
-                st.markdown(explanation_markdown)
-                st.markdown("<p>For further analysis or to rule out any potential early signs of kidney-related issues (e.g., kidney stones, cysts, or other abnormalities), please proceed to the <b>CT Image Analysis model</b>.</p>", unsafe_allow_html=True)
+#             else:
+#                 st.markdown("<p>The model has assessed the patient's data and found no significant likelihood of Chronic Kidney Disease (CKD).\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance.</h5>", unsafe_allow_html=True)
+#                 st.markdown(explanation_markdown)
+#                 st.markdown("<p>For further analysis or to rule out any potential early signs of kidney-related issues (e.g., kidney stones, cysts, or other abnormalities), please proceed to the <b>CT Image Analysis model</b>.</p>", unsafe_allow_html=True)
 
                             
-            # Add the Class to the Record (data_tuple)
-            Class = str(prediction[0])
-            data_tuple = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
-              red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
-              sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
-              coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
-              appetite, pus_cell_clumps, bacteria, peda_edema, Class]
+#             # Add the Class to the Record (data_tuple)
+#             Class = str(prediction[0])
+#             data_tuple = [age, blood_pressure, blood_glucose, blood_urea, white_blood_cell_count,
+#               red_blood_cell_count, potassium, haemoglobin, packed_cell_volume, serum_creatinine,
+#               sodium, specific_gravity, albumin, sugar, hypertension, diabetes_mellitus,
+#               coronary_artery_disease, aanemia, red_blood_cells, pus_cell,
+#               appetite, pus_cell_clumps, bacteria, peda_edema, Class]
             
-            data_tuple = tuple(data_tuple)
+#             data_tuple = tuple(data_tuple)
 
-            # Connect with the Database and inser tuple
-            conn = create_connection(DatabaseURL)
-            insert_data(conn, data_tuple)
+#             # Connect with the Database and inser tuple
+#             conn = create_connection(DatabaseURL)
+#             insert_data(conn, data_tuple)
          
     
 # If the Option CT Image Classification
