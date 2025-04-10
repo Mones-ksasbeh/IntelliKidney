@@ -170,10 +170,10 @@ st.markdown("""
              background-color: #ffffff;
              font-size: 16px;
              border-radius: 7px;
-             justify-content: center;
              border: 1px solid #ccc;
              width: 196px;
              height: 40px;
+             margin: 0 auto; 
              display: block;
          }
  
@@ -196,7 +196,6 @@ option = st.sidebar.selectbox(
 )
 
 st.sidebar.write('---')
-st.sidebar.write('')
 st.sidebar.write('')
 
 
