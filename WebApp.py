@@ -439,11 +439,11 @@ if option == "CT Image Classification":
                 st.markdown("<p>A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.</p>", unsafe_allow_html=True)
                 file_id = fs_tumor.put(image_bytes_io, filename='tumor_image.jpg') 
 
-             st.write("Generating LIME explanation... please wait ⏳")
-             lime_img = generate_lime_explanation(img_array)
+            st.write("Generating LIME explanation... please wait ⏳")
+            lime_img = generate_lime_explanation(img_array)
         
-             st.subheader("LIME Explanation:")
-             st.image(lime_img, caption="Highlighted areas that influenced the model's decision", use_column_width=True)
+            st.subheader("LIME Explanation:")
+            st.image(lime_img, caption="Highlighted areas that influenced the model's decision", use_column_width=True)
    
 # If the Option Results Dashboard
 
