@@ -444,11 +444,12 @@ if option == "CT Image Classification":
             image = tf.keras.preprocessing.image.load_img(uploaded_file, target_size=(224, 224))  # Adjust target_size
             image = np.array(image)
             
-            st.write("Generating LIME explanation... please wait ⏳")
+            st.write("Generating  explanation... please wait ⏳")
             lime_img = generate_lime_explanation(image)
-            st.subheader("LIME Explanation:")
-            st.image(lime_img, caption="Highlighted areas that influenced the model's decision", width=250 )
-   
+            st.markdown(
+                f"<div style='text-align: center;'><img src='data:image/png;base64,{lime_img}' width='300'></div>", 
+                unsafe_allow_html=True
+            )   
 # If the Option Results Dashboard
 
 elif option == "Results Dashboard":
