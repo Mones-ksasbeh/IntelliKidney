@@ -441,9 +441,11 @@ if option == "CT Image Classification":
                 file_id = fs_tumor.put(image_bytes_io, filename='tumor_image.jpg') 
 
             
-            raw_img = np.array(uploaded_file)  # For LIME
+            image = tf.keras.preprocessing.image.load_img(uploaded_file, target_size=(224, 224))  # Adjust target_size
+            image = np.array(image)
+            
             st.write("Generating LIME explanation... please wait ⏳")
-            lime_img = generate_lime_explanation(raw_img)
+            lime_img = generate_lime_explanation(image)
             st.subheader("LIME Explanation:")
             st.image(lime_img, caption="Highlighted areas that influenced the model's decision", use_column_width=True)
    
