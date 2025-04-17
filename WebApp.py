@@ -198,7 +198,7 @@ st.markdown("""
 st.sidebar.image("Kid.png" , width = 250)
 option = st.sidebar.selectbox(
     '', 
-    ["Choose a Model", "Kidney Disease Prediction", "CT Image Classification", "Results Dashboard"]
+    ["Choose a Model", "Kidney Disease Prediction", "CT Image Classification"]
 )
 st.sidebar.write('---')
 
