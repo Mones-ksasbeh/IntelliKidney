@@ -447,7 +447,7 @@ if option == "CT Image Classification":
             st.write("Generating LIME explanation... please wait ⏳")
             lime_img = generate_lime_explanation(image)
             st.subheader("LIME Explanation:")
-            st.image(lime_img, caption="Highlighted areas that influenced the model's decision", use_column_width=True)
+            st.image(lime_img, caption="Highlighted areas that influenced the model's decision", width=300 )
    
 # If the Option Results Dashboard
 
