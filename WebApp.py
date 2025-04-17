@@ -101,7 +101,7 @@ def preprocess_image(uploaded_file):
     return  img_array  # Return both the image and its numpy array
 
 
- def generate_lime_explanation(image_array):
+def generate_lime_explanation(image_array):
     explainer = lime_image.LimeImageExplainer()
 
     # LIME expects float64
