@@ -12,6 +12,8 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
 from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
+from lime import lime_image
+from skimage.segmentation import mark_boundaries
 
 
 # Function to PreProcessing Input Data
