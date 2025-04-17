@@ -101,7 +101,32 @@ def preprocess_image(uploaded_file):
     return  img_array  # Return both the image and its numpy array
 
 
- 
+ def generate_lime_explanation(image_array):
+    explainer = lime_image.LimeImageExplainer()
+
+    # LIME expects float64
+    explanation = explainer.explain_instance(
+        image_array.astype('double'),
+        CT_Model.predict,
+        top_labels=1,
+        hide_color=0,
+        num_samples=1000
+    )
+
+    # Get the mask and overlay it on the image
+    temp, mask = explanation.get_image_and_mask(
+        explanation.top_labels[0],
+        positive_only=True,
+        num_features=5,
+        hide_rest=False
+    )
+
+    # Visualize with boundaries
+    img_boundaries = mark_boundaries(temp / 255.0, mask)
+
+    return img_boundaries
+
+
 # Loading the Orginal Data 
 Data = pd.read_csv('PreProcessdData.xls')
 Data = Data.drop(['Class' , 'Unnamed: 0'] , axis = 1 ) 
@@ -114,6 +139,7 @@ with open("Best_model.pkl", "rb") as file:
 with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
 
+explainer = lime_image.LimeImageExplainer()
 
 # Make the layout full-width
 st.set_page_config(layout="wide")  
@@ -412,6 +438,12 @@ if option == "CT Image Classification":
                 st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Tumor</h3>", unsafe_allow_html=True)
                 st.markdown("<p>A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.</p>", unsafe_allow_html=True)
                 file_id = fs_tumor.put(image_bytes_io, filename='tumor_image.jpg') 
+
+             st.write("Generating LIME explanation... please wait ⏳")
+             lime_img = generate_lime_explanation(img_array)
+        
+             st.subheader("LIME Explanation:")
+             st.image(lime_img, caption="Highlighted areas that influenced the model's decision", use_column_width=True)
    
 # If the Option Results Dashboard
 
