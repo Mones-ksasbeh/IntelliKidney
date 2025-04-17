@@ -162,7 +162,7 @@ st.markdown(
             <p style= font-family: 'Times New Roman'';'>
             <b>CT Image Classification</b> 
             A CNN-based model classifies kidney CT scans into four categories: <b>Tumor</b>, <b>Cyst</b>, <b>Stones</b>, or <b>Normal</b>. 
-            Using <b>Grad-CAM (Gradient-weighted Class Activation Mapping)</b>, the system highlights critical regions in the CT images that influenced the classification. 
+            Using <b>LIME (Local Interpretable Model-agnostic Explanations) </b>, the system highlights critical regions in the CT images that influenced the classification. 
             This enhances interpretability and helps radiologists identify areas of concern.
             </p>
 
