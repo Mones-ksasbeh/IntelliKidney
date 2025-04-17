@@ -141,7 +141,6 @@ with open("Best_model.pkl", "rb") as file:
 with open("Adaboost_shap_explainer.pkl", "rb") as file:
             ada_model_XAI = pickle.load(file)
 
-explainer = lime_image.LimeImageExplainer()
 
 # Make the layout full-width
 st.set_page_config(layout="wide")  
