@@ -15,7 +15,6 @@ from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
 from lime import lime_image
 from skimage.segmentation import mark_boundaries
 
-
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
     def log_transform(record, columns):
