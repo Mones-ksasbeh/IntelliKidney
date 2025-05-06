@@ -210,7 +210,7 @@ with st.sidebar:
     st.download_button(
         label="Project Documentation",
         data=PDFbyte,
-        file_name="Project_Documentation.pdf",
+        file_name="IntelliKidney.pdf",
         mime="application/pdf",
         key="btn_1"
     )
