@@ -203,7 +203,7 @@ option = st.sidebar.selectbox(
 st.sidebar.write('---')
 
 # Create a sidebar with 1 column and 4 rows for buttons
-with st.sidebar:
+with st.sidebar: 
     with open("IntelliKidney.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
 
