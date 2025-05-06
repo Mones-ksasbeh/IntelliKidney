@@ -205,7 +205,18 @@ st.sidebar.write('---')
 # Create a sidebar with 1 column and 4 rows for buttons
 with st.sidebar:
     Project_Documentation =st.button("Project Documentation", key="btn_1")
-    # medical_Report = st.button("Medical Report", key="btn_2")
+    if Project_Documentation:
+        with open("IntelliKidney.pdf", "rb") as pdf_file:
+            PDFbyte = pdf_file.read()
+
+        st.download_button(
+            label="👉 Click here to download PDF",
+            data=PDFbyte,
+            file_name="Project_Documentation.pdf",
+            mime="application/pdf",
+            key="download_doc"
+        )
+
     System_Performance = st.button("System Performance", key="btn_3")
     Author = st.button("Author's", key="btn_4")
 
