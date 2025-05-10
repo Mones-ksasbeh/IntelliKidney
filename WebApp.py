@@ -288,7 +288,7 @@ elif Author:
         </style>
 
         <div class="author-container">
-            <div class="author-card">
+            <div class="author-card"> 
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
                 <p class="author-name">Mones Nazih Ksasbeh</p>
                 <p class="description">AI & Data Science Specialist<br> ML Developer</p>
