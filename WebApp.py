@@ -284,7 +284,7 @@ elif Author:
                 color: #0072b1;
             }
             .author-description {
-            font-size: 10px;
+            font-size: 8px;
             color: #555;
             margin-top: 10px;
             margin-bottom: 5px;
@@ -296,7 +296,7 @@ elif Author:
             <div class="author-card">
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
                 <p class="author-name">Mones Nazih Ksasbeh</p>
-                <p class="author-description">AI & Data Science Specialist<br>Back-end & ML Developer</p>
+                <p class="author-description">AI & Data Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
