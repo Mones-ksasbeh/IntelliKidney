@@ -313,7 +313,7 @@ elif Author:
             <div class="author-card">
                 <img src="https://i.postimg.cc/kGPcLLg5/basel.jpg" class="author-img" alt="Basel Hammo">
                 <p class="author-name" style ="font-weight: bold;">Basel Mwafq Hammo</p>
-                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">AI & Data Science Specialist<br> ML Developer</p>
+                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science Graduate from Al Albayt University <br> Interested in Data Analysis <br> Data visualization and Dashboarding <br></p>
                 <div class="author-links">
                     <a href="mailto:basel.11hammo@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
