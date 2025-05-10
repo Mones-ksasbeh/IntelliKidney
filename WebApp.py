@@ -253,13 +253,14 @@ elif Author:
             .author-container {
                 display: flex;
                 justify-content: center;
-                gap: 60px;
+                gap: 80px; /* Increased space between cards */
                 margin-top: 20px;
                 flex-wrap: wrap;
             }
             .author-card {
                 text-align: center;
                 font-family: 'Arial', sans-serif;
+                padding: 10px;
             }
             .author-img {
                 width: 80px;
@@ -269,6 +270,10 @@ elif Author:
                 border: 2px solid #ddd;
                 margin-bottom: 10px;
             }
+            .author-name {
+                font-size: 16px;
+                margin: 5px 0;
+            }
             .author-links a {
                 text-decoration: none;
                 margin: 0 10px;
@@ -276,14 +281,14 @@ elif Author:
                 color: #333;
             }
             .author-links a:hover {
-                color: #0072b1; /* LinkedIn Blue */
+                color: #0072b1;
             }
         </style>
 
         <div class="author-container">
             <div class="author-card">
                 <img src="https://via.placeholder.com/80" class="author-img" alt="Mones Nazih">
-                <p><strong>Mones Nazih Ksasbeh</strong></p>
+                <p class="author-name">Mones Nazih Ksasbeh</p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/mones-ksasbeh" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -291,7 +296,7 @@ elif Author:
             </div>
             <div class="author-card">
                 <img src="https://via.placeholder.com/80" class="author-img" alt="Yazan Amjed">
-                <p><strong>Yazan Amjed Mansour</strong></p>
+                <p class="author-name">Yazan Amjed Mansour</p>
                 <div class="author-links">
                     <a href="mailto:am5294690@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/yazan-mansour" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -299,7 +304,7 @@ elif Author:
             </div>
             <div class="author-card">
                 <img src="https://via.placeholder.com/80" class="author-img" alt="Basel Hammo">
-                <p><strong>Basel Mwafq Hammo</strong></p>
+                <p class="author-name">Basel Mwafq Hammo</p>
                 <div class="author-links">
                     <a href="mailto:basel.11hammo@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/basel-hammo" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
