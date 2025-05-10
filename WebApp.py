@@ -253,7 +253,7 @@ elif Author:
             .author-container {
                 display: flex;
                 justify-content: center;
-                gap: 180px; /* Increased space between cards */
+                gap: 100px; /* Increased space between cards */
                 margin-top: 20px;
                 flex-wrap: wrap;
             }
