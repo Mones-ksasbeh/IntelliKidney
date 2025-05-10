@@ -287,7 +287,7 @@ elif Author:
 
         <div class="author-container">
             <div class="author-card">
-                <img src="https://i.postimg.cc/brST5phW/mones.jpg" class="author-img" alt="Mones Nazih">
+                <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
                 <p class="author-name">Mones Nazih Ksasbeh</p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -295,7 +295,7 @@ elif Author:
                 </div>
             </div>
             <div class="author-card">
-                <img src="https://i.postimg.cc/qgfLVSBR/yazan.jpg" class="author-img" alt="Yazan Amjed">
+                <img src="https://i.postimg.cc/1tqBCyPT/yazan.jpg" class="author-img" alt="Yazan Amjed">
                 <p class="images/yazan.jpg">Yazan Amjed Mansour</p>
                 <div class="author-links">
                     <a href="mailto:am5294690@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -303,7 +303,7 @@ elif Author:
                 </div>
             </div>
             <div class="author-card">
-                <img src="https://i.postimg.cc/G25Kz9Zv/basel.jpg" class="author-img" alt="Basel Hammo">
+                <img src="https://i.postimg.cc/kGPcLLg5/basel.jpg" class="author-img" alt="Basel Hammo">
                 <p class="author-name">Basel Mwafq Hammo</p>
                 <div class="author-links">
                     <a href="mailto:basel.11hammo@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
