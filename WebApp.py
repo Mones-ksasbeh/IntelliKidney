@@ -274,6 +274,13 @@ elif Author:
                 font-size: 16px;
                 margin: 5px 0;
             }
+            .author-description {
+            font-size: 6px;
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            
             .author-links a {
                 text-decoration: none;
                 margin: 0 10px;
@@ -283,12 +290,7 @@ elif Author:
             .author-links a:hover {
                 color: #0072b1;
             }
-            .author-description {
-            font-size: 6px;
-            color: #555;
-            margin-top: 20px;
-            margin-bottom: 5px;
-            line-height: 1.2;
+            
         }
         </style>
 
