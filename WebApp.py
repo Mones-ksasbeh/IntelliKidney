@@ -284,8 +284,9 @@ elif Author:
                 color: #0072b1;
             }
             .author-description {
-            font-size: 13px;
+            font-size: 10px;
             color: #555;
+            margin-top: 8px;
             margin-bottom: 5px;
             line-height: 1.2;
         }
