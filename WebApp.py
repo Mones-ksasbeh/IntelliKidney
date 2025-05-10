@@ -250,13 +250,6 @@ elif Author:
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
         <style>
-            .description p {
-            font-size: 12px;
-            color: #555;
-            margin-top: 50px;
-            margin-bottom: 5px;
-            line-height: 2.2;
-            }
             .author-container {
                 display: flex;
                 justify-content: center;
@@ -281,7 +274,6 @@ elif Author:
                 font-size: 16px;
                 margin: 5px 0;
             }
-           
             .author-links a {
                 text-decoration: none;
                 margin: 0 10px;
