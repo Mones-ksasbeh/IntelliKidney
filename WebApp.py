@@ -253,7 +253,7 @@ elif Author:
             .author-container {
                 display: flex;
                 justify-content: center;
-                gap: 150px; /* Increased space between cards */
+                gap: 150px; /* Space between cards */
                 margin-top: 20px;
                 flex-wrap: wrap;
             }
@@ -273,13 +273,13 @@ elif Author:
             .author-name {
                 font-size: 16px;
                 margin: 5px 0;
+                font-weight: bold;
             }
             .author-description {
-            font-size: 6px;
-            color: #555;
-            margin-top: 20px;
-            margin-bottom: 5px;
-            line-height: 1.2;
+                font-size: 13px;
+                color: #555;
+                margin-bottom: 5px;
+                line-height: 1.3;
             }
             .author-links a {
                 text-decoration: none;
@@ -290,19 +290,20 @@ elif Author:
             .author-links a:hover {
                 color: #0072b1;
             }
-
         </style>
 
         <div class="author-container">
             <div class="author-card">
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
+                <p class="author-description">AI & Data Science Specialist<br>ML Developer</p>
                 <p class="author-name">Mones Nazih Ksasbeh</p>
-                <p class="author-description">AI & Data Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email" target="_blank">
-                      <i class="fa-solid fa-envelope"></i>
+                        <i class="fa-solid fa-envelope"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/mones-ksasbeh" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/mones-ksasbeh" title="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </div>
             <div class="author-card">
