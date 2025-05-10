@@ -225,29 +225,6 @@ if option == "Choose a Model":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
     
 # If the Option Kidney Disease Prediction
-elif System_Performance:
-        st.markdown(
-            """
-            <div style= font-family: 'Times New Roman'';; font-size: 18px; text-align: justify;">
-            <h3>System Performance Report</h3>
-                <p>
-                The diagnostic system developed in this project includes two advanced artificial intelligence models designed to assist in the early detection and classification of kidney-related conditions. The first model is a structured-data-based predictive system trained using the AdaBoost classifier. It analyzes patient clinical information, such as laboratory test results, symptoms, and medical history, to predict the likelihood of kidney disease. This model demonstrated exceptional performance, achieving a training accuracy of 95.6% and a testing accuracy of 95.2%. These figures indicate that the model maintains a strong ability to generalize from training data to unseen patient cases. Furthermore, its precision reached 93.8%, meaning that the majority of patients identified as having kidney disease were correctly diagnosed. Most notably, the model achieved a recall (sensitivity) of 96.9%, which is critically important in medical applications. A high recall means that the system effectively detects nearly all actual kidney disease cases, minimizing the risk of overlooking affected patients. The F1 score, which reflects a balance between precision and recall, was 95.3%, confirming the overall reliability of this model in clinical scenarios.
-                </p>
-            """,
-            unsafe_allow_html=True  # <-- THIS is important
-        )
-        st.markdown(
-            """
-            <div style= font-family: 'Times New Roman'';; font-size: 18px; text-align: justify;">
-                <p>
-                The second model focuses on image-based diagnosis using kidney CT scans and leverages deep learning through the EfficientNet architecture. This model was fine-tuned on thousands of labeled CT images categorized into four classes: Cyst, Normal, Stone, and Tumor. Upon evaluation, it achieved a test accuracy of 95.9%, indicating a high level of performance in image classification tasks. The model demonstrated excellent sensitivity across all four diagnostic categories: 98% for Cyst detection, 94% for Normal images, 97% for Stone, and 96% for Tumor identification. These results highlight the model’s robustness and precision in differentiating between subtle anatomical features on CT scans. For example, it can reliably distinguish between benign cysts and potentially dangerous tumors, which is essential for guiding timely and accurate medical intervention. Overall, both models show a high degree of accuracy and reliability, offering a promising decision-support tool for physicians and radiologists in the early identification and classification of kidney conditions.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True  # <-- THIS is important
-        )
-        st.write('---')
-
 elif option == "Kidney Disease Prediction":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
     st.markdown("<h4 style= font-family: 'Times New Roman''>Clinical Measurements", unsafe_allow_html=True)
@@ -389,7 +366,7 @@ elif option == "Kidney Disease Prediction":
          
     
 # Add the Prediction button
-if option == "CT Image Classification":
+elif option == "CT Image Classification":
     
     st.markdown("<center><h3 style='font-family: Times New Roman'; text-align: center;>CT Image Classification</h2>", unsafe_allow_html=True)
     st.markdown("<h5 style='font-family: Times New Roman'; text-align: center;>Upload a Kidney CT Image</h5>", unsafe_allow_html=True)
@@ -463,9 +440,9 @@ if option == "CT Image Classification":
                 st.image(lime_img, caption="Highlighted areas that influenced the model's decision", width=400)
 # If the Option Results Dashboard
 
-elif option == "Results Dashboard":
-    st.markdown("<h2 style= font-family: 'Times New Roman';'>Results Dashboard</h2>", unsafe_allow_html=True)
-    
+    elif option == "Results Dashboard":
+        st.markdown("<h2 style= font-family: 'Times New Roman';'>Results Dashboard</h2>", unsafe_allow_html=True)
+        
 st.write("---")  # Separator  
 st.write('\n\n')
 st.write('\n\n')
