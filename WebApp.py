@@ -253,7 +253,7 @@ elif Author:
             .author-container {
                 display: flex;
                 justify-content: center;
-                gap: 100px; /* Increased space between cards */
+                gap: 80px; 
                 margin-top: 20px;
                 flex-wrap: wrap;
             }
@@ -291,7 +291,7 @@ elif Author:
             <div class="author-card"> 
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
                 <p class="author-name" style ="font-weight: bold;"> Mones Nazih Ksasbeh</p>
-                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science Graduate from Al Albayt University <br> Interested in Deep Learning <br>Machine Learning & Data Engineering <br>Certified by IBM & Alteryx </p>
+                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science and AI Graduate from Al Albayt University <br> Interested in Deep Learning <br>Machine Learning & Data Engineering <br>Certified by IBM & Alteryx </p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
@@ -302,7 +302,7 @@ elif Author:
             <div class="author-card">
                 <img src="https://i.postimg.cc/1tqBCyPT/yazan.jpg" class="author-img" alt="Yazan Amjed">
                 <p class="author-name" style ="font-weight: bold;">Yazan Amjed Mansour</p>
-                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science Graduate from Al Albayt University <br> Interested in Data Analysis <br> Data visualization & Data Engineering <br>Certified by Google & Alteryx </p>
+                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science and AI Graduate from Al Albayt University <br> Interested in Data Analysis <br> Data visualization & Data Engineering <br>Certified by Google & Alteryx </p>
                 <div class="author-links">
                     <a href="mailto:am5294690@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
@@ -313,7 +313,7 @@ elif Author:
             <div class="author-card">
                 <img src="https://i.postimg.cc/kGPcLLg5/basel.jpg" class="author-img" alt="Basel Hammo">
                 <p class="author-name" style ="font-weight: bold;">Basel Mwafq Hammo</p>
-                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science Graduate from Al Albayt University <br> Interested in Data Analysis <br> Data visualization and Dashboarding <br></p>
+                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science and AI Graduate from Al Albayt University <br> Interested in Data Analysis <br> Data visualization and Dashboarding <br></p>
                 <div class="author-links">
                     <a href="mailto:basel.11hammo@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
