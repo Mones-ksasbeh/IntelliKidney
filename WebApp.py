@@ -290,8 +290,7 @@ elif Author:
             .author-links a:hover {
                 color: #0072b1;
             }
-            
-        }
+
         </style>
 
         <div class="author-container">
