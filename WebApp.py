@@ -303,7 +303,7 @@ elif Author:
                     <a href="mailto:am5294690@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/yazan-mansour" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/yazan-mansour-7644aa264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="author-card">
