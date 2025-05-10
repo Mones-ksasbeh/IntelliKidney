@@ -303,7 +303,7 @@ elif Author:
                 </div>
             </div>
             <div class="author-card">
-                <img src="https://i.postimg.cc/V0y4KHvJ/basel.jpg" class="author-img" alt="Basel Hammo">
+                <img src="https://i.postimg.cc/G25Kz9Zv/basel.jpg" class="author-img" alt="Basel Hammo">
                 <p class="author-name">Basel Mwafq Hammo</p>
                 <div class="author-links">
                     <a href="mailto:basel.11hammo@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
