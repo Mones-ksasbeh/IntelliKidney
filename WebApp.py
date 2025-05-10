@@ -291,7 +291,7 @@ elif Author:
             <div class="author-card"> 
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
                 <p class="author-name" style ="font-weight: bold;"> Mones Nazih Ksasbeh</p>
-                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science Graduate from Al Albayt University | Interested in Deep Learning, Machine Learning & Data Engineering <br> Skilled in Python, SQL, Power BI, and Alteryx | Certified by IBM & Alteryx </p>
+                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science Graduate from Al Albayt University <br> Interested in Deep Learning, Machine Learning & Data Engineering <br> Skilled in Python, SQL, Power BI, and Alteryx | Certified by IBM & Alteryx </p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
