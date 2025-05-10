@@ -283,12 +283,19 @@ elif Author:
             .author-links a:hover {
                 color: #0072b1;
             }
+            .author-description {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
         </style>
 
         <div class="author-container">
             <div class="author-card">
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
                 <p class="author-name">Mones Nazih Ksasbeh</p>
+                <p class="author-description">AI & Data Science Specialist<br>Back-end & ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
