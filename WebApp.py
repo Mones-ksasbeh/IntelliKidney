@@ -218,7 +218,14 @@ with st.sidebar:
     System_Performance = st.button("System Performance", key="btn_3")
     Author = st.button("Author's", key="btn_4")
 
-if System_Performance:
+
+
+# Selecting Model
+if option == "Choose a Model":
+    st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
+    
+# If the Option Kidney Disease Prediction
+elif: System_Performance:
         st.markdown(
             """
             <div style= font-family: 'Times New Roman'';; font-size: 18px; text-align: justify;">
@@ -241,10 +248,6 @@ if System_Performance:
         )
         st.write('---')
 
-# Selecting Model
-if option == "Choose a Model":
-    st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
-# If the Option Kidney Disease Prediction
 elif option == "Kidney Disease Prediction":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
     st.markdown("<h4 style= font-family: 'Times New Roman''>Clinical Measurements", unsafe_allow_html=True)
