@@ -459,6 +459,9 @@ elif option == "CT Image Classification":
             col1, col2, col3 = st.columns([1, 2, 1])  # This will create a layout with columns
             with col2:
                 st.image(lime_img, caption="Highlighted areas that influenced the model's decision", width=400)
+                st.write("Explanation generated successfully! ✅")
+
+                 
                 
 
     
