@@ -290,7 +290,9 @@ elif Author:
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
                 <p class="author-name">Mones Nazih Ksasbeh</p>
                 <div class="author-links">
-                    <a href="mailto:moksasbeh@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="mailto:moksasbeh@gmail.com" title="Email" target="_blank">
+                      <i class="fa-solid fa-envelope"></i>
+                    </a>
                     <a href="https://www.linkedin.com/in/mones-ksasbeh" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
@@ -298,7 +300,9 @@ elif Author:
                 <img src="https://i.postimg.cc/1tqBCyPT/yazan.jpg" class="author-img" alt="Yazan Amjed">
                 <p class="images/yazan.jpg">Yazan Amjed Mansour</p>
                 <div class="author-links">
-                    <a href="mailto:am5294690@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="mailto:am5294690@gmail.com" title="Email" target="_blank">
+                      <i class="fa-solid fa-envelope"></i>
+                    </a>
                     <a href="https://www.linkedin.com/in/yazan-mansour" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
@@ -306,7 +310,9 @@ elif Author:
                 <img src="https://i.postimg.cc/kGPcLLg5/basel.jpg" class="author-img" alt="Basel Hammo">
                 <p class="author-name">Basel Mwafq Hammo</p>
                 <div class="author-links">
-                    <a href="mailto:basel.11hammo@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="mailto:basel.11hammo@gmail.com" title="Email" target="_blank">
+                      <i class="fa-solid fa-envelope"></i>
+                    </a>
                     <a href="https://www.linkedin.com/in/basel-hammo" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
