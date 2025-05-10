@@ -243,16 +243,62 @@ if System_Performance:
             unsafe_allow_html=True  # <-- THIS is important
         )
 
-# Display the contact information when the "Contact" button is clicked
 elif Author:
     st.markdown(
-        '''
-        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; text-align: center;">
-            Mones Nazih Ksasbeh - <a href="mailto:moksasbeh@gmail.com">Email</a>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;|&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            Yazan Amjed Mansour - <a href="mailto:am5294690@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;| &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            Basel Mwafq Hammo - <a href="mailto:basel.11hammo@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        </p>
-        ''',
+        """
+        <style>
+            .author-container {
+                display: flex;
+                justify-content: center;
+                gap: 60px;
+                margin-top: 20px;
+            }
+            .author-card {
+                text-align: center;
+                font-family: 'Arial', sans-serif;
+            }
+            .author-img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid #ddd;
+                margin-bottom: 10px;
+            }
+            .author-links a {
+                text-decoration: none;
+                margin: 0 8px;
+                font-size: 20px;
+            }
+        </style>
+
+        <div class="author-container">
+            <div class="author-card">
+                <img src="https://via.placeholder.com/80" class="author-img" alt="Mones Nazih">
+                <p><strong>Mones Nazih Ksasbeh</strong></p>
+                <div class="author-links">
+                    <a href="mailto:moksasbeh@gmail.com">📧</a>
+                    <a href="https://www.linkedin.com/in/mones-ksasbeh" target="_blank">🔗</a>
+                </div>
+            </div>
+            <div class="author-card">
+                <img src="https://via.placeholder.com/80" class="author-img" alt="Yazan Amjed">
+                <p><strong>Yazan Amjed Mansour</strong></p>
+                <div class="author-links">
+                    <a href="mailto:am5294690@gmail.com">📧</a>
+                    <a href="https://www.linkedin.com/in/yazan-mansour" target="_blank">🔗</a>
+                </div>
+            </div>
+            <div class="author-card">
+                <img src="https://via.placeholder.com/80" class="author-img" alt="Basel Hammo">
+                <p><strong>Basel Mwafq Hammo</strong></p>
+                <div class="author-links">
+                    <a href="mailto:basel.11hammo@gmail.com">📧</a>
+                    <a href="https://www.linkedin.com/in/basel-hammo" target="_blank">🔗</a>
+                </div>
+            </div>
+        </div>
+        """,
         unsafe_allow_html=True
     )
 
