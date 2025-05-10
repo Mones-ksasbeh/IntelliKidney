@@ -271,7 +271,7 @@ elif Author:
                 margin-bottom: 10px;
             }
             .author-name {
-                font-size: 16px;
+                font-size: 20px;
                 margin: 5px 0;
             }
             .author-links a {
