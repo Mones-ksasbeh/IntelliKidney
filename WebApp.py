@@ -302,7 +302,7 @@ elif Author:
             <div class="author-card">
                 <img src="https://i.postimg.cc/1tqBCyPT/yazan.jpg" class="author-img" alt="Yazan Amjed">
                 <p class="author-name">Yazan Amjed Mansour</p>
-                <p class="description">AI &  Science Specialist<br> ML Developer</p>
+                <p style="display: flex; justify-content: center; gap: 150px; margin-top: 20px; flex-wrap: wrap;">AI &  Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:am5294690@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
