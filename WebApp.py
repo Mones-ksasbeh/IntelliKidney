@@ -397,11 +397,11 @@ elif option == "CT Image Classification":
     CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
     # File uploader and image classification
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
-    
+
+    prediction_button = st.button("Predict")  # Button for prediction
     # Display a button for prediction
     if uploaded_file is not None:
         st.markdown("<br><br>", unsafe_allow_html=True)
-        st.write('---')
         prediction_button = st.button("Predict")  # Button for prediction
         if prediction_button:
             # Preprocess the image
@@ -431,22 +431,22 @@ elif option == "CT Image Classification":
             
             # Display prediction and store image based on prediction
             if predicted_class == 'Normal':
-                st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Normal</h3>", unsafe_allow_html=True)
+                st.markdown("<h4 style='font-family: Times New Roman;'>Normal Kidney</h3>", unsafe_allow_html=True)
                 st.markdown("<p>The kidney appears healthy with no visible signs of abnormalities. There are no cysts, stones, or masses detected, indicating normal renal function.</p>", unsafe_allow_html=True)
                 file_id = fs_normal.put(image_bytes_io, filename='normal_image.jpg')
                 
             elif predicted_class == 'Cyst':
-                st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Cyst</h3>", unsafe_allow_html=True)
+                st.markdown("<h4 style='font-family: Times New Roman;'>Kidney Cyst</h3>", unsafe_allow_html=True)
                 st.markdown("<p>A cyst is detected in the kidney. Simple renal cysts are typically benign and often don't require treatment, but their size and any associated symptoms may require follow-up imaging.</p>", unsafe_allow_html=True)
                 file_id = fs_cyst.put(image_bytes_io, filename='cyst_image.jpg')
 
             elif predicted_class == 'Stone':
-                st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Stone</h3>", unsafe_allow_html=True)
+                st.markdown("<h4 style='font-family: Times New Roman;'>Kidney Stone</h3>", unsafe_allow_html=True)
                 st.markdown("<p>Kidney stones are present, which may cause pain or discomfort. The stones' size, location, and potential for obstruction should be evaluated to determine appropriate management options.</p>", unsafe_allow_html=True)
                 file_id = fs_stone.put(image_bytes_io, filename='stone_image.jpg')
                 
             elif predicted_class == 'Tumor':
-                st.markdown("<h4 style='font-family: Times New Roman;'>Prediction Tumor</h3>", unsafe_allow_html=True)
+                st.markdown("<h4 style='font-family: Times New Roman;'>Kidney Tumor</h3>", unsafe_allow_html=True)
                 st.markdown("<p>A mass suggesting a renal tumor is detected. Further imaging and possibly biopsy are needed to assess the tumor's nature, whether benign or malignant, and plan further action.</p>", unsafe_allow_html=True)
                 file_id = fs_tumor.put(image_bytes_io, filename='tumor_image.jpg') 
 
@@ -461,7 +461,8 @@ elif option == "CT Image Classification":
             with col2:
                 st.image(lime_img, caption="Highlighted areas that influenced the model's decision", width=400)
                 
-
+    else : 
+        st.error("⚠️ Please Uploaded The CT Image!")
 
     
 st.write("---")  # Separator  
