@@ -298,7 +298,7 @@ elif Author:
             </div>
             <div class="author-card">
                 <img src="https://i.postimg.cc/1tqBCyPT/yazan.jpg" class="author-img" alt="Yazan Amjed">
-                <p class="images/yazan.jpg">Yazan Amjed Mansour</p>
+                <p class="author-name">Yazan Amjed Mansour</p>
                 <div class="author-links">
                     <a href="mailto:am5294690@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
