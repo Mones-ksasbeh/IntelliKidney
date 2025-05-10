@@ -396,6 +396,7 @@ elif option == "CT Image Classification":
     # Loading the Transfer learning model
     CT_Model = tf.keras.models.load_model('fine_tuned_EfficientNetV2B0_model.h5') 
     # File uploader and image classification
+    uploaded_file = 0
     uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
 
     prediction_button = st.button("Predict")  # Button for prediction
@@ -461,7 +462,7 @@ elif option == "CT Image Classification":
             with col2:
                 st.image(lime_img, caption="Highlighted areas that influenced the model's decision", width=400)
                 
-    else : 
+    elif uploaded_file == 0  
         st.error("⚠️ Please Uploaded The CT Image!")
 
     
