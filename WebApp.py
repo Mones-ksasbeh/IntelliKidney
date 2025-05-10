@@ -195,6 +195,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
 st.sidebar.image("Kid.png" , width = 250)
 option = st.sidebar.selectbox(
     '', 
@@ -217,8 +218,6 @@ with st.sidebar:
 
     System_Performance = st.button("System Performance", key="btn_3")
     Author = st.button("Author's", key="btn_4")
-
-
 
 
 if System_Performance:
