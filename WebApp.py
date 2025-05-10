@@ -291,7 +291,7 @@ elif Author:
             <div class="author-card"> 
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
                 <p class="author-name">Mones Nazih Ksasbeh</p>
-                <p style="font-size: 10px; color: #555; margin-top: 50px; margin-bottom: 5px; line-height: 1.2;">AI & Data Science Specialist<br> ML Developer</p>
+                <p style="font-size: 12px; color: #555; margin-top: 30px; margin-bottom: 5px; line-height: 1.2;">AI & Data Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
@@ -302,7 +302,7 @@ elif Author:
             <div class="author-card">
                 <img src="https://i.postimg.cc/1tqBCyPT/yazan.jpg" class="author-img" alt="Yazan Amjed">
                 <p class="author-name">Yazan Amjed Mansour</p>
-                <p style="font-size: 10px; color: #555; margin-top: 50px; margin-bottom: 5px; line-height: 1.2;"">AI &  Science Specialist<br> ML Developer</p>
+                <p style="font-size: 12px; color: #555; margin-top: 30px; margin-bottom: 5px; line-height: 1.2;"">AI &  Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:am5294690@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
@@ -313,7 +313,7 @@ elif Author:
             <div class="author-card">
                 <img src="https://i.postimg.cc/kGPcLLg5/basel.jpg" class="author-img" alt="Basel Hammo">
                 <p class="author-name">Basel Mwafq Hammo</p>
-                <p style="font-size: 10px; color: #555; margin-top: 50px; margin-bottom: 5px; line-height: 1.2;">AI & Data Science Specialist<br> ML Developer</p>
+                <p style="font-size: 12px; color: #555; margin-top: 30px; margin-bottom: 5px; line-height: 1.2;">AI & Data Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:basel.11hammo@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
