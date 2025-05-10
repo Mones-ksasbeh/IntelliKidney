@@ -225,7 +225,7 @@ if option == "Choose a Model":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Please select a model from the sidebar to get started ", unsafe_allow_html=True)
     
 # If the Option Kidney Disease Prediction
-elif: System_Performance:
+elif System_Performance:
         st.markdown(
             """
             <div style= font-family: 'Times New Roman'';; font-size: 18px; text-align: justify;">
