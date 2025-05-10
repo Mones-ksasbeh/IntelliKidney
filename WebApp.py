@@ -251,11 +251,11 @@ elif Author:
 
         <style>
             .description p {
-            font-size: 6px;
+            font-size: 12px;
             color: #555;
-            margin-top: 20px;
+            margin-top: 50px;
             margin-bottom: 5px;
-            line-height: 1.2;
+            line-height: 2.2;
             }
             .author-container {
                 display: flex;
