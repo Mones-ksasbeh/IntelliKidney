@@ -242,7 +242,7 @@ if System_Performance:
             """,
             unsafe_allow_html=True  # <-- THIS is important
         )
-        st.write('---')    
+
 # Display the contact information when the "Contact" button is clicked
 elif Author:
     st.markdown(
@@ -441,7 +441,8 @@ elif option == "CT Image Classification":
             fs_normal = gridfs.GridFS(MongoDB, collection="Normal")
             fs_stone = gridfs.GridFS(MongoDB, collection="Stone")
             fs_tumor = gridfs.GridFS(MongoDB, collection="Tumor")
-            
+
+            st.write('---')    
             # Display prediction and store image based on prediction
             if predicted_class == 'Normal':
                 st.markdown("<h4 style='font-family: Times New Roman;'>Normal Kidney</h3>", unsafe_allow_html=True)
