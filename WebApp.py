@@ -277,7 +277,7 @@ elif Author:
             .author-description {
             font-size: 6px;
             color: #555;
-            margin-top: 20px;
+            margin-top: 200px;
             margin-bottom: 5px;
             line-height: 1.2;
             }
