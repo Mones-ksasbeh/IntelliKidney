@@ -290,7 +290,7 @@ elif Author:
         <div class="author-container">
             <div class="author-card"> 
                 <img src="https://i.postimg.cc/FzbZvGYV/mones.jpg" class="author-img" alt="Mones Nazih">
-                <p class="author-name">Mones Nazih Ksasbeh</p>
+                <p class="author-name" style ="font-weight: bold;"> Mones Nazih Ksasbeh</p>
                 <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">AI & Data Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:moksasbeh@gmail.com" title="Email" target="_blank">
@@ -301,7 +301,7 @@ elif Author:
             </div>
             <div class="author-card">
                 <img src="https://i.postimg.cc/1tqBCyPT/yazan.jpg" class="author-img" alt="Yazan Amjed">
-                <p class="author-name">Yazan Amjed Mansour</p>
+                <p class="author-name" style ="font-weight: bold;">Yazan Amjed Mansour</p>
                 <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;"">AI &  Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:am5294690@gmail.com" title="Email" target="_blank">
@@ -312,7 +312,7 @@ elif Author:
             </div>
             <div class="author-card">
                 <img src="https://i.postimg.cc/kGPcLLg5/basel.jpg" class="author-img" alt="Basel Hammo">
-                <p class="author-name">Basel Mwafq Hammo</p>
+                <p class="author-name" style ="font-weight: bold;">Basel Mwafq Hammo</p>
                 <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">AI & Data Science Specialist<br> ML Developer</p>
                 <div class="author-links">
                     <a href="mailto:basel.11hammo@gmail.com" title="Email" target="_blank">
