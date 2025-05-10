@@ -291,7 +291,6 @@ elif Author:
                 color: #0072b1;
             }
             
-        }
 
         </style>
 
