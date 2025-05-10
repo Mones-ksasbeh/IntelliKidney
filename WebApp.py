@@ -152,7 +152,7 @@ st.markdown("<h5 style= font-family: 'Times New Roman'';'>About the Project</h5>
 st.markdown("<p style= font-family: 'Times New Roman'';'>This web application is part of a research-driven project focused on Machine Learning & Medical Imaging for Kidney Disease Prediction and Diagnosis. The system leverages advanced deep learning models to assist medical professionals in identifying kidney diseases from CT scan images and structured clinical data.</p>", unsafe_allow_html=True)
 st.markdown(
     """
-            <p style= font-family: 'Times New Roman'';'>
+            <p style= font-family: 'Times New Roman';'>
             <b>Kidney Disease Prediction</b> 
             The model analyzes 24 clinical features to predict the likelihood of Chronic Kidney Disease (CKD). 
             Using <b>Explainable AI (XAI)</b>, the system provides <b>feature importance</b> scores, highlighting the top clinical factors (e.g., Haemoglobin, Specific Gravity, Sodium) that influenced the prediction. 
@@ -224,7 +224,7 @@ with st.sidebar:
 if System_Performance:
         st.markdown(
             """
-            <div style= font-family: 'Times New Roman'';; font-size: 18px; text-align: justify;">
+            <div style= font-family: 'Times New Roman''; text-align: justify;">
             <h3>System Performance Report</h3>
                 <p>
                 The diagnostic system developed in this project includes two advanced artificial intelligence models designed to assist in the early detection and classification of kidney-related conditions. The first model is a structured-data-based predictive system trained using the AdaBoost classifier. It analyzes patient clinical information, such as laboratory test results, symptoms, and medical history, to predict the likelihood of kidney disease. This model demonstrated exceptional performance, achieving a training accuracy of 95.6% and a testing accuracy of 95.2%. These figures indicate that the model maintains a strong ability to generalize from training data to unseen patient cases. Furthermore, its precision reached 93.8%, meaning that the majority of patients identified as having kidney disease were correctly diagnosed. Most notably, the model achieved a recall (sensitivity) of 96.9%, which is critically important in medical applications. A high recall means that the system effectively detects nearly all actual kidney disease cases, minimizing the risk of overlooking affected patients. The F1 score, which reflects a balance between precision and recall, was 95.3%, confirming the overall reliability of this model in clinical scenarios.
@@ -234,7 +234,7 @@ if System_Performance:
         )
         st.markdown(
             """
-            <div style= font-family: 'Times New Roman'';; font-size: 18px; text-align: justify;">
+            <div style= font-family: 'Times New Roman''; text-align: justify;">
                 <p>
                 The second model focuses on image-based diagnosis using kidney CT scans and leverages deep learning through the EfficientNet architecture. This model was fine-tuned on thousands of labeled CT images categorized into four classes: Cyst, Normal, Stone, and Tumor. Upon evaluation, it achieved a test accuracy of 95.9%, indicating a high level of performance in image classification tasks. The model demonstrated excellent sensitivity across all four diagnostic categories: 98% for Cyst detection, 94% for Normal images, 97% for Stone, and 96% for Tumor identification. These results highlight the model’s robustness and precision in differentiating between subtle anatomical features on CT scans. For example, it can reliably distinguish between benign cysts and potentially dangerous tumors, which is essential for guiding timely and accurate medical intervention. Overall, both models show a high degree of accuracy and reliability, offering a promising decision-support tool for physicians and radiologists in the early identification and classification of kidney conditions.
                 </p>
