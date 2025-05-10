@@ -462,7 +462,7 @@ elif option == "CT Image Classification":
             with col2:
                 st.image(lime_img, caption="Highlighted areas that influenced the model's decision", width=400)
                 
-    elif uploaded_file == 0 : 
+    if uploaded_file == 0 : 
         st.error("⚠️ Please Uploaded The CT Image!")
 
     
