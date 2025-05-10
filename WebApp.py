@@ -246,6 +246,19 @@ elif System_Performance:
             unsafe_allow_html=True  # <-- THIS is important
         )
         st.write('---')    
+# Display the contact information when the "Contact" button is clicked
+elif Author:
+    st.markdown(
+        '''
+        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; text-align: center;">
+            Mones Nazih Ksasbeh - <a href="mailto:moksasbeh@gmail.com">Email</a>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;|&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+            Yazan Amjed Mansour - <a href="mailto:am5294690@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;| &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+            Basel Mwafq Hammo - <a href="mailto:basel.11hammo@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </p>
+        ''',
+        unsafe_allow_html=True
+    )
+    
 # If the Option Kidney Disease Prediction
 elif option == "Kidney Disease Prediction":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
@@ -469,17 +482,5 @@ st.write("---")  # Separator
 st.write('\n\n')
 st.write('\n\n')
 
-# Display the contact information when the "Contact" button is clicked
-if Author:
-    st.markdown(
-        '''
-        <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; text-align: center;">
-            Mones Nazih Ksasbeh - <a href="mailto:moksasbeh@gmail.com">Email</a>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;|&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            Yazan Amjed Mansour - <a href="mailto:am5294690@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;| &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            Basel Mwafq Hammo - <a href="mailto:basel.11hammo@gmail.com">Email</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        </p>
-        ''',
-        unsafe_allow_html=True
-    )
-    
+
 
