@@ -313,7 +313,7 @@ elif Author:
                     <a href="mailto:basel.11hammo@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
                     </a>
-                    <a href="hhttps://www.linkedin.com/in/basel-hammo-244011358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/basel-hammo-244011358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
