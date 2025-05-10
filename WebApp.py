@@ -302,7 +302,7 @@ elif Author:
             <div class="author-card">
                 <img src="https://i.postimg.cc/1tqBCyPT/yazan.jpg" class="author-img" alt="Yazan Amjed">
                 <p class="author-name" style ="font-weight: bold;">Yazan Amjed Mansour</p>
-                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;"">AI &  Science Specialist<br> ML Developer</p>
+                <p style="font-size: 14px; color: #555; margin-top: 20px; margin-bottom: 5px; line-height: 1.2;">Data Science Graduate from Al Albayt University <br> Interested in Data Analysis <br> Data visualization & Data Engineering <br>Certified by Google & Alteryx </p>
                 <div class="author-links">
                     <a href="mailto:am5294690@gmail.com" title="Email" target="_blank">
                       <i class="fa-solid fa-envelope"></i>
