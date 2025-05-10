@@ -246,12 +246,16 @@ if System_Performance:
 elif Author:
     st.markdown(
         """
+        <!-- Load Font Awesome icons -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
         <style>
             .author-container {
                 display: flex;
                 justify-content: center;
                 gap: 60px;
                 margin-top: 20px;
+                flex-wrap: wrap;
             }
             .author-card {
                 text-align: center;
@@ -267,8 +271,12 @@ elif Author:
             }
             .author-links a {
                 text-decoration: none;
-                margin: 0 8px;
+                margin: 0 10px;
                 font-size: 20px;
+                color: #333;
+            }
+            .author-links a:hover {
+                color: #0072b1; /* LinkedIn Blue */
             }
         </style>
 
@@ -277,24 +285,24 @@ elif Author:
                 <img src="https://via.placeholder.com/80" class="author-img" alt="Mones Nazih">
                 <p><strong>Mones Nazih Ksasbeh</strong></p>
                 <div class="author-links">
-                    <a href="mailto:moksasbeh@gmail.com">📧</a>
-                    <a href="https://www.linkedin.com/in/mones-ksasbeh" target="_blank">🔗</a>
+                    <a href="mailto:moksasbeh@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/mones-ksasbeh" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="author-card">
                 <img src="https://via.placeholder.com/80" class="author-img" alt="Yazan Amjed">
                 <p><strong>Yazan Amjed Mansour</strong></p>
                 <div class="author-links">
-                    <a href="mailto:am5294690@gmail.com">📧</a>
-                    <a href="https://www.linkedin.com/in/yazan-mansour" target="_blank">🔗</a>
+                    <a href="mailto:am5294690@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/yazan-mansour" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="author-card">
                 <img src="https://via.placeholder.com/80" class="author-img" alt="Basel Hammo">
                 <p><strong>Basel Mwafq Hammo</strong></p>
                 <div class="author-links">
-                    <a href="mailto:basel.11hammo@gmail.com">📧</a>
-                    <a href="https://www.linkedin.com/in/basel-hammo" target="_blank">🔗</a>
+                    <a href="mailto:basel.11hammo@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/basel-hammo" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
