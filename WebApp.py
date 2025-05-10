@@ -280,7 +280,7 @@ elif Author:
             margin-top: 20px;
             margin-bottom: 5px;
             line-height: 1.2;
-            
+            }
             .author-links a {
                 text-decoration: none;
                 margin: 0 10px;
