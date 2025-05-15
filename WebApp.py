@@ -334,23 +334,24 @@ elif option == "Kidney Disease Prediction":
     st.markdown("<center><h3 style= font-family: 'Times New Roman'>Kidney Disease Prediction</h2>", unsafe_allow_html=True)
     st.markdown("<h4 style= font-family: 'Times New Roman''>Clinical Measurements", unsafe_allow_html=True)
 
-    # Clinical Measurements
-    age = st.number_input('Age', min_value=0, max_value=120, step=1)
+    age = st.number_input('Age', min_value=0, max_value=120, value=60, step=1)
+
+    col1, col2 = st.columns(2)
     
-    col1 , col2 = st.columns(2)
-    with col1 : 
-        blood_pressure = st.number_input('Blood Pressure (mmHg)', min_value=0, max_value=200, step=1)
-        blood_glucose = st.number_input('Blood Glucose Random (mgs/dL)', min_value=0, step=1)
-        blood_urea = st.number_input('Blood Urea (mgs/dL)', min_value=0, step=1)
-        white_blood_cell_count = st.number_input('White Blood Cell Count (cells/cumm)', min_value=0, step=1)
-        red_blood_cell_count = st.number_input('Red Blood Cell Count (millions/cmm)', min_value=0.0, step=0.1)
-        
-    with col2 :     
-        potassium = st.number_input('Potassium (mEq/L)', min_value=0.0, step=0.1)
-        haemoglobin = st.number_input('Haemoglobin (gms)', min_value=0.0, step=0.1)
-        packed_cell_volume = st.number_input('Packed Cell Volume', min_value=0.0, step=0.1)
-        serum_creatinine = st.number_input('Serum Creatinine (mgs/dL)', min_value=0.0, step=0.1)
-        sodium = st.number_input('Sodium (mEq/L)', min_value=0.0, step=0.1)
+    with col1:
+        blood_pressure = st.number_input('Blood Pressure (mmHg)', min_value=0, max_value=200, value=150, step=1)
+        blood_glucose = st.number_input('Blood Glucose Random (mgs/dL)', min_value=0, value=180, step=1)
+        blood_urea = st.number_input('Blood Urea (mgs/dL)', min_value=0, value=70, step=1)
+        white_blood_cell_count = st.number_input('White Blood Cell Count (cells/cumm)', min_value=0, value=12000, step=1)
+        red_blood_cell_count = st.number_input('Red Blood Cell Count (millions/cmm)', min_value=0.0, value=3.5, step=0.1)
+    
+    with col2:
+        potassium = st.number_input('Potassium (mEq/L)', min_value=0.0, value=5.5, step=0.1)
+        haemoglobin = st.number_input('Haemoglobin (gms)', min_value=0.0, value=9.0, step=0.1)
+        packed_cell_volume = st.number_input('Packed Cell Volume', min_value=0.0, value=30.0, step=0.1)
+        serum_creatinine = st.number_input('Serum Creatinine (mgs/dL)', min_value=0.0, value=5.0, step=0.1)
+        sodium = st.number_input('Sodium (mEq/L)', min_value=0.0, value=135.0, step=0.1)
+    
     st.write('---')
 
     # Urinalysis/Metabolic Markers
