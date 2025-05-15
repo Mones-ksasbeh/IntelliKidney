@@ -389,9 +389,9 @@ elif option == "Kidney Disease Prediction":
         pus_cell = st.selectbox('Pus Cells in Urine', ['normal', 'abnormal'])
         appetite = st.selectbox('Appetite', ['good', 'poor'])
     with col8 : 
-        pus_cell_clumps = st.selectbox('Pus Cell Clumps in Urine', ['present', 'notpresent'])
-        bacteria = st.selectbox('Bacteria in Urine', ['present', 'notpresent'])
-        peda_edema = st.selectbox('Peda Edema (Swelling)', ['yes', 'no'])
+        pus_cell_clumps = st.selectbox('Pus Cell Clumps in Urine', ['notpresent', 'present'])
+        bacteria = st.selectbox('Bacteria in Urine', ['notpresent', 'present'])
+        peda_edema = st.selectbox('Peda Edema (Swelling)', ['no', 'yes'])
 
     st.write("---")
 
