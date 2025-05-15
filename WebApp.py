@@ -446,12 +446,12 @@ elif option == "Kidney Disease Prediction":
             if prediction[0] == 1:
                 st.markdown("<p>The model has identified a likelihood of Chronic Kidney Disease (CKD) based on the patient's data.\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance. </h5>", unsafe_allow_html=True)
                 st.markdown(explanation_markdown)
-                st.markdown("<p> For more detailed analysis or to investigate possible structural causes or forms of CKD (e.g., kidney stones, cysts, or abnormalities), please proceed to the <b>CT Image Analysis model</b>.</h5>", unsafe_allow_html=True)
+                st.markdown("<p> For more detailed analysis or to investigate possible structural causes or forms of CKD (e.g., kidney stones, cysts, or abnormalities), please proceed to the <b>CT Image Classification Model</b>.</h5>", unsafe_allow_html=True)
                                 
             else:
                 st.markdown("<p>The model has assessed the patient's data and found no significant likelihood of Chronic Kidney Disease (CKD).\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance.</h5>", unsafe_allow_html=True)
                 st.markdown(explanation_markdown)
-                st.markdown("<p>For further analysis or to rule out any potential early signs of kidney-related issues (e.g., kidney stones, cysts, or other abnormalities), please proceed to the <b>CT Image Classification model</b>.</p>", unsafe_allow_html=True)
+                st.markdown("<p>For further analysis or to rule out any potential early signs of kidney-related issues (e.g., kidney stones, cysts, or other abnormalities), please proceed to the <b>CT Image Classification Model</b>.</p>", unsafe_allow_html=True)
 
                             
             # Add the Class to the Record (data_tuple)
