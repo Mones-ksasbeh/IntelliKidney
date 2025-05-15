@@ -451,7 +451,7 @@ elif option == "Kidney Disease Prediction":
             else:
                 st.markdown("<p>The model has assessed the patient's data and found no significant likelihood of Chronic Kidney Disease (CKD).\nBelow is a breakdown of the top 3 features contributing to this diagnosis, along with their relative impact and clinical significance.</h5>", unsafe_allow_html=True)
                 st.markdown(explanation_markdown)
-                st.markdown("<p>For further analysis or to rule out any potential early signs of kidney-related issues (e.g., kidney stones, cysts, or other abnormalities), please proceed to the <b>CT Image Analysis model</b>.</p>", unsafe_allow_html=True)
+                st.markdown("<p>For further analysis or to rule out any potential early signs of kidney-related issues (e.g., kidney stones, cysts, or other abnormalities), please proceed to the <b>CT Image Classification model</b>.</p>", unsafe_allow_html=True)
 
                             
             # Add the Class to the Record (data_tuple)
