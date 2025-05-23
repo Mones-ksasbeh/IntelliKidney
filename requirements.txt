@@ -4,8 +4,9 @@ numpy
 pillow
 scikit-learn
 shap
-psycopg2-binary
-matplotlib 
-tensorflow
+xgboost==1.7.6
+psycopg[binary]
+matplotlib
+tensorflow-cpu==2.13.0
 pymongo
 lime
