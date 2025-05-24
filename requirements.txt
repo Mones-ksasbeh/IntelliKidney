@@ -1,12 +1,13 @@
-streamlit
-pandas>=2.0.0
-numpy>=1.24.0
-pillow
-shap>=0.45.0
-psycopg2-binary
-pymongo
-gridfs
-tensorflow-cpu
-lime
-scikit-image
-matplotlib
+streamlit>=1.28.0
+pandas==2.0.3
+numpy==1.24.3
+pillow==10.0.0
+shap==0.45.0
+psycopg2-binary==2.9.9
+pymongo==4.5.0
+gridfs==0.0.1
+tensorflow-cpu==2.12.0  
+lime==0.2.0.1
+scikit-image==0.21.0
+matplotlib==3.7.2
+--upgrade pip
