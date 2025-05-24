@@ -2,6 +2,7 @@ streamlit
 pandas
 numpy
 pillow
+psycopg2
 scikit-learn
 shap
 matplotlib
