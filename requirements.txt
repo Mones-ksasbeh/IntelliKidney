@@ -2,11 +2,11 @@ streamlit
 pandas
 numpy
 pillow
-psycopg2
-scikit-learn
 shap
-matplotlib
+psycopg2-binary
 pymongo
+gridfs
+tensorflow==2.12.0
 lime
-tensorflow==2.13.0
-opencv-python-headless
+scikit-image
+matplotlib
