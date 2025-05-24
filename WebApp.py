@@ -14,6 +14,9 @@ from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
 from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
 from lime import lime_image
 from skimage.segmentation import mark_boundaries
+import subprocess
+import sys
+subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
 
 # Function to PreProcessing Input Data
 def Preprocessing(record, Data):
