@@ -11,3 +11,4 @@ lime==0.2.0.1
 scikit-image==0.21.0
 matplotlib==3.7.2
 setuptools==68.0.0
+distutils==1.0.1
