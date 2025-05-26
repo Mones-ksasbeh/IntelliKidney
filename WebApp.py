@@ -364,7 +364,7 @@ elif option == "Kidney Disease Prediction":
     with col3 : 
         albumin = st.selectbox('Albumin (Albumin level in the blood)', ['0', '1',  '2', '3', '4','5'])
     with col4 : 
-        sugar = st.selectbox('Sugar ( Sugar level of the patient)', ['0', '1', '2' , '3' ,  '4'  ,'5'])
+        sugar = st.selectbox('Sugar ( Sugar level in the urine)', ['0', '1', '2' , '3' ,  '4'  ,'5'])
 
     st.write('---')
 
